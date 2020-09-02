@@ -84,9 +84,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(SodaFlavor.Lemon, Size.Medium, "Medium Lemon Sailor Soda")]
         [InlineData(SodaFlavor.Lemon, Size.Large, "Large Lemon Sailor Soda")]
 
-        [InlineData(SodaFlavor.Peach, Size.Small, "Small Blackberry Soda")]
-        [InlineData(SodaFlavor.Peach, Size.Medium, "Medium Blackberry Soda")]
-        [InlineData(SodaFlavor.Peach, Size.Large, "Small Large Soda")]
+        [InlineData(SodaFlavor.Peach, Size.Small, "Small Peach Soda")]
+        [InlineData(SodaFlavor.Peach, Size.Medium, "Medium Peach Soda")]
+        [InlineData(SodaFlavor.Peach, Size.Large, "Small Peach Soda")]
 
         [InlineData(SodaFlavor.Watermelon, Size.Small, "Small Watermelon Sailor Soda")]
         [InlineData(SodaFlavor.Watermelon, Size.Medium, "Medium Watermelon Sailor Soda")]
