@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Candlehearth Coffee
     /// </summary>
-    class CandlehearthCoffee
+    public class CandlehearthCoffee
     {
         /// <summary>
         /// private backing variable for cupSize

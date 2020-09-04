@@ -7,7 +7,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Thalmor Triple burger and creates the properties for it
     /// </summary>
-    class ThalmorTriple
+    public class ThalmorTriple
     {
         /// <summary>
         /// Gets the price of the burger

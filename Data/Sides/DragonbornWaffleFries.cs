@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// creates class and properties for Dragonborn Waffle Fries
     /// </summary>
-    class DragonbornWaffleFries
+    public class DragonbornWaffleFries
     {
         /// <summary>
         /// private backing variable for sideSize
@@ -16,13 +16,9 @@ namespace Data.Sides
         private Size sideSize = Size.Small;
 
         /// <summary>
-        /// gets and sets cupSize
+        /// private backing variable for calories
         /// </summary>
-        public Size SideSize
-        {
-            get => sideSize;//gets cupSize
-            set => sideSize = value;//sets cupSize to value
-        }
+        private uint calories = 77;
 
         /// <summary>
         /// private backing variable for price
@@ -30,32 +26,39 @@ namespace Data.Sides
         private double price = 0.42;
 
         /// <summary>
-        /// gets and sets price
+        /// gets and sets cupSize
         /// </summary>
-        public double Price
+        public Size SideSize
         {
-            get { return price; }//gets/returns price
+            get => sideSize;//gets cupSize
             set
             {
+                sideSize = value;//sets cupSize to value
                 if (sideSize == Size.Large)//if sideSize is equal to Large
                 {
                     price = 0.96;//set price equal to 0.96
+                    calories = 100;//set calories equal to 100
                 }
                 else if (sideSize == Size.Medium)//if sideSize is equal to medium
                 {
                     price = 0.76;//set price equal to 0.76
+                    calories = 89;//set calories equal to 89
                 }
                 else
                 {
                     price = 0.42;//set price back to default
+                    calories = 77;//set calories back to default
                 }
             }
         }
 
         /// <summary>
-        /// private backing variable for calories
+        /// gets and sets price
         /// </summary>
-        private uint calories = 77;
+        public double Price
+        {
+            get { return price; }//gets/returns price
+        }
 
         /// <summary>
         /// gets and sets price
@@ -63,21 +66,6 @@ namespace Data.Sides
         public uint Calories
         {
             get { return calories; }//gets/returns price
-            set
-            {
-                if (sideSize == Size.Large)//if sideSize is equal to Large
-                {
-                    calories = 100;//set calories equal to 100
-                }
-                else if (sideSize == Size.Medium)//if sideSize is equal to medium
-                {
-                    calories = 89;//set calories equal to 89
-                }
-                else
-                {
-                    calories = 77;//set calories back to default
-                }
-            }
         }
 
         /// <summary>

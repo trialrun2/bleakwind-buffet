@@ -7,7 +7,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Double Draugr burger and creates the properties for it
     /// </summary>
-    class DoubleDraugr
+    public class DoubleDraugr
     {
         /// <summary>
         /// Gets the price of the burger

@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Warropr Water
     /// </summary>
-    class WarriorWater
+    public class WarriorWater
     {
         /// <summary>
         /// private backing variable for cupSize

@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// creates class with properties for Fried Miraak
     /// </summary>
-    class FriedMiraak
+    public class FriedMiraak
     {
         /// <summary>
         /// private backing variable for sideSize
@@ -16,41 +16,9 @@ namespace Data.Sides
         private Size sideSize = Size.Small;
 
         /// <summary>
-        /// gets and sets cupSize
-        /// </summary>
-        public Size SideSize
-        {
-            get => sideSize;//gets cupSize
-            set => sideSize = value;//sets cupSize to value
-        }
-
-        /// <summary>
         /// private backing variable for price
         /// </summary>
         private double price = 1.78;
-
-        /// <summary>
-        /// gets and sets price
-        /// </summary>
-        public double Price
-        {
-            get { return price; }//gets/returns price
-            set
-            {
-                if (sideSize == Size.Large)//if sideSize is equal to Large
-                {
-                    price = 2.88;//set price equal to 2.88
-                }
-                else if (sideSize == Size.Medium)//if sideSize is equal to medium
-                {
-                    price = 2.01;//set price equal to 2.01
-                }
-                else
-                {
-                    price = 1.78;//set price back to default
-                }
-            }
-        }
 
         /// <summary>
         /// private backing variable for calories
@@ -58,26 +26,46 @@ namespace Data.Sides
         private uint calories = 151;
 
         /// <summary>
+        /// gets and sets cupSize
+        /// </summary>
+        public Size SideSize
+        {
+            get => sideSize;//gets cupSize
+            set
+            {
+                sideSize = value;//sets cupSize to value
+                if (sideSize == Size.Large)//if sideSize is equal to Large
+                {
+                    price = 2.88;//set price equal to 0.96
+                    calories = 306;//set calories equal to 100
+                }
+                else if (sideSize == Size.Medium)//if sideSize is equal to medium
+                {
+                    price = 2.01;//set price equal to 0.76
+                    calories = 236;//set calories equal to 89
+                }
+                else
+                {
+                    price = 1.78;//set price back to default
+                    calories = 151;//set calories back to default
+                }
+            }
+        }
+
+        /// <summary>
+        /// gets and sets price
+        /// </summary>
+        public double Price
+        {
+            get { return price; }//gets/returns price
+        }
+
+        /// <summary>
         /// gets and sets price
         /// </summary>
         public uint Calories
         {
             get { return calories; }//gets/returns price
-            set
-            {
-                if (sideSize == Size.Large)//if sideSize is equal to Large
-                {
-                    calories = 306;//set calories equal to 306
-                }
-                else if (sideSize == Size.Medium)//if sideSize is equal to medium
-                {
-                    calories = 236;//set calories equal to 236
-                }
-                else
-                {
-                    calories = 151;//set calories back to default
-                }
-            }
         }
 
         /// <summary>

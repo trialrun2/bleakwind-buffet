@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Markarth Milk
     /// </summary>
-    class MarkarthMilk
+    public class MarkarthMilk
     {
         /// <summary>
         /// private backing variable for cupSize

@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// class for sailor soda, creates properties for it
     /// </summary>
-    class SailorsSoda
+    public class SailorsSoda
     {
         /// <summary>
         /// private backing variable for cupSize

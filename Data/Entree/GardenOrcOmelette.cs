@@ -7,7 +7,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Garden Orc Omelette and creates the properties for it
     /// </summary>
-    class GardenOrcOmelette
+    public class GardenOrcOmelette
     {
 
         /// <summary>

@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Aretino Apple Juice
     /// </summary>
-    class AretinoAppleJuice
+    public class AretinoAppleJuice
     {
         /// <summary>
         /// private backing variable for cupSize

@@ -7,7 +7,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the smokehouse skeleton breakfast combo and creates the properties for it
     /// </summary>
-    class SmokehouseSkeleton
+    public class SmokehouseSkeleton
     {
 
         /// <summary>

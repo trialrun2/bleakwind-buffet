@@ -7,7 +7,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Thugs T-Bone and creates the properties for it
     /// </summary
-    class ThugsT_Bone
+    public class ThugsT_Bone
     {
         /// <summary>
         /// Gets the price of the steak

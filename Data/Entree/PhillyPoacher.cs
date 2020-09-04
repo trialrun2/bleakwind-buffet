@@ -7,7 +7,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Philly Poacher and creates the properties for it
     /// </summary
-    class PhillyPoacher
+    public class PhillyPoacher
     {
         /// <summary>
         /// Gets the price of the philly cheesesteak
