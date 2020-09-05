@@ -16,41 +16,9 @@ namespace BleakwindBuffet.Data.Drinks
         private Size cupSize = Size.Small;
 
         /// <summary>
-        /// gets and sets cupSize
-        /// </summary>
-        public Size CupSize
-        {
-            get => cupSize;//gets cupSize
-            set => cupSize = value;//sets cupSize to value
-        }
-
-        /// <summary>
         /// private backing variable for price
         /// </summary>
         private double price = 0.75;
-
-        /// <summary>
-        /// gets and sets price
-        /// </summary>
-        public double Price
-        {
-            get { return price; }//gets/returns price
-            set
-            {
-                if (cupSize == Size.Large)//if cupSize is equal to Large
-                {
-                    price = 1.75;//set price equal to 1.75
-                }
-                else if (cupSize == Size.Medium)//if cupSize is equal to medium
-                {
-                    price = 1.25;//set price equal to 1.25
-                }
-                else
-                {
-                    price = 0.75;//set price back to default
-                }
-            }
-        }
 
         /// <summary>
         /// private backing variable for calories
@@ -58,26 +26,46 @@ namespace BleakwindBuffet.Data.Drinks
         private uint calories = 7;
 
         /// <summary>
+        /// gets and sets cupSize
+        /// </summary>
+        public Size CupSize
+        {
+            get => cupSize;//gets cupSize
+            set
+            {
+                cupSize = value;//sets cupSize to value
+                if (cupSize == Size.Large)//if cupSize is equal to Large
+                {
+                    price = 1.75;//set price equal to 1.75
+                    calories = 20;//set calories equal to 20
+                }
+                else if (cupSize == Size.Medium)//if cupSize is equal to medium
+                {
+                    price = 1.25;//set price equal to 1.25
+                    calories = 10;//set calories equal to 10
+                }
+                else
+                {
+                    price = 0.75;//set price back to default
+                    calories = 7;//set calories back to default
+                }
+            }
+        }
+
+        /// <summary>
+        /// gets and sets price
+        /// </summary>
+        public double Price
+        {
+            get { return price; }//gets/returns price
+        }
+
+        /// <summary>
         /// gets and sats calories
         /// </summary>
         public uint Calories
         {
             get { return calories; }//gets/returns calories
-            set
-            {
-                if (cupSize == Size.Large)//if cupSize is Large
-                {
-                    calories = 20;//set calories equal to 20
-                }
-                else if (cupSize == Size.Medium)//if cupSize is Medium
-                {
-                    calories = 10;//set calories equal to 10
-                }
-                else
-                {
-                    calories = 7;//set calories back to default
-                }
-            }
         }
 
         /// <summary>

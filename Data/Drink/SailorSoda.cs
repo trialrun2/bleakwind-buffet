@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// class for sailor soda, creates properties for it
     /// </summary>
-    public class SailorsSoda
+    public class SailorSoda
     {
         /// <summary>
         /// private backing variable for cupSize
@@ -16,18 +16,46 @@ namespace BleakwindBuffet.Data.Drinks
         private Size cupSize = Size.Small;
 
         /// <summary>
+        /// private backing variable for flavor
+        /// </summary>
+        private SodaFlavor flavor = SodaFlavor.Cherry;
+
+        /// <summary>
+        /// private backing variable for price
+        /// </summary>
+        private double price = 1.42;
+
+        /// <summary>
+        /// private backing variable for calories
+        /// </summary>
+        private uint calories = 117;
+
+        /// <summary>
         /// gets and sets cupSize
         /// </summary>
         public Size CupSize
         {
             get => cupSize;//gets cupSize
-            set => cupSize = value;//sets cupSize to value
+            set
+            {
+                cupSize = value;//sets cupSize to value
+                if (cupSize == Size.Large)//if cupSize is Large
+                {
+                    calories = 205;//set calories equal to 205
+                    price = 2.07;//set price equal to 2.07
+                }
+                else if (cupSize == Size.Medium)//if cupSize is Medium
+                {
+                    calories = 153;//set calories equal to 153
+                    price = 1.74;//set price equal to 1.74
+                }
+                else
+                {
+                    calories = 117;//set calories back to default
+                    price = 1.42;//set price back to default
+                }
+            }
         }
-
-        /// <summary>
-        /// private backing variable for flavor
-        /// </summary>
-        private SodaFlavor flavor = SodaFlavor.Cherry;
 
         /// <summary>
         /// gets and sets flavor
@@ -39,59 +67,19 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// private backing variable for price
-        /// </summary>
-        private double price = 1.42;
-
-        /// <summary>
         /// gets and sets price
         /// </summary>
         public double Price
         {
             get { return price; }//gets/returns price
-            set
-            {
-                if (cupSize == Size.Large)//if cupSize is equal to Large
-                {
-                    price = 2.07;//set price equal to 2.07
-                }
-                else if (cupSize == Size.Medium)//if cupSize is equal to medium
-                {
-                    price = 1.74;//set price equal to 1.74
-                }
-                else
-                {
-                    price = 1.42;//set price back to default
-                }
-            }
         }
 
         /// <summary>
-        /// private backing variable for calories
-        /// </summary>
-        private uint calories = 117;
-
-        /// <summary>
-        /// gets and sats calories
+        /// gets and calories
         /// </summary>
         public uint Calories
         {
             get { return calories; }//gets/returns calories
-            set
-            {
-                if (cupSize == Size.Large)//if cupSize is Large
-                {
-                    calories = 205;//set calories equal to 205
-                }
-                else if (cupSize == Size.Medium)//if cupSize is Medium
-                {
-                    calories = 153;//set calories equal to 153
-                }
-                else
-                {
-                    calories = 117;//set calories back to default
-                }
-            }
         }
 
         /// <summary>
