@@ -69,6 +69,18 @@ namespace BleakwindBuffet.Data.Sides
         }
 
         /// <summary>
+        /// creates list of special instructions should always return empty
+        /// </summary>
+        public List<string> SpecialInstuctions
+        {
+            get
+            {
+                List<string> instructions = new List<string>();//creates new list
+                return instructions;
+            }
+        }
+
+        /// <summary>
         /// override ToString return value
         /// </summary>
         /// <returns></returns>
