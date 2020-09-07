@@ -80,6 +80,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// creates list of special instructions based on the boolean values 
         /// of the broccoli, mushrooms, tomatoes, and cheddar
         /// </summary>
+        /// <returns> 
+        /// a list of special instructions
+        /// </returns>
         public List<string> SpecialInstuctions
         {
             get
@@ -96,7 +99,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// override ToString return value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// returns a description of the omelette
+        /// </returns>
         public override string ToString()
         {
             return "Garden Orc Omelette";// set return value of ToString to Garden Orc Omelette

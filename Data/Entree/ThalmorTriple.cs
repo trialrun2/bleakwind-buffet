@@ -163,6 +163,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// creates list of special instructions based on the boolean values 
         /// of the bun, ketchup, pickle, tomato, lettuce, mayo, and mustard
         /// </summary>
+        /// <returns>
+        /// a list of special instructions for the triple
+        /// </returns>
         public List<string> SpecialInstuctions
         {
             get
@@ -185,7 +188,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// override ToString return value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// a description of the meal
+        /// </returns>
         public override string ToString()
         {
             return "Thalmor Triple";// set return value of ToString to Double Draugr

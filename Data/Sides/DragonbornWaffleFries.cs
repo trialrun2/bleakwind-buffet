@@ -71,6 +71,9 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// creates list of special instructions should always return empty
         /// </summary>
+        /// /// <returns>
+        /// a list of special instructions for side
+        /// </returns>
         public List<string> SpecialInstuctions
         {
             get
@@ -83,7 +86,9 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// override ToString return value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// a description of the side
+        /// </returns>
         public override string ToString()
         {
             return $"{sideSize} Dragonborn Waffle Fries";// set return value of ToString to {sideSize} Dragonborn Waffle Fries

@@ -23,6 +23,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// creates list of special instructions based on the boolean values 
         /// of the t-bone there are none returns empty
         /// </summary>
+        /// <returns>
+        /// a list of special instruction for the meal
+        /// </returns>
         public List<string> SpecialInstuctions
         {
             get
@@ -35,7 +38,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// override ToString return value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// a description of the meal
+        /// </returns>
         public override string ToString()
         {
             return "Thugs T-Bone";// set return value of ToString to Thugs T-Bone

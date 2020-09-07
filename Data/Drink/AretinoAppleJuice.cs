@@ -90,6 +90,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// creates list of special instructions based on the boolean values 
         /// of the ice
         /// </summary>
+        /// <returns>
+        /// a list of special instructions
+        /// </returns>
         public List<string> SpecialInstuctions
         {
             get
@@ -103,7 +106,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// override ToString return value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// a description of the meal
+        /// </returns>
         public override string ToString()
         {
             return $"{cupSize} Aretino Apple Juice";// set return value of ToString to {cupSize} Markarth Milk

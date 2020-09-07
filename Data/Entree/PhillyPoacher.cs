@@ -65,6 +65,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// creates list of special instructions based on the boolean values 
         /// of the sirloin onion and roll
         /// </summary>
+        /// <returns>
+        /// a list of special instructions for the philly poacher
+        /// </returns>
         public List<string> SpecialInstuctions
         {
             get
@@ -80,7 +83,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// override ToString return value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// a description of the sandwich
+        /// </returns>
         public override string ToString()
         {
             return "Philly Poacher";// set return value of ToString to Philly Poacher

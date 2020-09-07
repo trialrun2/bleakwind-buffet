@@ -114,6 +114,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// creates list of special instructions based on the boolean values 
         /// of the ice, roomForCream
         /// </summary>
+        /// <returns>
+        /// a list of special instructions for the coffee
+        /// </returns>
         public List<string> SpecialInstuctions
         {
             get
@@ -128,7 +131,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// override ToString return value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// a description of the meal
+        /// </returns>
         public override string ToString()
         {
             if(Decaf) // if it's decaf
