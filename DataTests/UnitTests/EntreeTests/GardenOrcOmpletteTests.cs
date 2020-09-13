@@ -12,6 +12,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<IOrderItem>(goo);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(goo);
+        }
+
+        [Fact]
         public void ShouldInlcudeBroccoliByDefault()
         {
             GardenOrcOmelette goo = new GardenOrcOmelette();
@@ -107,23 +121,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             if (!includeBroccoli)
             {
-                Assert.Contains("Hold broccoli", goo.SpecialInstuctions);
+                Assert.Contains("Hold broccoli", goo.SpecialInstructions);
             }
             if (!includeMushrooms)
             {
-                Assert.Contains("Hold mushrooms", goo.SpecialInstuctions);
+                Assert.Contains("Hold mushrooms", goo.SpecialInstructions);
             }
             if (!includeTomato)
             {
-                Assert.Contains("Hold tomato", goo.SpecialInstuctions);
+                Assert.Contains("Hold tomato", goo.SpecialInstructions);
             }
             if (!includeCheddar)
             {
-                Assert.Contains("Hold cheddar", goo.SpecialInstuctions);
+                Assert.Contains("Hold cheddar", goo.SpecialInstructions);
             }
             if(includeBroccoli && includeMushrooms && includeTomato && includeCheddar)
             {
-                Assert.Empty(goo.SpecialInstuctions);
+                Assert.Empty(goo.SpecialInstructions);
             }
 
         }

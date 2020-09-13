@@ -5,19 +5,19 @@ using System.Text;
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
-    /// class for the briarheart burger creates the properties for it
+    /// class for the Double Draugr burger and creates the properties for it
     /// </summary>
-    public class BriarheartBurger
+    public class DoubleDraugr : Entree
     {
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
-        public double Price => 6.32;
+        public override double Price => 7.32;
 
         /// <summary>
         /// gets the calories of the burger
         /// </summary>
-        public uint Calories => 743;
+        public override uint Calories => 843;
 
         /// <summary>
         /// private backing variable for ketchup
@@ -90,22 +90,67 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
+        /// private backing variable for tomato
+        /// </summary>
+        private bool tomato = true;
+
+        /// <summary>
+        /// gets and sets tomato 
+        /// </summary>
+        public bool Tomato
+        {
+            get => tomato; //gets value of tomato
+            set => tomato = value; //sets value of tomato to value
+        }
+
+        /// <summary>
+        /// private backing variable for lettuce
+        /// </summary>
+        private bool lettuce = true;
+
+        /// <summary>
+        /// gets and sets lettuce 
+        /// </summary>
+        public bool Lettuce
+        {
+            get => lettuce; //gets value of lettuce
+            set => lettuce = value; //sets value of lettuce to value
+        }
+
+        /// <summary>
+        /// private backing variable for mayo
+        /// </summary>
+        private bool mayo = true;
+
+        /// <summary>
+        /// gets and sets mayo 
+        /// </summary>
+        public bool Mayo
+        {
+            get => mayo; //gets value of mayo
+            set => mayo = value; //sets value of mayo to value
+        }
+
+        /// <summary>
         /// creates list of special instructions based on the boolean values 
-        /// of the bun, ketchup, pickle, and mustard
+        /// of the bun, ketchup, pickle, tomato, lettuce, mayo, and mustard
         /// </summary>
         /// <returns>
-        /// a list of special instructions
+        /// a list of special instructions 
         /// </returns>
-        public List<string> SpecialInstuctions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new List<string>();//creates new list
-                if (!Bun) instructions.Add("Hold bun");//if bun is false, hold bun
-                if (!Ketchup) instructions.Add("Hold ketchup");//if ketchup is false,, hold ketchup
+                if (!Bun) instructions.Add("Hold bun");//if bun is false hold bun
+                if (!Ketchup) instructions.Add("Hold ketchup");//if ketchup is false, hold ketchup
                 if (!Pickle) instructions.Add("Hold pickle");//if pickle is false, hold pickle
                 if (!Mustard) instructions.Add("Hold mustard");//if mustard is false, hold mustard
                 if (!Cheese) instructions.Add("Hold cheese");//if cheese is false, hold cheese
+                if (!Tomato) instructions.Add("Hold tomato");//if tomato is false, hold tomato
+                if (!Lettuce) instructions.Add("Hold lettuce");//if lettuce is false, hold lettuce
+                if (!Mayo) instructions.Add("Hold mayo");//if mayo is false, hold mayo
                 return instructions;//return the list
             }
         }
@@ -118,7 +163,8 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override string ToString()
         {
-            return "Briarheart Burger";// set return value of ToString to Briarheart Burger
+            return "Double Draugr";// set return value of ToString to Double Draugr
         }
+
     }
 }

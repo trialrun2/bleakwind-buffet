@@ -15,6 +15,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class SailorSodaTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.IsAssignableFrom<IOrderItem>(ss);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.IsAssignableFrom<Drink>(ss);
+        }
+
+        [Fact]
         public void ShouldIncludeIceByDefault()
         {
             SailorSoda ss = new SailorSoda();
@@ -106,11 +120,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             ss.Ice = includeIce;
             if (!includeIce)
             {
-                Assert.Contains("Hold ice", ss.SpecialInstuctions);
+                Assert.Contains("Hold ice", ss.SpecialInstructions);
             }
             else
             {
-                Assert.Empty(ss.SpecialInstuctions);
+                Assert.Empty(ss.SpecialInstructions);
             }
         }
         

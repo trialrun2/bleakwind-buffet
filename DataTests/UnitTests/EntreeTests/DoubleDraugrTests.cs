@@ -11,7 +11,21 @@ using BleakwindBuffet.Data.Entrees;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class DoubleDraugrTests
-    {   
+    {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(dd);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(dd);
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -181,40 +195,40 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             if (!includeBun)
             {
-                Assert.Contains("Hold bun", dd.SpecialInstuctions);
+                Assert.Contains("Hold bun", dd.SpecialInstructions);
             }
             if (!includeKetchup)
             {
-                Assert.Contains("Hold ketchup", dd.SpecialInstuctions);
+                Assert.Contains("Hold ketchup", dd.SpecialInstructions);
             }
             if (!includeMustard)
             {
-                Assert.Contains("Hold mustard", dd.SpecialInstuctions);
+                Assert.Contains("Hold mustard", dd.SpecialInstructions);
             }
             if (!includePickle)
             {
-                Assert.Contains("Hold pickle", dd.SpecialInstuctions);
+                Assert.Contains("Hold pickle", dd.SpecialInstructions);
             }
             if (!includeCheese)
             {
-                Assert.Contains("Hold cheese", dd.SpecialInstuctions);
+                Assert.Contains("Hold cheese", dd.SpecialInstructions);
             }
             if (!includeTomato)
             {
-                Assert.Contains("Hold tomato", dd.SpecialInstuctions);
+                Assert.Contains("Hold tomato", dd.SpecialInstructions);
             }
             if (!includeLettuce)
             {
-                Assert.Contains("Hold lettuce", dd.SpecialInstuctions);
+                Assert.Contains("Hold lettuce", dd.SpecialInstructions);
             }
             if (!includeMayo)
             {
-                Assert.Contains("Hold mayo", dd.SpecialInstuctions);
+                Assert.Contains("Hold mayo", dd.SpecialInstructions);
             }
             if (includeBun && includeKetchup && includeMustard && includePickle && includeCheese &&
                 includeTomato && includeLettuce && includeMayo)
             {
-                Assert.Empty(dd.SpecialInstuctions);
+                Assert.Empty(dd.SpecialInstructions);
             }
         }
 

@@ -7,17 +7,17 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Philly Poacher and creates the properties for it
     /// </summary
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree
     {
         /// <summary>
         /// Gets the price of the philly cheesesteak
         /// </summary>
-        public double Price => 7.23;
+        public override double Price => 7.23;
 
         /// <summary>
         /// gets the calories of the sandwich
         /// </summary>
-        public uint Calories => 784;
+        public override uint Calories => 784;
 
         /// <summary>
         /// private backing variable for sirloin
@@ -68,7 +68,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>
         /// a list of special instructions for the philly poacher
         /// </returns>
-        public List<string> SpecialInstuctions
+        public override List<string> SpecialInstructions
         {
             get
             {

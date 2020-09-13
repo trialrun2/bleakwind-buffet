@@ -6,9 +6,9 @@ using System.Text;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
-    /// creates class and properties for Markarth Milk
+    /// class for sailor soda, creates properties for it
     /// </summary>
-    public class MarkarthMilk
+    public class SailorSoda : Drink
     {
         /// <summary>
         /// private backing variable for cupSize
@@ -16,54 +16,68 @@ namespace BleakwindBuffet.Data.Drinks
         private Size cupSize = Size.Small;
 
         /// <summary>
+        /// private backing variable for flavor
+        /// </summary>
+        private SodaFlavor flavor = SodaFlavor.Cherry;
+
+        /// <summary>
         /// private backing variable for price
         /// </summary>
-        private double price = 1.05;
+        private double price = 1.42;
 
         /// <summary>
         /// private backing variable for calories
         /// </summary>
-        private uint calories = 56;
+        private uint calories = 117;
 
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public Size CupSize
+        public override Size CupSize
         {
             get => cupSize;//gets cupSize
             set
             {
                 cupSize = value;//sets cupSize to value
-                if (cupSize == Size.Large)//if cupSize is equal to Large
+                if (cupSize == Size.Large)//if cupSize is Large
                 {
-                    price = 1.22;//set price equal to 1.22
-                    calories = 93;//set calories equal to 93
+                    calories = 205;//set calories equal to 205
+                    price = 2.07;//set price equal to 2.07
                 }
-                else if (cupSize == Size.Medium)//if cupSize is equal to medium
+                else if (cupSize == Size.Medium)//if cupSize is Medium
                 {
-                    price = 1.11;//set price equal to 1.11
-                    calories = 72;//set calories equal to 72
+                    calories = 153;//set calories equal to 153
+                    price = 1.74;//set price equal to 1.74
                 }
                 else
                 {
-                    price = 1.05;//set price back to default
-                    calories = 56;//set calories back to default
+                    calories = 117;//set calories back to default
+                    price = 1.42;//set price back to default
                 }
             }
         }
 
         /// <summary>
+        /// gets and sets flavor
+        /// </summary>
+        public SodaFlavor Flavor
+        {
+            get => flavor;//gets flavor
+            set => flavor = value;//sets flavor to value
+        }
+
+        /// <summary>
         /// gets and sets price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return price; }//gets/returns price
         }
 
         /// <summary>
-        /// gets and sats calories
+        /// gets and calories
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return calories; }//gets/returns calories
         }
@@ -71,7 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// private backing variable for ice
         /// </summary>
-        private bool ice = false;
+        private bool ice = true;
 
         /// <summary>
         /// gets and sets ice
@@ -89,12 +103,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>
         /// a list of special instructions for the drink
         /// </returns>
-        public List<string> SpecialInstuctions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new List<string>();//creates new list
-                if (Ice) instructions.Add("Add ice");//if ice is true, add ice
+                if (!Ice) instructions.Add("Hold ice");//if ice is false, hold ice
                 return instructions;//return the list
             }
         }
@@ -107,7 +121,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override string ToString()
         {
-            return $"{cupSize} Markarth Milk";// set return value of ToString to {cupSize} Markarth Milk
+            return $"{cupSize} {flavor} Sailor Soda";// set return value of ToString to {Size} {flavor} Sailor Soda
         }
     }
 }

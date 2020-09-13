@@ -11,7 +11,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class BriarheartBurgerTests
     {
-        
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.IsAssignableFrom<IOrderItem>(bb);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.IsAssignableFrom<Entree>(bb);
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -126,27 +139,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             if (!includeBun)
             {
-                Assert.Contains("Hold bun", bb.SpecialInstuctions);
+                Assert.Contains("Hold bun", bb.SpecialInstructions);
             }
             if (!includeKetchup)
             {
-                Assert.Contains("Hold ketchup", bb.SpecialInstuctions);
+                Assert.Contains("Hold ketchup", bb.SpecialInstructions);
             }
             if (!includeMustard)
             {
-                Assert.Contains("Hold mustard", bb.SpecialInstuctions);
+                Assert.Contains("Hold mustard", bb.SpecialInstructions);
             }
             if (!includePickle)
             {
-                Assert.Contains("Hold pickle", bb.SpecialInstuctions);
+                Assert.Contains("Hold pickle", bb.SpecialInstructions);
             }
             if (!includeCheese)
             {
-                Assert.Contains("Hold cheese", bb.SpecialInstuctions);
+                Assert.Contains("Hold cheese", bb.SpecialInstructions);
             }
             if(includeBun && includeKetchup && includeMustard && includePickle && includeCheese)
             {
-                Assert.Empty(bb.SpecialInstuctions);
+                Assert.Empty(bb.SpecialInstructions);
             }
         }
 

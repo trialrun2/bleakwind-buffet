@@ -10,7 +10,21 @@ using BleakwindBuffet.Data;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
-    {        
+    {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<IOrderItem>(ss);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<Entree>(ss);
+        }
+
         [Fact]
         public void ShouldInlcudeSausageByDefault()
         {
@@ -107,23 +121,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             if (!includeSausage)
             {
-                Assert.Contains("Hold sausage", ss.SpecialInstuctions);
+                Assert.Contains("Hold sausage", ss.SpecialInstructions);
             }
             if (!includeEgg)
             {
-                Assert.Contains("Hold eggs", ss.SpecialInstuctions);
+                Assert.Contains("Hold eggs", ss.SpecialInstructions);
             }
             if (!includeHashbrowns)
             {
-                Assert.Contains("Hold hash browns", ss.SpecialInstuctions);
+                Assert.Contains("Hold hash browns", ss.SpecialInstructions);
             }
             if (!includePancake)
             {
-                Assert.Contains("Hold pancakes", ss.SpecialInstuctions);
+                Assert.Contains("Hold pancakes", ss.SpecialInstructions);
             }
             if (includeSausage && includeEgg && includeHashbrowns && includePancake)
             {
-                Assert.Empty(ss.SpecialInstuctions);
+                Assert.Empty(ss.SpecialInstructions);
             }
         }
 

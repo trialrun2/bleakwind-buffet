@@ -14,6 +14,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class AretinoAppleJuiceTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<IOrderItem>(aj);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(aj);
+        }
+
+        [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
@@ -80,11 +94,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             aj.Ice = includeIce;
             if (includeIce)
             {
-                Assert.Contains("Add ice", aj.SpecialInstuctions);
+                Assert.Contains("Add ice", aj.SpecialInstructions);
             }
             else
             {
-                Assert.Empty(aj.SpecialInstuctions);
+                Assert.Empty(aj.SpecialInstructions);
             }
         }
 

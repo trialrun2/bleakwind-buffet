@@ -12,6 +12,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            ThugsT_Bone ttb = new ThugsT_Bone();
+            Assert.IsAssignableFrom<IOrderItem>(ttb);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            ThugsT_Bone ttb = new ThugsT_Bone();
+            Assert.IsAssignableFrom<Entree>(ttb);
+        }
+
+        [Fact]
         public void ShouldReturnCorrectPrice()
         {
             ThugsT_Bone ttb = new ThugsT_Bone();
@@ -29,7 +43,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectSpecialInstructions()
         {
             ThugsT_Bone ttb = new ThugsT_Bone();
-            Assert.Empty(ttb.SpecialInstuctions);
+            Assert.Empty(ttb.SpecialInstructions);
         }
 
         [Fact]

@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Warropr Water
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : Drink
     {
         /// <summary>
         /// private backing variable for cupSize
@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public Size CupSize
+        public override Size CupSize
         {
             get => cupSize;//gets cupSize
             set => cupSize = value;//sets cupSize to value
@@ -32,7 +32,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return price; }//gets/returns price
         }
@@ -45,7 +45,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets calories
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return calories; }//gets/returns calories
         }
@@ -85,7 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>
         /// a list of special instructions for the meal
         /// </returns>
-        public List<string> SpecialInstuctions
+        public override List<string> SpecialInstructions
         {
             get
             {

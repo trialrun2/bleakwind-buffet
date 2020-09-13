@@ -13,6 +13,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class DragonbornWaffleFriesTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            DragonbornWaffleFries df = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<IOrderItem>(df);
+        }
+
+        [Fact]
+        public void ShouldBeAnSide()
+        {
+            DragonbornWaffleFries df = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<Side>(df);
+        }
+
+        [Fact]
         public void ShouldBeSmallByDefault()
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
@@ -35,7 +49,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectSpecialInstructions()
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            Assert.Empty(df.SpecialInstuctions);
+            Assert.Empty(df.SpecialInstructions);
         }
 
         [Theory]

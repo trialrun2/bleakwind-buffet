@@ -7,17 +7,17 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Thugs T-Bone and creates the properties for it
     /// </summary
-    public class ThugsT_Bone
+    public class ThugsT_Bone : Entree
     {
         /// <summary>
         /// Gets the price of the steak
         /// </summary>
-        public double Price => 6.44;
+        public override double Price => 6.44;
 
         /// <summary>
         /// gets the calories of the steak
         /// </summary>
-        public uint Calories => 982;
+        public override uint Calories => 982;
 
         // <summary>
         /// creates list of special instructions based on the boolean values 
@@ -26,7 +26,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>
         /// a list of special instruction for the meal
         /// </returns>
-        public List<string> SpecialInstuctions
+        public override List<string> SpecialInstructions
         {
             get
             {

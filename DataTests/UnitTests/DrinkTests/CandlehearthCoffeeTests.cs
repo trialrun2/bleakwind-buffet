@@ -13,6 +13,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(chc);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(chc);
+        }
+
+        [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
@@ -116,15 +130,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             chc.RoomForCream = includeCream;
             if (includeIce)
             {
-                Assert.Contains("Add ice", chc.SpecialInstuctions);
+                Assert.Contains("Add ice", chc.SpecialInstructions);
             }
             if (includeCream)
             {
-                Assert.Contains("Add cream", chc.SpecialInstuctions);
+                Assert.Contains("Add cream", chc.SpecialInstructions);
             }
             if(!includeCream && !includeIce)
             {
-                Assert.Empty(chc.SpecialInstuctions);
+                Assert.Empty(chc.SpecialInstructions);
             }
         }
 

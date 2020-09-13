@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// creates class with properties for Fried Miraak
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : Side
     {
         /// <summary>
         /// private backing variable for sideSize
@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public Size SideSize
+        public override Size SideSize
         {
             get => sideSize;//gets cupSize
             set
@@ -55,7 +55,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// gets and sets price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return price; }//gets/returns price
         }
@@ -63,7 +63,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// gets and sets price
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return calories; }//gets/returns price
         }
@@ -74,7 +74,7 @@ namespace BleakwindBuffet.Data.Sides
         /// /// <returns>
         /// a list of special instructions for side
         /// </returns>
-        public List<string> SpecialInstuctions
+        public override List<string> SpecialInstructions
         {
             get
             {
