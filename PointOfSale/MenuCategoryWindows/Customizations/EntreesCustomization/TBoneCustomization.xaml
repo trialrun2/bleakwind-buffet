@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization.TBoneCustomization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center">T-Bone Special Requests</TextBlock>
+        <TextBlock DockPanel.Dock="Top" Height="150"></TextBlock>
+        <Button Click ="AddTBoneToOrderButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 30, 50, 5">Add to Order</Button>
+        <Button Click ="TBoneBackButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 0">Back</Button>
+        <TextBlock></TextBlock>
+    </DockPanel>
+</UserControl>

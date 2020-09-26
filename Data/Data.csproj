@@ -5,4 +5,21 @@
     <RootNamespace>BleakwindBuffet.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Sides\EntreesMenu.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Sides\EntreesMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Sides\EntreesMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

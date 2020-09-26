@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="PointOfSale.MenuCategoryWindows.Customizations.SizeCustomization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.MenuCategoryWindows.Customizations"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center">SIZE OF YOUR SIDE</TextBlock>
+        <TextBlock DockPanel.Dock="Top" Height="30" />
+        <RadioButton Click ="SizeOfSide" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioSideSize" FontSize="30" Width="153" Name="smallRadio" IsChecked="False">SMALL</RadioButton>
+        <RadioButton Click ="SizeOfSide" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioSideSize" FontSize="30" Width="155" Name="mediumRadio" IsChecked="False">MEDIUM</RadioButton>
+        <RadioButton Click ="SizeOfSide" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioSideSize" FontSize="30" Width="151" Name="largeRadio" IsChecked="False">LARGE</RadioButton>
+        <Button Click="AddItemButton" DockPanel.Dock="Top" Height="50" Margin="50, 40, 50, 10" FontSize="30" FontWeight="Bold">Add to Order</Button>
+        <Button Click="SizeOfSideBackButton" DockPanel.Dock="Top" Height="50" Margin="50, 0" FontSize="30" FontWeight="Bold">Back</Button>
+        <TextBlock/>
+    </DockPanel>
+</UserControl>
