@@ -19,11 +19,20 @@ namespace PointOfSale.MenuCategoryWindows
     /// </summary>
     public partial class DrinksMenu : UserControl
     {
+        /// <summary>
+        /// initializes the drink menu
+        /// </summary>
         public DrinksMenu()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// event handler for the apple juice button tells drink customization what to disable
+        /// changes screen to special requests customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AppleJuiceButton(object sender, RoutedEventArgs e)
         {
             SpecialRequestCustomizations src = new SpecialRequestCustomizations();
@@ -32,6 +41,12 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(src);
         }
 
+        /// <summary>
+        /// event handler for the coffee button tells drink customization what to disable
+        /// changes screen to special requests customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CoffeeButton(object sender, RoutedEventArgs e)
         {
             SpecialRequestCustomizations src = new SpecialRequestCustomizations();
@@ -40,6 +55,12 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(src);
         }
 
+        /// <summary>
+        /// event handler for the milk button tells drink customization what to disable
+        /// changes screen to special requests customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void MilkButton(object sender, RoutedEventArgs e)
         {
             SpecialRequestCustomizations src = new SpecialRequestCustomizations();
@@ -48,6 +69,12 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(src);
         }
 
+        /// <summary>
+        /// event handler for the soda button tells drink customization what to disable
+        /// changes screen to special requests customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SodaButton(object sender, RoutedEventArgs e)
         {
             SpecialRequestCustomizations src = new SpecialRequestCustomizations();
@@ -57,6 +84,12 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(src);
         }
 
+        /// <summary>
+        /// event handler for the water button tells drink customization what to disable
+        /// changes screen to special requests customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void WaterButton(object sender, RoutedEventArgs e)
         {
             SpecialRequestCustomizations src = new SpecialRequestCustomizations();
@@ -65,6 +98,11 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(src);
         }
 
+        /// <summary>
+        /// event handler for the back button changes screen back to main menu 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void DrinksBackButton(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();

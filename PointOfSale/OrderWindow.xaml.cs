@@ -17,25 +17,58 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderWindow : UserControl
     {
+        /// <summary>
+        /// initializes the order window
+        /// </summary>
         public OrderWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// event handler for the prior order button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void PriorOrder(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// event handler for the next order button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void NextOrder(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// event handler for the add order button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AddNewOrder(object sender, RoutedEventArgs e)
         {
 
         }
+
+        /// <summary>
+        /// event handler for the cancel order button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CancelOrder(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// swaps the menuItems border child with the given object
+        /// </summary>
+        /// <param name="swap"></param>
         public void Swap(object swap)
         {
                 menuItems.Child = (UIElement)swap;

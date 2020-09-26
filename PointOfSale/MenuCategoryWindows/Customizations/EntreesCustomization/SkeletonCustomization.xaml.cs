@@ -18,16 +18,31 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class SkeletonCustomization : UserControl
     {
+        /// <summary>
+        /// initializes skeleton customization
+        /// </summary>
         public SkeletonCustomization()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// event handler for add to order button returns screen to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AddSkeletonButton(object sender, RoutedEventArgs e)
         {
-
+            MenuWindow menu = new MenuWindow();
+            OrderWindow order = this.FindAncestor<OrderWindow>();
+            order.Swap(menu);
         }
 
+        /// <summary>
+        /// event handler for back button changes screen back to entree menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SkeletonBackButton(object sender, RoutedEventArgs e)
         {
             EntreesMenu entree = new EntreesMenu();

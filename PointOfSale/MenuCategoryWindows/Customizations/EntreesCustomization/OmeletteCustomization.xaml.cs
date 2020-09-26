@@ -18,16 +18,31 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class OmeletteCustomization : UserControl
     {
+        /// <summary>
+        /// initializes omelett customization
+        /// </summary>
         public OmeletteCustomization()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// event handler for the add to order button changes screen back to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AddOmeletteButton(object sender, RoutedEventArgs e)
         {
-
+            MenuWindow menu = new MenuWindow();
+            OrderWindow order = this.FindAncestor<OrderWindow>();
+            order.Swap(menu);
         }
 
+        /// <summary>
+        /// event handler for the back button changes screen back to entree menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OmelettesBackButton(object sender, RoutedEventArgs e)
         {
             EntreesMenu entree = new EntreesMenu();

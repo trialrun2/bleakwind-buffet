@@ -18,16 +18,31 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class TBoneCustomization : UserControl
     {
+        /// <summary>
+        /// initializes tbone customization
+        /// </summary>
         public TBoneCustomization()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// event handler for add button returns screen to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AddTBoneToOrderButton(object sender, RoutedEventArgs e)
         {
-
+            MenuWindow menu = new MenuWindow();
+            OrderWindow order = this.FindAncestor<OrderWindow>();
+            order.Swap(menu);
         }
 
+        /// <summary>
+        /// event handler for back button changes screen back to entree menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void TBoneBackButton(object sender, RoutedEventArgs e)
         {
             EntreesMenu entree = new EntreesMenu();

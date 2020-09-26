@@ -21,11 +21,19 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuWindow : UserControl
     {
+        /// <summary>
+        /// Initializes the menu window
+        /// </summary>
         public MenuWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// event handler for the drink button swaps screen to drink menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void DrinkButton(object sender, RoutedEventArgs e)
         {
             DrinksMenu drinks = new DrinksMenu();
@@ -33,6 +41,11 @@ namespace PointOfSale
             order.Swap(drinks);
         }
 
+        /// <summary>
+        /// event handler for the entree button swaps screen to entree menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void EntreeButton(object sender, RoutedEventArgs e)
         {
             EntreesMenu entree = new EntreesMenu();
@@ -40,6 +53,11 @@ namespace PointOfSale
             order.Swap(entree);
         }
 
+        /// <summary>
+        /// event handler for side button swaps screen to sides menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SideButton(object sender, RoutedEventArgs e)
         {
             SidesMenu side = new SidesMenu();

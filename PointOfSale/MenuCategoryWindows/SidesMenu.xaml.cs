@@ -22,11 +22,20 @@ namespace PointOfSale.MenuCategoryWindows
     /// </summary>
     public partial class SidesMenu : UserControl
     {
+        /// <summary>
+        /// initializes the sides menu
+        /// </summary>
         public SidesMenu()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// event handler for the fries button lets SizeCustomization know it's a side and 
+        /// changes the screen to Size customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void FriesButton(object sender, RoutedEventArgs e)
         {
             SizeCustomization custom = new SizeCustomization();
@@ -35,6 +44,12 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(custom);
         }
 
+        /// <summary>
+        /// event handler for the Miraak button lets SizeCustomization know it's a side and 
+        /// changes the screen to Size customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void MiraakButton(object sender, RoutedEventArgs e)
         {
             SizeCustomization custom = new SizeCustomization();
@@ -43,6 +58,12 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(custom);
         }
 
+        /// <summary>
+        /// event handler for the grits button lets SizeCustomization know it's a side and 
+        /// changes the screen to Size customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void GritsButton(object sender, RoutedEventArgs e)
         {
             SizeCustomization custom = new SizeCustomization();
@@ -51,6 +72,12 @@ namespace PointOfSale.MenuCategoryWindows
             order.Swap(custom);
         }
 
+        /// <summary>
+        /// event handler for the salad button lets SizeCustomization know it's a side and 
+        /// changes the screen to Size customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SaladButton(object sender, RoutedEventArgs e)
         {
             SizeCustomization custom = new SizeCustomization();
@@ -61,6 +88,11 @@ namespace PointOfSale.MenuCategoryWindows
             
         }
 
+        /// <summary>
+        /// event handler for the back button changes the screen back to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SidesBackButton(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();

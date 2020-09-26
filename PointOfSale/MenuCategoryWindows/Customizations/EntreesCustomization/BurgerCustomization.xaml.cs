@@ -18,16 +18,31 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class BurgerCustomization : UserControl
     {
+        /// <summary>
+        /// initializes burger customization
+        /// </summary>
         public BurgerCustomization()
         {
             InitializeComponent();
         }
         
+        /// <summary>
+        /// event handler for the add to order button changes screen back to main window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AddBurgerButton(object sender, RoutedEventArgs e)
         {
-
+            MenuWindow menu = new MenuWindow();
+            OrderWindow order = this.FindAncestor<OrderWindow>();
+            order.Swap(menu);
         }
 
+        /// <summary>
+        /// event handler for the back button changes sreen back to entree menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void BurgersBackButton(object sender, RoutedEventArgs e)
         {
             EntreesMenu entrees = new EntreesMenu();
@@ -35,9 +50,13 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
             order.Swap(entrees);
         }
 
+        /// <summary>
+        /// called when burger customization is initialized to determine what type of burger we want
+        /// </summary>
+        /// <param name="enableDisable"></param>
         public void EnableDisableBurger(int enableDisable)
         {
-            if (enableDisable == 0)
+            if (enableDisable == 0)//if it's a briarheart burger
             {
                 tomatoCheck.IsEnabled = false;
                 baconCheck.IsEnabled = false;
@@ -50,14 +69,14 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
                 lettuceCheck.IsChecked = false;
                 eggCheck.IsChecked = false;
             }
-            else if(enableDisable == 1)
+            else if(enableDisable == 1)// if it's a double draugr
             {
                 baconCheck.IsEnabled = false;
                 eggCheck.IsEnabled = false;
                 baconCheck.IsChecked = false;
                 eggCheck.IsChecked = false;
             }
-            else
+            else // if its a thalmor triple
             {
 
             }
