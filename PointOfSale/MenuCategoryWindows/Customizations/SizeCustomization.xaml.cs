@@ -46,7 +46,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void SizeOfSideBackButton(object sender, RoutedEventArgs e)
+        void SizeBackButton(object sender, RoutedEventArgs e)
         {
             object swap = null;
             if(sideOrDrink == 0)// if it's a side
@@ -55,7 +55,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
             }
             if(sideOrDrink == 1)// if its a drink other than a soda
             {
-                swap = new SpecialRequestCustomizations();
+                swap = new DrinkCustomizations();
             }
             if(sideOrDrink == 2)// if its a drink and a soda
             {

@@ -57,7 +57,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// <param name="e"></param>
         void FlavorBackButton(object sender, RoutedEventArgs e)
         {
-            SpecialRequestCustomizations src = new SpecialRequestCustomizations();
+            DrinkCustomizations src = new DrinkCustomizations();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(src);
         }

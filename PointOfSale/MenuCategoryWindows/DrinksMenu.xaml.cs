@@ -35,7 +35,7 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void AppleJuiceButton(object sender, RoutedEventArgs e)
         {
-            SpecialRequestCustomizations src = new SpecialRequestCustomizations();
+            DrinkCustomizations src = new DrinkCustomizations();
             src.EnableDisableDrink(0);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(src);
@@ -49,7 +49,7 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void CoffeeButton(object sender, RoutedEventArgs e)
         {
-            SpecialRequestCustomizations src = new SpecialRequestCustomizations();
+            DrinkCustomizations src = new DrinkCustomizations();
             src.EnableDisableDrink(1);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(src);
@@ -63,7 +63,7 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void MilkButton(object sender, RoutedEventArgs e)
         {
-            SpecialRequestCustomizations src = new SpecialRequestCustomizations();
+            DrinkCustomizations src = new DrinkCustomizations();
             src.EnableDisableDrink(0);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(src);
@@ -77,7 +77,7 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void SodaButton(object sender, RoutedEventArgs e)
         {
-            SpecialRequestCustomizations src = new SpecialRequestCustomizations();
+            DrinkCustomizations src = new DrinkCustomizations();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             src.IsSodaOrNot(1);
             src.EnableDisableDrink(0);
@@ -92,7 +92,7 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void WaterButton(object sender, RoutedEventArgs e)
         {
-            SpecialRequestCustomizations src = new SpecialRequestCustomizations();
+            DrinkCustomizations src = new DrinkCustomizations();
             src.EnableDisableDrink(2);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(src);

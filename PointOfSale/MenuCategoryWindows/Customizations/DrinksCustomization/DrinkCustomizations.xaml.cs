@@ -16,7 +16,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
     /// <summary>
     /// Interaction logic for SpecialRequestCustomizations.xaml
     /// </summary>
-    public partial class SpecialRequestCustomizations : UserControl
+    public partial class DrinkCustomizations : UserControl
     {
         //private int variable used to determine where to go next
         private int soda = 0;
@@ -24,7 +24,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// <summary>
         /// initializes drink special requests
         /// </summary>
-        public SpecialRequestCustomizations()
+        public DrinkCustomizations()
         {
             InitializeComponent();
         }
@@ -35,7 +35,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void RequestsNextButton(object sender, RoutedEventArgs e)
+        void CustomDrinkNextButton(object sender, RoutedEventArgs e)
         {
             
             if(soda == 1)//if it is a Sailor Soda
@@ -58,7 +58,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="es"></param>
-        void RequestsBackButton(object sender, RoutedEventArgs es)
+        void CustomDrinkBackButton(object sender, RoutedEventArgs es)
         {
             DrinksMenu drink = new DrinksMenu();
             OrderWindow order = this.FindAncestor<OrderWindow>();
