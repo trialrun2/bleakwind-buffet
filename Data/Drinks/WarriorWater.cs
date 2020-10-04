@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -8,8 +9,10 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Warropr Water
     /// </summary>
-    public class WarriorWater : Drink
+    public class WarriorWater : Drink, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// private backing variable for cupSize
         /// </summary>
@@ -21,7 +24,12 @@ namespace BleakwindBuffet.Data.Drinks
         public override Size CupSize
         {
             get => cupSize;//gets cupSize
-            set => cupSize = value;//sets cupSize to value
+            set
+            {
+                cupSize = value;//sets cupSize to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+
         }
 
         /// <summary>
@@ -61,7 +69,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;//gets boolean value for ice
-            set => ice = value;//sets boolean value of ice to value
+            set
+            {
+                ice = value;//sets boolean value of ice to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -75,7 +88,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Lemon
         {
             get => lemon;//gets boolean value for lemon
-            set => lemon = value;//sets boolean value of lemon to value
+            set
+            {
+                lemon = value;//sets boolean value of lemon to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>

@@ -112,5 +112,48 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             aj.CupSize = size;
             Assert.Equal(name, aj.ToString());
         }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Size", () => { aj.CupSize = Size.Large; });
+            Assert.PropertyChanged(aj, "Size", () => { aj.CupSize = Size.Medium; });
+            Assert.PropertyChanged(aj, "Size", () => { aj.CupSize = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingPriceNotifiesPriceProperty()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Price", () => { aj.CupSize = Size.Large; });
+            Assert.PropertyChanged(aj, "Price", () => { aj.CupSize = Size.Medium; });
+            Assert.PropertyChanged(aj, "Price", () => { aj.CupSize = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingCaloriesNotifiesCaloriesProperty()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Calories", () => { aj.CupSize = Size.Large; });
+            Assert.PropertyChanged(aj, "Calories", () => { aj.CupSize = Size.Medium; });
+            Assert.PropertyChanged(aj, "Calories", () => { aj.CupSize = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Ice", () => { aj.Ice = true; });
+            Assert.PropertyChanged(aj, "Ice", () => { aj.Ice = false; });
+        }
+
+        [Fact]
+        public void ChangingSpecialInstructionsNotifiesSpecialInstructionsProperty()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "SpecialInstructions", () => { aj.Ice = true; });
+            Assert.PropertyChanged(aj, "SpecialInstructions", () => { aj.Ice = false; });
+        }
     }
 }

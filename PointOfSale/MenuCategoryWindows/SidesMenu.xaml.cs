@@ -38,9 +38,10 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void FriesButton(object sender, RoutedEventArgs e)
         {
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
             SizeCustomization custom = new SizeCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrink(0);
+            custom.SideOrDrinkType(5, dwf);
             order.Swap(custom);
         }
 
@@ -52,9 +53,10 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void MiraakButton(object sender, RoutedEventArgs e)
         {
+            FriedMiraak fm = new FriedMiraak();
             SizeCustomization custom = new SizeCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrink(0);
+            custom.SideOrDrinkType(6, fm);
             order.Swap(custom);
         }
 
@@ -66,9 +68,10 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void GritsButton(object sender, RoutedEventArgs e)
         {
+            MadOtarGrits mog = new MadOtarGrits();
             SizeCustomization custom = new SizeCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrink(0);
+            custom.SideOrDrinkType(7, mog);
             order.Swap(custom);
         }
 
@@ -80,9 +83,10 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void SaladButton(object sender, RoutedEventArgs e)
         {
+            VokunSalad vs = new VokunSalad();
             SizeCustomization custom = new SizeCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrink(0);
+            custom.SideOrDrinkType(8, vs);
             order.Swap(custom);
 
             

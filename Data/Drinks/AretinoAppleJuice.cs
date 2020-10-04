@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -8,8 +9,10 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Aretino Apple Juice
     /// </summary>
-    public class AretinoAppleJuice : Drink
+    public class AretinoAppleJuice : Drink, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// private backing variable for cupSize
         /// </summary>
@@ -50,6 +53,9 @@ namespace BleakwindBuffet.Data.Drinks
                     price = 0.62;//set price back to default
                     calories = 44;//set calories back to default
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             }
         }
 
@@ -83,7 +89,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;//gets boolean value for ice
-            set => ice = value;//sets boolean value of ice to value
+            set
+            {
+                ice = value;//sets boolean value of ice to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>

@@ -147,5 +147,51 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", ss.ToString());
         }
+
+        [Fact]
+        public void ChangingSausageNotifiesSausageProperty()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SausageLink", () => { ss.SausageLink = false; });
+            Assert.PropertyChanged(ss, "SausageLink", () => { ss.SausageLink = true; });
+        }
+
+        [Fact]
+        public void ChangingPancakeNotifiesPancakeProperty()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Pancake", () => { ss.Pancake = false; });
+            Assert.PropertyChanged(ss, "Pancake", () => { ss.Pancake = true; });
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesEggProperty()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Egg", () => { ss.Egg = false; });
+            Assert.PropertyChanged(ss, "Egg", () => { ss.Egg = true; });
+        }
+
+        [Fact]
+        public void ChangingHashBrownsNotifiesHashBrownsProperty()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "HashBrowns", () => { ss.HashBrowns = false; });
+            Assert.PropertyChanged(ss, "HashBrowns", () => { ss.HashBrowns = true; });
+        }
+
+        [Fact]
+        public void ChangingSpecialInstructionsNotifiesSpecialInstructionsProperty()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.HashBrowns = false; });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.HashBrowns = true; });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.Egg = false; });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.Egg = true; });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.Pancake = false; });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.Pancake = true; });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.SausageLink = false; });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.SausageLink = true; });
+        }
     }
 }

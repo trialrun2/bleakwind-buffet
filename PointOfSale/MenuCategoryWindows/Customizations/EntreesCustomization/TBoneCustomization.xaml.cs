@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Entrees;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +19,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class TBoneCustomization : UserControl
     {
+        public ThugsT_Bone ttb = new ThugsT_Bone();
         /// <summary>
         /// initializes tbone customization
         /// </summary>

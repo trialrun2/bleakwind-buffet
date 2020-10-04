@@ -9,10 +9,10 @@
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center">Drink Special Requests</TextBlock>
         <TextBlock DockPanel.Dock="Top" Height="50"></TextBlock>
-        <CheckBox Name="iceCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Ice</CheckBox>
-        <CheckBox Name ="lemonCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Lemon</CheckBox>
-        <CheckBox Name ="decafCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Decaf</CheckBox>
-        <CheckBox Name="creamCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Cream</CheckBox>
+        <CheckBox Click="OnIceSelect" Name="iceCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Ice</CheckBox>
+        <CheckBox Click="OnLemonSelect" Name ="lemonCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Lemon</CheckBox>
+        <CheckBox Click="OnDecafSelect" Name ="decafCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Decaf</CheckBox>
+        <CheckBox Click="OnCreamSelect" Name="creamCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100">Cream</CheckBox>
         <Button Click ="CustomDrinkNextButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 30, 50, 5">Next</Button>
         <Button Click ="CustomDrinkBackButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 0">Back</Button>
         <TextBlock></TextBlock>

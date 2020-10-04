@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
@@ -8,8 +9,10 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// creates class and properties for Dragonborn Waffle Fries
     /// </summary>
-    public class DragonbornWaffleFries : Side
+    public class DragonbornWaffleFries : Side, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// private backing variable for sideSize
         /// </summary>
@@ -49,6 +52,10 @@ namespace BleakwindBuffet.Data.Sides
                     price = 0.42;//set price back to default
                     calories = 77;//set calories back to default
                 }
+   
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 

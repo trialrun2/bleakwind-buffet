@@ -84,5 +84,33 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             df.SideSize = size;
             Assert.Equal(name, df.ToString());
         }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            DragonbornWaffleFries df = new DragonbornWaffleFries();
+            Assert.PropertyChanged(df, "Size", () => { df.SideSize = Size.Large; });
+            Assert.PropertyChanged(df, "Size", () => { df.SideSize = Size.Medium; });
+            Assert.PropertyChanged(df, "Size", () => { df.SideSize = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingPriceNotifiesPriceProperty()
+        {
+            DragonbornWaffleFries df = new DragonbornWaffleFries();
+            Assert.PropertyChanged(df, "Price", () => { df.SideSize = Size.Large; });
+            Assert.PropertyChanged(df, "Price", () => { df.SideSize = Size.Medium; });
+            Assert.PropertyChanged(df, "Price", () => { df.SideSize = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingCaloriesNotifiesCaloriesProperty()
+        {
+            DragonbornWaffleFries df = new DragonbornWaffleFries();
+            Assert.PropertyChanged(df, "Calories", () => { df.SideSize = Size.Large; });
+            Assert.PropertyChanged(df, "Calories", () => { df.SideSize = Size.Medium; });
+            Assert.PropertyChanged(df, "Calories", () => { df.SideSize = Size.Small; });
+        }
+
     }
 }

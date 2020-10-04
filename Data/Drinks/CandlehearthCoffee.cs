@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -8,8 +9,10 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Candlehearth Coffee
     /// </summary>
-    public class CandlehearthCoffee : Drink
+    public class CandlehearthCoffee : Drink, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// private backing variable for cupSize
         /// </summary>
@@ -49,6 +52,9 @@ namespace BleakwindBuffet.Data.Drinks
                     price = 0.75;//set price back to default
                     calories = 7;//set calories back to default
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             }
         }
 
@@ -79,7 +85,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;//gets boolean value for ice
-            set => ice = value;//sets boolean value of ice to value
+            set
+            {
+                ice = value;//sets boolean value of ice to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -93,7 +104,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool RoomForCream
         {
             get => roomForCream;//gets boolean value for roomForCream
-            set => roomForCream = value;//sets boolean value of roomForCream to value
+            set
+            {
+                roomForCream = value;//sets boolean value of roomForCream to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cream"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -107,7 +123,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Decaf
         {
             get => decaf;//gets boolean value for decaf
-            set => decaf = value;//sets boolean value of decaf to value
+            set
+            {
+                decaf = value;//sets boolean value of decaf to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+            }
         }
 
         /// <summary>

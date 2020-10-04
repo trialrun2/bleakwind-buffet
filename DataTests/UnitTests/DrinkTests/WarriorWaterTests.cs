@@ -131,5 +131,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.Equal(name, ww.ToString());
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Size", () => { ww.CupSize = Size.Large; });
+            Assert.PropertyChanged(ww, "Size", () => { ww.CupSize = Size.Medium; });
+            Assert.PropertyChanged(ww, "Size", () => { ww.CupSize = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Ice", () => { ww.Ice = false; });
+            Assert.PropertyChanged(ww, "Ice", () => { ww.Ice = true; });
+        }
+
+        [Fact]
+        public void ChangingLemonNotifiesLemonProperty()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Lemon", () => { ww.Lemon = false; });
+            Assert.PropertyChanged(ww, "Lemon", () => { ww.Lemon = true; });
+        }
+
+        [Fact]
+        public void ChangingSpecialInstructionsNotifiesSpecialInstructionsProperty()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Lemon = false; });
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Lemon = true; });
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Ice = false; });
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Ice = true; });
+        }
     }
 }

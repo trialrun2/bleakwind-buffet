@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -7,8 +8,9 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class for the Garden Orc Omelette and creates the properties for it
     /// </summary>
-    public class GardenOrcOmelette : Entree
+    public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the omelet
@@ -31,7 +33,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Broccoli
         {
             get => broccoli;//gets value of broccoli
-            set => broccoli = value;//sets the value of broccoli to value
+            set
+            {
+                broccoli = value;//sets broccoli equal to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -45,7 +52,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mushrooms
         {
             get => mushrooms;//gets value of mushrooms
-            set => mushrooms = value;//sets value of mushrooms to value
+            set
+            {
+                mushrooms = value;//sets mushrooms equal to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -59,7 +71,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get => tomato;//gets value of tomato
-            set => tomato = value;//sets value of tomato to value
+            set
+            {
+                tomato = value;//sets tomato equal to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -73,7 +90,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheddar
         {
             get => cheddar; //gets value of cheddar
-            set => cheddar = value; //sets value of cheddar to value
+            set
+            {
+                cheddar = value;//sets cheddar equal to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         // <summary>

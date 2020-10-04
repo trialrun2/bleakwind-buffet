@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -8,8 +9,10 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// class for sailor soda, creates properties for it
     /// </summary>
-    public class SailorSoda : Drink
+    public class SailorSoda : Drink, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// private backing variable for cupSize
         /// </summary>
@@ -54,6 +57,9 @@ namespace BleakwindBuffet.Data.Drinks
                     calories = 117;//set calories back to default
                     price = 1.42;//set price back to default
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -63,7 +69,11 @@ namespace BleakwindBuffet.Data.Drinks
         public SodaFlavor Flavor
         {
             get => flavor;//gets flavor
-            set => flavor = value;//sets flavor to value
+            set
+            {
+                flavor = value;//sets flavor to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+            }
         }
 
         /// <summary>
@@ -93,7 +103,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;//gets boolean value for ice
-            set => ice = value;//sets boolean value of ice to value
+            set
+            {
+                ice = value;//sets boolean value of ice to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -8,8 +9,9 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// creates class and properties for Markarth Milk
     /// </summary>
-    public class MarkarthMilk : Drink
+    public class MarkarthMilk : Drink, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// private backing variable for cupSize
         /// </summary>
@@ -49,6 +51,9 @@ namespace BleakwindBuffet.Data.Drinks
                     price = 1.05;//set price back to default
                     calories = 56;//set calories back to default
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             }
         }
 
@@ -79,7 +84,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;//gets boolean value for ice
-            set => ice = value;//sets boolean value of ice to value
+            set
+            {
+                ice = value;//sets boolean value of ice to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>

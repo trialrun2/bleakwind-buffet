@@ -9,10 +9,10 @@
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center">Skeleton Special Requests</TextBlock>
         <TextBlock DockPanel.Dock="Top" Height="50"></TextBlock>
-        <CheckBox Name="sausageCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True" >Sausage Link</CheckBox>
-        <CheckBox Name ="hashbrownsCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True">Hashbrowns</CheckBox>
-        <CheckBox Name ="eggCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True">Egg</CheckBox>
-        <CheckBox Name="pancakeCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True">Pancake</CheckBox>
+        <CheckBox Click="OnSausageLinkSelect" Name="sausageCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True" >Sausage Link</CheckBox>
+        <CheckBox Click="OnHashBrownsSelect" Name ="hashbrownsCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True">Hashbrowns</CheckBox>
+        <CheckBox Click="OnEggSelect" Name ="eggCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True">Egg</CheckBox>
+        <CheckBox Click="OnPancakeSelect" Name="pancakeCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="150" IsChecked="True">Pancake</CheckBox>
         <Button Click ="AddSkeletonButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 30, 50, 5">Add to Order</Button>
         <Button Click ="SkeletonBackButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 0">Back</Button>
         <TextBlock></TextBlock>

@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+using System.Collections.Specialized;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// class for the briarheart burger creates the properties for it
     /// </summary>
-    public class BriarheartBurger : Entree
+    public class BriarheartBurger : Entree, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
@@ -30,7 +34,13 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Ketchup
         {
             get => ketchup;//gets value of ketchup
-            set => ketchup = value;//sets the value of ketchup to value
+            set
+            {
+                ketchup = value;//sets the value of ketchup to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+
         }
 
         /// <summary>
@@ -44,7 +54,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Bun
         {
             get => bun;//gets value of bun
-            set => bun = value;//sets value of bun to bun
+            set
+            {
+                bun = value;//sets value of bun to bun
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -58,7 +73,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mustard
         {
             get => mustard;//gets value of mustard
-            set => mustard = value;//sets value of mustard to value
+            set
+            {
+                mustard = value;//sets value of mustard to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -72,7 +92,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pickle
         {
             get => pickle; //gets value of pickle
-            set => pickle = value; //sets value of pickle to value
+            set
+            {
+                pickle = value; //sets value of pickle to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -86,7 +111,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese; //gets value of cheese
-            set => cheese = value; //sets value of cheese to value
+            set
+            {
+                cheese = value; //sets value of cheese to value
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>

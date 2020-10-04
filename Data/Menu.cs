@@ -7,15 +7,15 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Linq;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data
 {
     /// <summary>
     /// A class for lists of the menu items
     /// </summary>
-    public static class Menu
+    public static class Menu 
     {
-
         /// <summary>
         /// Creates a list of all entree items
         /// </summary>

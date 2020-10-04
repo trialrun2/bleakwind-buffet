@@ -36,7 +36,7 @@ namespace PointOfSale.MenuCategoryWindows
         void AppleJuiceButton(object sender, RoutedEventArgs e)
         {
             DrinkCustomizations src = new DrinkCustomizations();
-            src.EnableDisableDrink(0);
+            src.EnableDisableDrink(3);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(src);
         }
@@ -64,7 +64,7 @@ namespace PointOfSale.MenuCategoryWindows
         void MilkButton(object sender, RoutedEventArgs e)
         {
             DrinkCustomizations src = new DrinkCustomizations();
-            src.EnableDisableDrink(0);
+            src.EnableDisableDrink(4);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(src);
         }
@@ -79,7 +79,6 @@ namespace PointOfSale.MenuCategoryWindows
         {
             DrinkCustomizations src = new DrinkCustomizations();
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            src.IsSodaOrNot(1);
             src.EnableDisableDrink(0);
             order.Swap(src);
         }
