@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*FileName: GardenOrcOmelette.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object GardenOrcOmelette
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;

@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+*FileName: SailorSoda.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object SailorSoda
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

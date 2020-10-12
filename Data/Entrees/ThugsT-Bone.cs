@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*FileName: ThugsT_Bone.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object ThugsT_Bone
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

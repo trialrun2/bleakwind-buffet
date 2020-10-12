@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+*FileName: MarkarthMilk.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object MarkarthMilk
+*/
+
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
     public class MarkarthMilk : Drink, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// private backing variable for cupSize
         /// </summary>

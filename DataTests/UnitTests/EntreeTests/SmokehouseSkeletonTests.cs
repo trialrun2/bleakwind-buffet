@@ -1,11 +1,13 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Zachery Brunner, and Zane Myers
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
+
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -192,6 +194,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.Pancake = true; });
             Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.SausageLink = false; });
             Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.SausageLink = true; });
+        }
+
+        [Fact]
+        public void IsAssignableFromINotifyPropertyChanged()
+        {
+            SmokehouseSkeleton aj = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aj);
         }
     }
 }

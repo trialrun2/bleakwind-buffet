@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Zane Myers
+ * Class name: DrinkCustomization.cs
+ * Purpose: Initializes DrinkCustomization and handles events for the menu
+ */
+
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;

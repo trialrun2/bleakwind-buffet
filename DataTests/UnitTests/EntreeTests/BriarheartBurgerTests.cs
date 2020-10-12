@@ -1,11 +1,13 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Zachery Brunner, and Zane Myers
  * Class: BriarheartBurgerTests.cs
  * Purpose: Test the BriarheartBurger.cs class in the Data library
  */
+
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -223,6 +225,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(bb, "SpecialInstructions", () => { bb.Ketchup = true; });
             Assert.PropertyChanged(bb, "SpecialInstructions", () => { bb.Bun = false; });
             Assert.PropertyChanged(bb, "SpecialInstructions", () => { bb.Bun = true; });
+        }
+
+        [Fact]
+        public void IsAssignableFromINotifyPropertyChanged()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(bb);
         }
     }
 }

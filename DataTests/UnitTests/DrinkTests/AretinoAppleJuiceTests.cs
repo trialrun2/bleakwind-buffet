@@ -1,13 +1,15 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Zachery Brunner, and Zane Myers
  * Class: AretinoAppleJuiceTests.cs
  * Purpose: Test the AretinoAppleJuice.cs class in the Data library
  */
+
 using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using System.Net.Http.Headers;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -154,6 +156,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.PropertyChanged(aj, "SpecialInstructions", () => { aj.Ice = true; });
             Assert.PropertyChanged(aj, "SpecialInstructions", () => { aj.Ice = false; });
+        }
+
+        [Fact]
+        public void IsAssignableFromINotifyPropertyChanged()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aj);
         }
     }
 }

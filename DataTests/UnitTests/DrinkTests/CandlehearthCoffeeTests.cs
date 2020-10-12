@@ -1,12 +1,14 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Zachery Brunner, and Zane Myers
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
  */
+
 using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -216,6 +218,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(chc, "SpecialInstructions", () => { chc.RoomForCream = false; });
             Assert.PropertyChanged(chc, "SpecialInstructions", () => { chc.Ice = true; });
             Assert.PropertyChanged(chc, "SpecialInstructions", () => { chc.Ice = false; });
+        }
+
+        [Fact]
+        public void IsAssignableFromINotifyPropertyChanged()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(chc);
         }
     }
 }

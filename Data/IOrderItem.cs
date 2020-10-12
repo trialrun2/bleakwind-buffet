@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Zane Myers
+ * Class name: IOrderItem.cs
+ * Purpose: Interface IOrderItem creates basic properties for every menu item
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

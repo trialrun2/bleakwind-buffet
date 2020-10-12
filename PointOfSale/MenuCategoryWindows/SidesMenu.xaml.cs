@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Zane Myers
+ * Class name: SidesMenu.cs
+ * Purpose: Initializes SidesMenu and handles events for the menu
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

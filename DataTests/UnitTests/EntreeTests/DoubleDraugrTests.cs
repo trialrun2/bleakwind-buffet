@@ -1,12 +1,14 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Zachery Brunner, and Zane Myers
  * Class: DoubleDraugrTests.cs
  * Purpose: Test the DoubleDraugr.cs class in the Data library
  */
+
 using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -322,6 +324,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(dd, "SpecialInstructions", () => { dd.Tomato = true; });
             Assert.PropertyChanged(dd, "SpecialInstructions", () => { dd.Mayo = false; });
             Assert.PropertyChanged(dd, "SpecialInstructions", () => { dd.Mayo = true; });
+        }
+
+        [Fact]
+        public void IsAssignableFromINotifyPropertyChanged()
+        {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dd);
         }
     }
 }

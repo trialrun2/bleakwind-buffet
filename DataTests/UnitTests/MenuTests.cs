@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Zane Myers
+ * Class name: MenuTests.cs
+ * Purpose: Test class for menu
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;

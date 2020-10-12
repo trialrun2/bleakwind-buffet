@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+*FileName: AretinoAppleJuice.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object AretinoAppleJuice
+*/
+
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

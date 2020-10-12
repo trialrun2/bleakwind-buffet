@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Zane Myers
+ * Class name: OrderWindow.cs
+ * Purpose: Initializes and handles events for the OrderWindow wpf
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -23,6 +29,7 @@ namespace PointOfSale
         public OrderWindow()
         {
             InitializeComponent();
+            DataContext = "Order";
         }
 
         /// <summary>
@@ -30,20 +37,11 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void PriorOrder(object sender, RoutedEventArgs e)
+        void CancelOrder(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
-        /// <summary>
-        /// event handler for the next order button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void NextOrder(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// event handler for the add order button
@@ -60,7 +58,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void CancelOrder(object sender, RoutedEventArgs e)
+        void CompleteOrder(object sender, RoutedEventArgs e)
         {
 
         }
@@ -68,7 +66,7 @@ namespace PointOfSale
         /// <summary>
         /// swaps the menuItems border child with the given object
         /// </summary>
-        /// <param name="swap"></param>
+        /// <param name="swap"></param> 
         public void Swap(object swap)
         {
                 menuItems.Child = (UIElement)swap;

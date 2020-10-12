@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Entrees;
+﻿/*
+ * Author: Zane Myers
+ * Class name: Menu.cs
+ * Purpose: Class creates Lists of IOrderItem holding just entrees, just drinks, just sides, and one holding all items
+ */
+
+using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;

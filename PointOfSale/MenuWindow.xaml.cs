@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Zane Myers
+ * Class name: MenuWindow.cs
+ * Purpose: Initializes and handles events for the MenuWindow wpf
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;

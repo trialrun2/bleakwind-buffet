@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*FileName: DoubleDraugr.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object DoubleDraugr
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;

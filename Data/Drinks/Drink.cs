@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*FileName: Drink.cs
+*Author : Zane Myers
+*Description : Base class for the different drinks sets up the basic properties used in each drink
+*/
+
+using System;
 using System.ComponentModel;
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*FileName: SmokehouseSkeleton.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object SmokehouseSkeleton
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;

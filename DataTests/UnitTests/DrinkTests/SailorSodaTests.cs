@@ -1,14 +1,16 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Zachery Brunner, and Zane Myers
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
  */
+
 using System;
 
 using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -213,6 +215,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             SailorSoda ss = new SailorSoda();
             Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.Ice = false; });
             Assert.PropertyChanged(ss, "SpecialInstructions", () => { ss.Ice = true; });
+        }
+
+        [Fact]
+        public void IsAssignableFromINotifyPropertyChanged()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
         }
     }
 }

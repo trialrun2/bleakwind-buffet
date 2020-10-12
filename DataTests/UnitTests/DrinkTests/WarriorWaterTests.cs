@@ -1,7 +1,13 @@
-﻿
+﻿/*
+ * Author: Zane Myers
+ * Class name: WarriorWaterTests.cs
+ * Purpose: Test class for warrior water
+ */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
@@ -164,6 +170,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Lemon = true; });
             Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Ice = false; });
             Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Ice = true; });
+        }
+
+        [Fact]
+        public void IsAssignableFromINotifyPropertyChanged()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ww);
         }
     }
 }

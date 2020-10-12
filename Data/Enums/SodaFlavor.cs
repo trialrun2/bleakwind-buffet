@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+*FileName: SodaFlavor.cs
+*Author : Zane Myers
+*Description : Class uses enumeration to represent the different flavors for the SailorSoda
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

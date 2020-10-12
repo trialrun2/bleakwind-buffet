@@ -1,4 +1,10 @@
-﻿using PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization;
+﻿/*
+ * Author: Zane Myers
+ * Class name: EntreesMenu.cs
+ * Purpose: Initializes EntreesMenu and handles events for the menu
+ */
+
+using PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization;
 using System;
 using System.Collections.Generic;
 using System.Text;

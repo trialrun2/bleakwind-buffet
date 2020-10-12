@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+*FileName: Side.cs
+*Author : Zane Myers
+*Description : Base class for the different sides sets up the basic properties used in each side
+*/
+
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;

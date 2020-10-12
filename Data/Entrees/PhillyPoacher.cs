@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+*FileName: PillyPoacher.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object PhillyPoacher
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;

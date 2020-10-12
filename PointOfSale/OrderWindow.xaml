@@ -11,36 +11,48 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-    <DockPanel Grid.Column="1">
-        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center" FontWeight="Bold" FontSize="20">Order For:</TextBlock>
-            <TextBox Margin="20,0" DockPanel.Dock="Top" FontWeight ="Bold" TextAlignment ="Center" FontSize="20"/>
-            <Grid DockPanel.Dock="Bottom" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
-            <Button Margin="10" Click ="PriorOrder" Grid.Row="1" Name="priorButton">
-                &lt; Prior
-            </Button>
-                <DockPanel Grid.Row="1" Grid.Column="1">
-                    <Button DockPanel.Dock="Top" Height="20" Margin="0,10,0,0" Click ="AddNewOrder">Add Order</Button>
-                    <Button DockPanel.Dock="Top" Height="20" Margin="0,0,0,10" Click="CancelOrder">Cancel Order</Button>
-                </DockPanel>
-            
-            <Button Margin="10" Click ="NextOrder" Grid.Column="2" Grid.Row="1" Name ="nextButton">
-                Next &gt;
-            </Button>
-        </Grid>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="20">Total: </TextBlock>
-        <TextBlock DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15"> Tax: </TextBlock>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15">Subtotal:</TextBlock>
-        <ListView Margin="20, 0" Name= "listView"/>
-    </DockPanel>
+        <DockPanel Grid.Column="1">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Margin="0,10,10,0" FontWeight="Bold" FontSize="20">Order #</TextBlock>
+                <TextBlock Text="{Binding Path= Number}" Foreground="Black"/>
+            </StackPanel>
+                <Grid DockPanel.Dock="Bottom" Height="61" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Margin="10" Click ="CancelOrder" Grid.Row="1" Name="newOrder">
+                    <TextBlock TextAlignment ="Center">Cancel <LineBreak/> Order</TextBlock>
+                </Button>
+                <Button  Margin ="10,10,10,10" Grid.Column ="1" Click ="AddNewOrder">
+                    <TextBlock TextAlignment ="Center">Add <LineBreak/> Order</TextBlock>
+                </Button>
+                <Button Margin="10" Click ="CompleteOrder" Grid.Column="2" Grid.Row="1" Name ="completeOrder">
+                    <TextBlock TextAlignment ="Center">Complete <LineBreak/> Order </TextBlock>
+                </Button>
+            </Grid>
+            <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontWeight="Bold" FontSize="20" Margin="0,0,10,0">Total:</TextBlock>
+                <TextBlock Text="{Binding Path= Total}" Foreground="Black"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Margin="0,0,10,0" FontWeight="Bold" FontSize="15"> Tax:</TextBlock>
+                <TextBlock Text="{Binding Path= Tax}" Foreground="Black"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontWeight="Bold" FontSize="15" Margin="0,0,10,0">Subtotal:</TextBlock>
+                <TextBlock Text="{Binding Path = Subtotal}" Foreground="Black"/>
+            </StackPanel>
+            <ListView Margin="20, 0" Name= "listView" ItemsSource="{Binding}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="X" Command="{Binding Path = Remove}" />
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </DockPanel>
         <Border Name="menuItems" Margin="30">
             <local:MenuWindow></local:MenuWindow>
         </Border>

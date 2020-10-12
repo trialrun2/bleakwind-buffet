@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*FileName: BriarheartBurger.cs
+*Author : Zane Myers
+*Description : Class for defining the properties of and creating the object BriarheartBurger
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;

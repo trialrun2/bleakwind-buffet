@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Entrees;
+﻿/*
+ * Author: Zane Myers
+ * Class name: TBoneCustomization.cs
+ * Purpose: Initializes TBoneCustomization and handles events for the menu
+ */
+
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;

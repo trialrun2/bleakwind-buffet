@@ -1,4 +1,10 @@
-﻿using PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization;
+﻿/*
+ * Author: Zane Myers
+ * Class name: DrinksMenu.cs
+ * Purpose: Initializes DrinksMenu and handles events for the menu
+ */
+
+using PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization;
 using System;
 using System.Collections.Generic;
 using System.Text;

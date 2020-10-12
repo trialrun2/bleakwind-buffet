@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Zane Myers
+ * Class name: ChangeScreen.cs
+ * Purpose: Class created to allow the WPF to switch between two different wpf's
+ */
+using System;
 using System.Collections.Generic;
 using System.Security.Permissions;
 using System.Text;

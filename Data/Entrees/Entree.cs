@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*FileName: Entree.cs
+*Author : Zane Myers
+*Description : Base class for the different entrees sets up the basic properties used in each entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

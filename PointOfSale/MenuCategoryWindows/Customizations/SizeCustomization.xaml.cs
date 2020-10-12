@@ -1,4 +1,11 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Zane Myers
+ * Class name: SizeCustomization.cs
+ * Purpose: Initializes SizeCustomization and handles events for the menu
+ */
+
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Sides;
 using PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization;
 using System;
@@ -25,6 +32,8 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
         private int sideOrDrinkType;
         // object variable to hold the incoming object;
         object obj = null;
+
+        public Order orderList = new Order();
 
         /// <summary>
         /// initializes size customization disables the add item button
@@ -177,6 +186,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
             MenuWindow menu = new MenuWindow();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(menu);
+            orderList.Add((IOrderItem) obj);
         }
 
         /// <summary>
