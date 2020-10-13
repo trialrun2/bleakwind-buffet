@@ -26,15 +26,16 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
     public partial class FlavorCustomization : UserControl
     {
         //variable to hold soda passedIn and pass it on
-        SailorSoda passIn = null;
+        SailorSoda ss = new SailorSoda();
 
         /// <summary>
         /// initializes flavor customization and disables next button
         /// </summary>
-        public FlavorCustomization()
+        public FlavorCustomization(SailorSoda passedIn)
         {
             InitializeComponent();
             nextButton.IsEnabled = false;
+            ss = passedIn;
         }
         
         /// <summary>
@@ -48,29 +49,29 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
             nextButton.IsEnabled = true;
             if (BBRadio.IsChecked == true)
             {
-                passIn.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry;
+                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry;
             }
             else if (GFRadio.IsChecked == true)
             {
-                passIn.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit;
+                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit;
             }
             else if(WMRadio.IsChecked == true)
             {
-                passIn.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon;
+                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon;
             }
             else if(PRadio.IsChecked == true)
             {
-                passIn.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Peach;
+                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Peach;
             }
             else if(LRadio.IsChecked == true)
             {
-                passIn.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Lemon;
+                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Lemon;
             }
             else
             {
-                passIn.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Cherry;
+                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Cherry;
             }
-            DataContext = passIn;
+            DataContext = ss;
         }
 
         /// <summary>
@@ -81,9 +82,8 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// <param name="e"></param>
         void FlavorNextButton(object sender, RoutedEventArgs e)
         {
-            SizeCustomization size = new SizeCustomization();
+            SizeCustomization size = new SizeCustomization(0, ss);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            size.SideOrDrinkType(0, passIn);
             order.Swap(size);
         }
 
@@ -94,19 +94,9 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// <param name="e"></param>
         void FlavorBackButton(object sender, RoutedEventArgs e)
         {
-            DrinkCustomizations src = new DrinkCustomizations();
+            DrinkCustomizations src = new DrinkCustomizations(ss, 0);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            src.EnableDisableDrink(0);
             order.Swap(src);
-        }
-
-        /// <summary>
-        /// sets passIn to the object passedIn
-        /// </summary>
-        /// <param name="passedIn"></param>
-        public void PassInSoda(object passedIn)
-        {
-            passIn = (SailorSoda)passedIn;
         }
     }
 }

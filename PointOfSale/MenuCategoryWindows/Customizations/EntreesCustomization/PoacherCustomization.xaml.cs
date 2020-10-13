@@ -41,7 +41,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void AddPoacherButton(object sender, RoutedEventArgs e)
+        void DoneButton(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();
             OrderWindow order = this.FindAncestor<OrderWindow>();
@@ -58,39 +58,6 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
             EntreesMenu entree = new EntreesMenu();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(entree);
-        }
-
-        /// <summary>
-        /// event handler for sirloin checkbox sets pp's sirloin property to the checkbox's ischecked property
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void OnSirloinSelect(object sender, RoutedEventArgs e)
-        {
-            pp.Sirloin = (bool)sirloinCheck.IsChecked;
-            DataContext = pp;
-        }
-
-        /// <summary>
-        /// event handler for onion checkbox sets pp's onion property to the checkbox's ischecked property
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void OnOnionSelect(object sender, RoutedEventArgs e)
-        {
-            pp.Onion = (bool)onionCheck.IsChecked;
-            DataContext = pp;
-        }
-
-        /// <summary>
-        /// event handler for roll checkbox sets pp's roll property to the checkbox's ischecked property
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void OnRollSelect(object sender, RoutedEventArgs e)
-        {
-            pp.Roll = (bool)rollCheck.IsChecked;
-            DataContext = pp;
         }
     }
 }

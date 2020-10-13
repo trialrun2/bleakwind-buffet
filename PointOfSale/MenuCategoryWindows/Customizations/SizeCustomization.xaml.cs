@@ -30,18 +30,74 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
     {
         //private int variable to allow size to know where to return if back is pressed
         private int sideOrDrinkType;
-        // object variable to hold the incoming object;
-        object obj = null;
 
-        public Order orderList = new Order();
+        // object variables to hold the incoming object;
+        IOrderItem obj;
+        SailorSoda ss = new SailorSoda();
+        CandlehearthCoffee chc = new CandlehearthCoffee();
+        WarriorWater ww = new WarriorWater();
+        AretinoAppleJuice aj = new AretinoAppleJuice();
+        MarkarthMilk mm = new MarkarthMilk();
+        DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+        FriedMiraak fm = new FriedMiraak();
+        MadOtarGrits mog = new MadOtarGrits();
+        VokunSalad vs = new VokunSalad();
 
         /// <summary>
         /// initializes size customization disables the add item button
         /// </summary>
-        public SizeCustomization()
+        public SizeCustomization(int isSideOrDrink, IOrderItem item)
         {
             InitializeComponent();
-            addItemButton.IsEnabled = false;
+            sideOrDrinkType = isSideOrDrink;
+            
+            DoneButton.IsEnabled = false;
+            if (sideOrDrinkType == 0)// soda
+            {
+                ss = (SailorSoda)item;
+                obj = ss;
+            }
+            else if (sideOrDrinkType == 1)// coffee
+            {
+                chc = (CandlehearthCoffee)item;
+                obj = chc;
+            }
+            else if (sideOrDrinkType == 2)// water
+            {
+                ww = (WarriorWater)item;
+                obj = ww;
+            }
+            else if (sideOrDrinkType == 3)// apple juice
+            {
+                aj = (AretinoAppleJuice)item;
+                obj = aj;
+            }
+            else if (sideOrDrinkType == 4)// milk
+            {
+                mm = (MarkarthMilk)item;
+                obj = mm;
+            }
+            else if (sideOrDrinkType == 5)// waffle fries
+            {
+                dwf = (DragonbornWaffleFries)item;
+                obj = dwf;
+            }
+            else if (sideOrDrinkType == 6)// fried miraak
+            {
+                fm = (FriedMiraak)item;
+                obj = fm;
+            }
+            else if (sideOrDrinkType == 7)// grits
+            {
+                mog = (MadOtarGrits)item;
+                obj = mog;
+            }
+            else if (sideOrDrinkType == 8)// salad
+            {
+                vs = (VokunSalad)item;
+                obj = vs;
+            }
+            else { };
         }
 
         /// <summary>
@@ -51,7 +107,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
         /// <param name="e"></param>
         void SizeOfItem(object sender, RoutedEventArgs e)
         {
-            addItemButton.IsEnabled = true;
+            /*DoneButton.IsEnabled = true;
             if (sideOrDrinkType == 0)//sailor soda
             {
                 SailorSoda ss = (SailorSoda)obj;
@@ -60,7 +116,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { ss.CupSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = ss;
-                DataContext = obj;
+                DataContext = ss;
             }
             else if (sideOrDrinkType == 1)//Candleheart coffee
             {
@@ -70,7 +126,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { chc.CupSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = chc;
-                DataContext = obj;
+                DataContext = chc;
             }
             else if (sideOrDrinkType == 2)//warrior water
             {
@@ -80,7 +136,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { ww.CupSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = ww;
-                DataContext = obj;
+                DataContext = ww;
             }
             else if (sideOrDrinkType == 3)// aretino Apple juice
             {
@@ -90,7 +146,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { aj.CupSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = aj;
-                DataContext = obj;
+                DataContext = aj;
             }
             else if (sideOrDrinkType == 4)// markarth milk
             {
@@ -100,7 +156,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { mm.CupSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = mm;
-                DataContext = obj;
+                DataContext = mm;
             }
             else if (sideOrDrinkType == 5)// dragonborn waffle fries
             {
@@ -110,7 +166,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { dwf.SideSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = dwf;
-                DataContext = obj;
+                DataContext = dwf;
             }
             else if (sideOrDrinkType == 6)// fried miraak
             {
@@ -120,7 +176,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { fm.SideSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = fm;
-                DataContext = obj;
+                DataContext = fm;
             }
             else if (sideOrDrinkType == 7) // mad otar grits
             {
@@ -130,7 +186,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { mog.SideSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = mog;
-                DataContext = obj;
+                DataContext = mog;
             }
             else if (sideOrDrinkType == 8) // vokun salad
             {
@@ -140,9 +196,9 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
                 else if (largeRadio.IsChecked == true) { vs.SideSize = BleakwindBuffet.Data.Enums.Size.Large; }
                 else { }
                 obj = vs;
-                DataContext = obj;
+                DataContext = vs;
             }
-            else { }
+            else { }*/
 
         }
 
@@ -162,15 +218,14 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
             }
             else if(sideOrDrinkType == 0)// if its a drink and a soda
             {
-                FlavorCustomization swap = new FlavorCustomization();
+                FlavorCustomization swap = new FlavorCustomization(ss);
                 OrderWindow order = this.FindAncestor<OrderWindow>();
                 order.Swap(swap);
             }
             else // if its any other drink type
             {
-                DrinkCustomizations swap = new DrinkCustomizations();
+                DrinkCustomizations swap = new DrinkCustomizations(obj, sideOrDrinkType);
                 OrderWindow order = this.FindAncestor<OrderWindow>();
-                swap.EnableDisableDrink(sideOrDrinkType);
                 order.Swap(swap);
             }
             
@@ -181,22 +236,12 @@ namespace PointOfSale.MenuCategoryWindows.Customizations
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void AddItemButton(object sender, RoutedEventArgs e)
+        void ItemDoneButton(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(menu);
-            orderList.Add((IOrderItem) obj);
-        }
-
-        /// <summary>
-        /// called when size customization is initialized to set sideOrDrink variable, and obj to item variable
-        /// </summary>
-        /// <param name="isSideOrDrink"></param>
-        public void SideOrDrinkType(int isSideOrDrinkType, object item)
-        {
-            sideOrDrinkType = isSideOrDrinkType;
-            obj = item;
+            
         }
     }
 }

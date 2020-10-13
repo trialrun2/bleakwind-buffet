@@ -4,6 +4,7 @@
  * Purpose: Initializes MainWindow wpf
  */
 
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,14 @@ namespace PointOfSale
         /// <summary>
         /// Initializes the main window
         /// </summary>
+        /// 
+
+
         public MainWindow()
         {
             InitializeComponent();
+            Order orderList = new Order();
+            DataContext = orderList;
         }
     }
 }

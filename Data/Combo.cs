@@ -16,9 +16,9 @@ using BleakwindBuffet.Data.Sides;
 
 namespace BleakwindBuffet.Data
 {
-    public class Combo : ObservableCollection<Combo>, IOrderItem, INotifyPropertyChanged
+    public class Combo : IOrderItem, INotifyPropertyChanged
     {
-        public PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private Drink drank;
 
@@ -27,9 +27,9 @@ namespace BleakwindBuffet.Data
             get => drank;
             set
             {
-                CollectionChanged -= CollectionChangedListner;
+                DrinkCombo.PropertyChanged -= PropertyItemChangedListner;
                 drank = value;
-                CollectionChanged += CollectionChangedListner;
+                DrinkCombo.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DrinkCombo"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
@@ -43,9 +43,9 @@ namespace BleakwindBuffet.Data
             get => entre;
             set
             {
-                CollectionChanged -= CollectionChangedListner;
+                entre.PropertyChanged -= PropertyItemChangedListner;
                 entre = value;
-                CollectionChanged += CollectionChangedListner;
+                entre.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EntreeCombo"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
@@ -59,9 +59,9 @@ namespace BleakwindBuffet.Data
             get => sid;
             set
             {
-                CollectionChanged -= CollectionChangedListner;
+                sid.PropertyChanged -= PropertyItemChangedListner;
                 sid = value;
-                CollectionChanged += CollectionChangedListner;
+                sid.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SideCombo"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
@@ -71,13 +71,14 @@ namespace BleakwindBuffet.Data
 
         public double Price
         {
-            get => SideCombo.Price + DrinkCombo.Price + EntreeCombo.Price - 1;
+            get => sid.Price + drank.Price + entre.Price - 1;
         }
 
         private uint cal;
+
         public uint Calories
         {
-            get => SideCombo.Calories + DrinkCombo.Calories + EntreeCombo.Calories;
+            get => sid.Calories + drank.Calories + entre.Calories;
         }
 
         public List<string> SpecialInstructions
@@ -85,52 +86,24 @@ namespace BleakwindBuffet.Data
             get
             {
                 List<string> instructions = new List<string>();//creates new list
-                instructions.Add($"{EntreeCombo.ToString()}\n, - {EntreeCombo.SpecialInstructions}, \n {SideCombo.ToString()}, \n - {SideCombo.SpecialInstructions}, \n {DrinkCombo.ToString()}, \n - {DrinkCombo.SpecialInstructions}");
+                instructions.Add($"{entre.ToString()}\n, - {entre.SpecialInstructions}, \n {sid.ToString()}, \n - {sid.SpecialInstructions}, \n {drank.ToString()}, \n - {drank.SpecialInstructions}");
                 return instructions;//return the list
             }
         }
 
-        void CollectionChangedListner(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            switch (e.Action)
-            {
-                case NotifyCollectionChangedAction.Add:
-                    foreach (Combo item in e.NewItems)
-                    {
-                        item.PropertyChanged += CollectionItemChangedListner;
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Remove:
-                    foreach(Combo item in e.OldItems)
-                    {
-                        item.PropertyChanged -= CollectionItemChangedListner;
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Replace:
-                    foreach (Combo item in e.NewItems)
-                    {
-                        item.PropertyChanged += CollectionItemChangedListner;
-                    }
-                    foreach (Combo item in e.OldItems)
-                    {
-                        item.PropertyChanged -= CollectionItemChangedListner;
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Reset:
-                    throw new NotImplementedException("NotifyCollectionChangedAction.Reset sot supported");           
-            }
-        }
-        void CollectionItemChangedListner(object sender, PropertyChangedEventArgs e)
+        void PropertyItemChangedListner(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Price")
             {
-                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
-                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             }
             if(e.PropertyName == "Calories")
             {
-                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
-                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+            if (e.PropertyName == "SpecialInstructions")
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
     }

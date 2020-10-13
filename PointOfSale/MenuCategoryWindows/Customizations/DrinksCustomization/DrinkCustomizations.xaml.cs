@@ -4,6 +4,7 @@
  * Purpose: Initializes DrinkCustomization and handles events for the menu
  */
 
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
     {
         //private int variable used to determine where to go next
         private int drinkType;
-        object passIn = null;
+        IOrderItem passIn = null;
         public SailorSoda ss = new SailorSoda();
         public CandlehearthCoffee chc = new CandlehearthCoffee();
         public WarriorWater ww = new WarriorWater();
@@ -38,9 +39,18 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// <summary>
         /// initializes drink special requests
         /// </summary>
-        public DrinkCustomizations()
+        public DrinkCustomizations(IOrderItem drink, int dType)
         {
             InitializeComponent();
+            DataContext = drink;
+            drinkType = dType;
+            EnableDisableDrink();
+            if (drinkType == 0) ss = (SailorSoda)drink;
+            else if (drinkType == 1) chc = (CandlehearthCoffee)drink;
+            else if (drinkType == 2) ww = (WarriorWater)drink;
+            else if (drinkType == 3) aj = (AretinoAppleJuice)drink;
+            else mm = (MarkarthMilk)drink;
+
         }
 
         /// <summary>
@@ -54,10 +64,8 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
             
             if(drinkType == 0)//if it is a Sailor Soda
             {
-                passIn = ss;
-                FlavorCustomization flavor = new FlavorCustomization();
+                FlavorCustomization flavor = new FlavorCustomization(ss);
                 OrderWindow order = this.FindAncestor<OrderWindow>();
-                flavor.PassInSoda(passIn);
                 order.Swap(flavor);
             }
             else//if its not a soda
@@ -66,9 +74,8 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
                 else if(drinkType == 2) { passIn = ww; }
                 else if(drinkType == 3) { passIn = aj; }
                 else { passIn = mm; }
-                SizeCustomization size = new SizeCustomization();
+                SizeCustomization size = new SizeCustomization(drinkType, passIn);
                 OrderWindow order = this.FindAncestor<OrderWindow>();
-                size.SideOrDrinkType(drinkType, passIn);
                 order.Swap(size);
             }
         }
@@ -89,10 +96,9 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         /// called when special requests is initialized to determine what to disable
         /// </summary>
         /// <param name="enableDisable"></param>
-        public void EnableDisableDrink(int enableDisable)
+        public void EnableDisableDrink()
         {
-            drinkType = enableDisable;
-            if (enableDisable == 0)//if it's soda
+            if (drinkType == 0)//if it's soda
             {
                 lemonCheck.IsEnabled = false;
                 decafCheck.IsEnabled = false;
@@ -103,7 +109,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
                 creamCheck.IsChecked = false;
                 iceCheck.IsChecked = true;
             }
-            else if (enableDisable == 1)// if it's coffee
+            else if (drinkType == 1)// if it's coffee
             {
                 lemonCheck.IsEnabled = false;
                 decafCheck.IsEnabled = true;
@@ -114,7 +120,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
                 creamCheck.IsChecked = false;
                 iceCheck.IsChecked = false;
             }
-            else if (enableDisable == 2)// if its water
+            else if (drinkType == 2)// if its water
             {
                 lemonCheck.IsEnabled = true;
                 decafCheck.IsEnabled = false;
@@ -125,7 +131,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
                 creamCheck.IsChecked = false;
                 iceCheck.IsChecked = true;
             }
-            else if (enableDisable == 3)// if it's apple juice
+            else if (drinkType == 3)// if it's apple juice
             {
                 lemonCheck.IsEnabled = false;
                 decafCheck.IsEnabled = false;
@@ -146,59 +152,6 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
                 decafCheck.IsChecked = false;
                 creamCheck.IsChecked = false;
                 iceCheck.IsChecked = false;
-            }
-        }
-
-        void OnIceSelect(object sender, RoutedEventArgs e)
-        {
-            if(drinkType == 0)
-            {
-                ss.Ice = (bool)iceCheck.IsChecked;
-                DataContext = ss;
-            }
-            else if(drinkType == 1)
-            {
-                chc.Ice = (bool)iceCheck.IsChecked;
-                DataContext = chc;
-            }
-            else if(drinkType == 2)
-            {
-                ww.Ice = (bool)iceCheck.IsChecked;
-                DataContext = ww;
-            }
-            else if(drinkType == 3)
-            {
-                aj.Ice = (bool)iceCheck.IsChecked;
-                DataContext = aj;
-            }
-            else
-            {
-                mm.Ice = (bool)iceCheck.IsChecked;
-                DataContext = mm;
-            }
-        }
-        void OnLemonSelect(object sender, RoutedEventArgs e)
-        {
-            if (drinkType == 2)
-            {
-                ww.Lemon = (bool)lemonCheck.IsChecked;
-                DataContext = ww;
-            }
-        }
-        void OnDecafSelect(object sender, RoutedEventArgs e)
-        {
-            if (drinkType == 1)
-            {
-                chc.Decaf = (bool)decafCheck.IsChecked;
-                DataContext = chc;
-            }
-        }
-        void OnCreamSelect(object sender, RoutedEventArgs e)
-        {
-            if (drinkType == 1)
-            {
-                chc.RoomForCream = (bool)creamCheck.IsChecked;
-                DataContext = chc;
             }
         }
     }

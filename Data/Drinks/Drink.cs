@@ -15,8 +15,10 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A base class representing the common properties of drinks
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The size of the drink
         /// </summary>
@@ -39,5 +41,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// Special instructions to prepare the drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        public string Name { get => ToString(); }
+
+        public void PropChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
     }
 }

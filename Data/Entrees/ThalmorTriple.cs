@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThalmorTriple : Entree, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private List<string> instructions = new List<string>();//creates new list
 
         /// <summary>
         /// Gets the price of the burger
@@ -42,8 +42,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 ketchup = value;//sets ketchup equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Ketchup");
+                if (!Ketchup) instructions.Add("Hold ketchup");//if ketchup is false, hold ketchup
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -61,8 +62,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 bun = value;//sets bun equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Bun");
+                if (!Bun) instructions.Add("Hold bun");//if bun is false, hold bun
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -80,8 +82,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mustard = value;//sets mustard equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Mustard");
+                if (!Mustard) instructions.Add("Hold mustard");//if mustard is false, hold mustard
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -99,8 +102,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 pickle = value;//sets pickle equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Pickle");
+                if (!Pickle) instructions.Add("Hold pickle");//if pickle is false, hold pickle
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -118,8 +122,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheese = value;//sets cheese equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Cheese");
+                if (!Cheese) instructions.Add("Hold cheese");//if cheese is false, hold cheese
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -137,8 +142,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 tomato = value;//sets tomato equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Tomato");
+                if (!Tomato) instructions.Add("Hold tomato");//if tomato is false, hold tomato
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -156,8 +162,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 lettuce = value;//sets lettuce equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Lettuce");
+                if (!Lettuce) instructions.Add("Hold lettuce");//if lettuce is false, hold lettuce
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -175,8 +182,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mayo = value;//sets mayo equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Mayo");
+                if (!Mayo) instructions.Add("Hold mayo");//if mayo is false, hold mayo
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -194,8 +202,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 bacon = value;//sets bacon equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Bacon");
+                if (!Bacon) instructions.Add("Hold bacon");//if bacon is false, hold bacon
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -213,8 +222,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 egg = value;//sets egg equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Egg");
+                if (!Egg) instructions.Add("Hold egg");//if egg is false, hold egg
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -227,21 +237,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override List<string> SpecialInstructions
         {
-            get
-            {
-                List<string> instructions = new List<string>();//creates new list
-                if (!Bun) instructions.Add("Hold bun");//if bun is false, hold bun
-                if (!Ketchup) instructions.Add("Hold ketchup");//if ketchup is false, hold ketchup
-                if (!Pickle) instructions.Add("Hold pickle");//if pickle is false, hold pickle
-                if (!Mustard) instructions.Add("Hold mustard");//if mustard is false, hold mustard
-                if (!Cheese) instructions.Add("Hold cheese");//if cheese is false, hold cheese
-                if (!Tomato) instructions.Add("Hold tomato");//if tomato is false, hold tomato
-                if (!Lettuce) instructions.Add("Hold lettuce");//if lettuce is false, hold lettuce
-                if (!Mayo) instructions.Add("Hold mayo");//if mayo is false, hold mayo
-                if (!Bacon) instructions.Add("Hold bacon");//if bacon is false, hold bacon
-                if (!Egg) instructions.Add("Hold egg");//if egg is false, hold egg
-                return instructions;//return the list
-            }
+            get => instructions;
         }
 
         /// <summary>

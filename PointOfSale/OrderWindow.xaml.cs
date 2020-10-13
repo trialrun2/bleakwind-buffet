@@ -29,7 +29,6 @@ namespace PointOfSale
         public OrderWindow()
         {
             InitializeComponent();
-            DataContext = "Order";
         }
 
         /// <summary>

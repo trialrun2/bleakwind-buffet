@@ -15,7 +15,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary
     public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private List<string> instructions = new List<string>();
 
         /// <summary>
         /// Gets the price of the philly cheesesteak
@@ -41,8 +41,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sirloin = value;//sets sirloin equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Sirloin");
+                if (!Sirloin) instructions.Add("Hold sirloin");//if sirloin is false, hold sirloin
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -60,8 +61,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 onion = value;//sets onion equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Onion");
+                if (!Onion) instructions.Add("Hold onions");//if onion is false, hold onion
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -79,8 +81,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 roll = value;//sets roll equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("roll"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Roll");
+                if (!Roll) instructions.Add("Hold roll");//if roll is false, hold roll
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -93,14 +96,8 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override List<string> SpecialInstructions
         {
-            get
-            {
-                List<string> instructions = new List<string>();//creates new list
-                if (!Sirloin) instructions.Add("Hold sirloin");//if sirloin is false, hold sirloin
-                if (!Onion) instructions.Add("Hold onions");//if onion is false, hold onion
-                if (!Roll) instructions.Add("Hold roll");//if roll is false, hold roll
-                return instructions;//return the list
-            }
+            get => instructions;//return the list
+            
         }
 
         /// <summary>

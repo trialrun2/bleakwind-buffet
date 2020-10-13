@@ -17,8 +17,6 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class VokunSalad : Side, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// private backing variable for sideSize
         /// </summary>
@@ -58,10 +56,9 @@ namespace BleakwindBuffet.Data.Sides
                     price = 0.93;//set price back to default
                     calories = 41;//set calories back to default
                 }
-
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropChanged("Price");
+                PropChanged("Calories");
+                PropChanged("CupSize");
             }
         }
 

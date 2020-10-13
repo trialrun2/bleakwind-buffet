@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        List<string> instructions = new List<string>();//creates new list
 
         /// <summary>
         /// Gets the price of the breakfast
@@ -42,8 +42,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sausageLink = value;//sets sausageLink equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("SausageLink");
+                if (!SausageLink) instructions.Add("Hold sausage");//if sausageLink is false, hold sausageLink
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -61,8 +62,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 egg = value;//sets egg equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Egg");
+                if (!Egg) instructions.Add("Hold eggs");//if egg is false, hold egg
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -80,8 +82,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 hashBrowns = value;//sets hashBrowns equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("HashBrowns");
+                if (!HashBrowns) instructions.Add("Hold hash browns");//if hashbrowns is false, hold hashbrowns
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -99,8 +102,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 pancake = value;//sets pancake equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Pancake");
+                if (!Pancake) instructions.Add("Hold pancakes");//if pancake is false, hold pancake
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -113,15 +117,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override List<string> SpecialInstructions
         {
-            get
-            {
-                List<string> instructions = new List<string>();//creates new list
-                if (!SausageLink) instructions.Add("Hold sausage");//if sausageLink is false, hold sausageLink
-                if (!Egg) instructions.Add("Hold eggs");//if egg is false, hold egg
-                if (!HashBrowns) instructions.Add("Hold hash browns");//if hashbrowns is false, hold hashbrowns
-                if (!Pancake) instructions.Add("Hold pancakes");//if pancake is false, hold pancake
-                return instructions;//return the list
-            }
+            get => instructions;
         }
 
         /// <summary>

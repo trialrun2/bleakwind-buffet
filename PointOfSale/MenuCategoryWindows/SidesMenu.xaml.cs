@@ -44,10 +44,13 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void FriesButton(object sender, RoutedEventArgs e)
         {
-            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
-            SizeCustomization custom = new SizeCustomization();
+            var dwf = new DragonbornWaffleFries();
+            SizeCustomization custom = new SizeCustomization(5, dwf);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrinkType(5, dwf);
+            if (DataContext is Order orders)
+            {
+                orders.Add(dwf);
+            }
             order.Swap(custom);
         }
 
@@ -60,9 +63,12 @@ namespace PointOfSale.MenuCategoryWindows
         void MiraakButton(object sender, RoutedEventArgs e)
         {
             FriedMiraak fm = new FriedMiraak();
-            SizeCustomization custom = new SizeCustomization();
+            SizeCustomization custom = new SizeCustomization(6, fm);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrinkType(6, fm);
+            if (DataContext is Order orders)
+            {
+                orders.Add(fm);
+            }
             order.Swap(custom);
         }
 
@@ -75,9 +81,12 @@ namespace PointOfSale.MenuCategoryWindows
         void GritsButton(object sender, RoutedEventArgs e)
         {
             MadOtarGrits mog = new MadOtarGrits();
-            SizeCustomization custom = new SizeCustomization();
+            SizeCustomization custom = new SizeCustomization(7, mog);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrinkType(7, mog);
+            if (DataContext is Order orders)
+            {
+                orders.Add(mog);
+            }
             order.Swap(custom);
         }
 
@@ -90,12 +99,13 @@ namespace PointOfSale.MenuCategoryWindows
         void SaladButton(object sender, RoutedEventArgs e)
         {
             VokunSalad vs = new VokunSalad();
-            SizeCustomization custom = new SizeCustomization();
+            SizeCustomization custom = new SizeCustomization(8, vs);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            custom.SideOrDrinkType(8, vs);
-            order.Swap(custom);
-
-            
+            if (DataContext is Order orders)
+            {
+                orders.Add(vs);
+            }
+            order.Swap(custom);   
         }
 
         /// <summary>

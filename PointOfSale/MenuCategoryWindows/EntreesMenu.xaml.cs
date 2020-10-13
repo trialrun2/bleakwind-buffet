@@ -17,6 +17,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.MenuCategoryWindows
 {
@@ -41,9 +43,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void BriarheartButton(object sender, RoutedEventArgs e)
         {
-            BurgerCustomization bc = new BurgerCustomization();
+            BurgerCustomization bc = new BurgerCustomization(new BriarheartBurger(), 0);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            bc.EnableDisableBurger(0);
+            if (DataContext is Order orders)
+            {
+                orders.Add(new BriarheartBurger());
+            }
             order.Swap(bc);
         }
 
@@ -55,9 +60,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void DoubleButton(object sender, RoutedEventArgs e)
         {
-            BurgerCustomization bc = new BurgerCustomization();
+            BurgerCustomization bc = new BurgerCustomization(new DoubleDraugr(), 1);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            bc.EnableDisableBurger(1);
+            if (DataContext is Order orders)
+            {
+                orders.Add(new DoubleDraugr());
+            }
             order.Swap(bc);
         }
 
@@ -70,6 +78,10 @@ namespace PointOfSale.MenuCategoryWindows
         {
             OmeletteCustomization omelette = new OmeletteCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
+            if (DataContext is Order orders)
+            {
+                orders.Add(new GardenOrcOmelette());
+            }
             order.Swap(omelette);
         }
 
@@ -82,6 +94,10 @@ namespace PointOfSale.MenuCategoryWindows
         {
             PoacherCustomization poacher = new PoacherCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
+            if (DataContext is Order orders)
+            {
+                orders.Add(new PhillyPoacher());
+            }
             order.Swap(poacher);
         }
 
@@ -94,6 +110,10 @@ namespace PointOfSale.MenuCategoryWindows
         {
             SkeletonCustomization skeleton = new SkeletonCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
+            if (DataContext is Order orders)
+            {
+                orders.Add(new SmokehouseSkeleton());
+            }
             order.Swap(skeleton);
         }
 
@@ -105,9 +125,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void TripleButton(object sender, RoutedEventArgs e)
         {
-            BurgerCustomization bc = new BurgerCustomization();
+            BurgerCustomization bc = new BurgerCustomization(new ThalmorTriple(), 2);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            bc.EnableDisableBurger(2);
+            if (DataContext is Order orders)
+            {
+                orders.Add(new ThalmorTriple());
+            }
             order.Swap(bc);
         }
 
@@ -120,6 +143,10 @@ namespace PointOfSale.MenuCategoryWindows
         {
             TBoneCustomization tbc = new TBoneCustomization();
             OrderWindow order = this.FindAncestor<OrderWindow>();
+            if (DataContext is Order orders)
+            {
+                orders.Add(new ThugsT_Bone());
+            }
             order.Swap(tbc);
         }
 

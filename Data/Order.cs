@@ -7,69 +7,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data
 {
-    public class Order : INotifyPropertyChanged, ICollection, INotifyCollectionChanged
+    public class Order : ObservableCollection<IOrderItem>
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public event CollectionChangeEventHandler CollectionChanged;
-
-        public ICollection<IOrderItem> order;
-
-
-        event NotifyCollectionChangedEventHandler INotifyCollectionChanged.CollectionChanged
-        {
-            add
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
-            }
-
-            remove
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
-            }
-        }
-
-        public void Add(IOrderItem item)
-        {
-            order.Add(item);
-            CollectionChanged?.Invoke(this, new CollectionChangeEventArgs(CollectionChangeAction.Add, item));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
-        }
-
-        public void Remove(IOrderItem item)
-        {
-            order.Remove(item);
-            CollectionChanged?.Invoke(this, new CollectionChangeEventArgs(CollectionChangeAction.Remove, item));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
-        }
-
-        public void CopyTo(Array array, int index)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
 
         private double salesTaxRate = 0.12;
 
@@ -79,18 +25,16 @@ namespace BleakwindBuffet.Data
             set
             {
                 salesTaxRate = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
         }
 
-        private double price = 0;
+        private double price;
         public double Subtotal
         {
             get
-            {   
-                foreach(IOrderItem item in order)
+            {
+                price = 0;
+                foreach(IOrderItem item in this)
                 {
                     price = price +  item.Price;
                 }
@@ -98,14 +42,26 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        private double tax;
         public double Tax
         {
-            get => SalesTaxRate * Subtotal;
+            get
+            {
+                tax = 0;
+                tax = SalesTaxRate * Subtotal;
+                return tax;
+            }
         }
 
+        private double total;
         public double Total
         {
-            get => Subtotal + Tax;
+            get
+            {
+                total = 0;
+                total = Subtotal + Tax;
+                return total;
+            }
         }
 
         private uint calories = 0;
@@ -113,7 +69,7 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                foreach (IOrderItem item in order)
+                foreach (IOrderItem item in this)
                 {
                     calories = calories + item.Calories;
                 }
@@ -133,21 +89,43 @@ namespace BleakwindBuffet.Data
             }
         }
 
-        private int count;
-        public int Count
+        void CollectionChangedListner(object sender, NotifyCollectionChangedEventArgs e)
         {
-            get
+            OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+            switch (e.Action)
             {
-                foreach (IOrderItem item in order)
-                {
-                    count +=  1;
-                }
-                return count;
+                case NotifyCollectionChangedAction.Add:
+                    foreach (Order item in e.NewItems)
+                    {
+                        item.PropertyChanged += CollectionItemChangedListner;
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Remove:
+                    foreach (Order item in e.OldItems)
+                    {
+                        item.PropertyChanged -= CollectionItemChangedListner;
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Reset:
+                    throw new NotImplementedException("NotifyCollectionChangedAction.Reset sot supported");
             }
         }
 
-        public bool IsSynchronized => throw new NotImplementedException();
-
-        public object SyncRoot => throw new NotImplementedException();
+        void CollectionItemChangedListner(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Price")
+            {
+                OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+            }
+            if (e.PropertyName == "Calories")
+            {
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+            }
+        }
     }
 }

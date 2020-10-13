@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class CandlehearthCoffee : Drink, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        List<string> instructions = new List<string>();//creates new list
 
         /// <summary>
         /// private backing variable for cupSize
@@ -58,9 +58,9 @@ namespace BleakwindBuffet.Data.Drinks
                     price = 0.75;//set price back to default
                     calories = 7;//set calories back to default
                 }
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropChanged("CupSize");
+                PropChanged("Price");
+                PropChanged("Calories");
             }
         }
 
@@ -94,8 +94,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;//sets boolean value of ice to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Ice");
+                if (Ice) instructions.Add("Add ice");//if ice is true, add ice
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -113,8 +114,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 roomForCream = value;//sets boolean value of roomForCream to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cream"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("RoomForCream");
+                if (RoomForCream) instructions.Add("Add cream");//if roomforcream is true, add cream
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -132,7 +134,7 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 decaf = value;//sets boolean value of decaf to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+                PropChanged("Decaf");
             }
         }
 
@@ -145,13 +147,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override List<string> SpecialInstructions
         {
-            get
-            {
-                List<string> instructions = new List<string>();//creates new list
-                if (Ice) instructions.Add("Add ice");//if ice is true, add ice
-                if (RoomForCream) instructions.Add("Add cream");//if roomforcream is true, add cream
-                return instructions;//return the list
-            }
+            get => instructions;
         }
 
         /// <summary>

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +14,10 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A base class representing the common properties of entrees
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of the entree
         /// </summary>
@@ -32,5 +35,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// Special instructions to prepare the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        public string Name { get => ToString(); }
+
+        public void PropChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
+
     }
 }

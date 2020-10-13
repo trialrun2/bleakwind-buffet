@@ -42,7 +42,7 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void AddSkeletonButton(object sender, RoutedEventArgs e)
+        void DoneButton(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();
             OrderWindow order = this.FindAncestor<OrderWindow>();
@@ -59,50 +59,6 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
             EntreesMenu entree = new EntreesMenu();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(entree);
-        }
-
-        /// <summary>
-        /// event handler for sausage checkbox sets ss's sausage property to the checkbox's ischecked property
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void OnSausageLinkSelect(object sender, RoutedEventArgs e)
-        {
-            ss.SausageLink = (bool)sausageCheck.IsChecked;
-            DataContext = ss;
-        }
-
-        /// <summary>
-        /// event handler for hashbrowns checkbox sets ss's hashbrowns property to the checkbox's ischecked property
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void OnHashBrownsSelect(object sender, RoutedEventArgs e)
-        {
-            ss.HashBrowns = (bool)hashbrownsCheck.IsChecked;
-            DataContext = ss;
-        }
-
-        /// <summary>
-        /// event handler for egg checkbox sets ss's egg property to the checkbox's ischecked property
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void OnEggSelect(object sender, RoutedEventArgs e)
-        {
-            ss.Egg = (bool)eggCheck.IsChecked;
-            DataContext = ss;
-        }
-
-        /// <summary>
-        /// event handler for pancake checkbox sets ss's pancake property to the checkbox's ischecked property
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void OnPancakeSelect(object sender, RoutedEventArgs e)
-        {
-            ss.Pancake = (bool)pancakeCheck.IsChecked;
-            DataContext = ss;
         }
     }
 }

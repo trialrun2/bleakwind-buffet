@@ -10,7 +10,7 @@
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center">T-Bone Special Requests</TextBlock>
         <TextBlock DockPanel.Dock="Top" Height="150"></TextBlock>
-        <Button Click ="AddTBoneButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 30, 50, 5">Add to Order</Button>
+        <Button Click ="DoneButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 30, 50, 5">Done</Button>
         <Button Click ="TBoneBackButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 0">Back</Button>
         <TextBlock></TextBlock>
     </DockPanel>

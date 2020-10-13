@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class SailorSoda : Drink, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        List<string> instructions = new List<string>();//creates new list
 
         /// <summary>
         /// private backing variable for cupSize
@@ -62,9 +62,9 @@ namespace BleakwindBuffet.Data.Drinks
                     calories = 117;//set calories back to default
                     price = 1.42;//set price back to default
                 }
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropChanged("CupSize");
+                PropChanged("Price");
+                PropChanged("Calories");
             }
         }
 
@@ -77,7 +77,7 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 flavor = value;//sets flavor to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropChanged("Flavor");
             }
         }
 
@@ -111,8 +111,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;//sets boolean value of ice to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Ice");
+                if (!Ice) instructions.Add("Hold ice");//if ice is false, hold ice
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -125,12 +126,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override List<string> SpecialInstructions
         {
-            get
-            {
-                List<string> instructions = new List<string>();//creates new list
-                if (!Ice) instructions.Add("Hold ice");//if ice is false, hold ice
-                return instructions;//return the list
-            }
+            get => instructions;
         }
 
         /// <summary>

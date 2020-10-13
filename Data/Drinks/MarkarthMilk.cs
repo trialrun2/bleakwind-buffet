@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class MarkarthMilk : Drink, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        List<string> instructions = new List<string>();//creates new list
 
         /// <summary>
         /// private backing variable for cupSize
@@ -58,9 +58,9 @@ namespace BleakwindBuffet.Data.Drinks
                     price = 1.05;//set price back to default
                     calories = 56;//set calories back to default
                 }
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropChanged("CupSize");
+                PropChanged("Price");
+                PropChanged("Calories");
             }
         }
 
@@ -94,8 +94,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;//sets boolean value of ice to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropChanged("Ice");
+                if (Ice) instructions.Add("Add ice");//if ice is true, add ice
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -108,12 +109,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override List<string> SpecialInstructions
         {
-            get
-            {
-                List<string> instructions = new List<string>();//creates new list
-                if (Ice) instructions.Add("Add ice");//if ice is true, add ice
-                return instructions;//return the list
-            }
+            get => instructions;
         }
 
         /// <summary>

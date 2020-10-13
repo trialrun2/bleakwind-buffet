@@ -16,8 +16,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        private List<string> instructions = new List<string>();
         /// <summary>
         /// Gets the price of the omelet
         /// </summary>
@@ -42,8 +41,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 broccoli = value;//sets broccoli equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Broccoli");
+                if (!Broccoli) instructions.Add("Hold broccoli");//if broccoli is false, hold broccoli
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -61,8 +61,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mushrooms = value;//sets mushrooms equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Mushrooms");
+                if (!Mushrooms) instructions.Add("Hold mushrooms");//if mushrooms is false, hold mushrooms
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -80,8 +81,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 tomato = value;//sets tomato equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Tomato");
+                if (!Tomato) instructions.Add("Hold tomato");//if tomato is false, hold tomato
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -99,8 +101,9 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheddar = value;//sets cheddar equal to value
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropChanged("Cheddar");
+                if (!Cheddar) instructions.Add("Hold cheddar");//if cheddar is false, hold cheddar
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -113,15 +116,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override List<string> SpecialInstructions
         {
-            get
-            {
-                List<string> instructions = new List<string>();//creates new list
-                if (!Broccoli) instructions.Add("Hold broccoli");//if broccoli is false, hold broccoli
-                if (!Mushrooms) instructions.Add("Hold mushrooms");//if mushrooms is false, hold mushrooms
-                if (!Tomato) instructions.Add("Hold tomato");//if tomato is false, hold tomato
-                if (!Cheddar) instructions.Add("Hold cheddar");//if cheddar is false, hold cheddar
-                return instructions;//return the list
-            }
+            get => instructions;//return the list
         }
 
         /// <summary>

@@ -15,21 +15,21 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <DockPanel Grid.Column="0">
-                <CheckBox Click ="OnBunSelect" Name="bunCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Bun</CheckBox>
-                <CheckBox Click ="OnKetchupSelect" Name ="ketchupCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Ketchup</CheckBox>
-                <CheckBox Click ="OnMustardSelect" Name ="mustardCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Mustard</CheckBox>
-                <CheckBox Click ="OnPickleSelect" Name="pickleCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Pickle</CheckBox>
-                <CheckBox Click ="OnCheeseSelect" Name="cheeseCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Cheese</CheckBox>
+                <CheckBox Name="bunCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Bun}">Bun</CheckBox>
+                <CheckBox Name ="ketchupCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Ketchup}">Ketchup</CheckBox>
+                <CheckBox Name ="mustardCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+                <CheckBox Name="pickleCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+                <CheckBox Name="cheeseCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Cheese}">Cheese</CheckBox>
             </DockPanel>
             <DockPanel Grid.Column="1">
-                <CheckBox Click ="OnTomatoSelect" Name="tomatoCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Tomato</CheckBox>
-                <CheckBox Click ="OnLettuceSelect" Name="lettuceCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Lettuce</CheckBox>
-                <CheckBox Click ="OnMayoSelect" Name="mayoCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Mayo</CheckBox>
-                <CheckBox Click ="OnBaconSelect" Name="baconCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Bacon</CheckBox>
-                <CheckBox Click ="OnEggSelect" Name="eggCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="True">Egg</CheckBox>
+                <CheckBox Name="tomatoCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Tomato}">Tomato</CheckBox>
+                <CheckBox Name="lettuceCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Lettuce}">Lettuce</CheckBox>
+                <CheckBox Name="mayoCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Mayo}">Mayo</CheckBox>
+                <CheckBox Name="baconCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Bacon}">Bacon</CheckBox>
+                <CheckBox Name="eggCheck" DockPanel.Dock="Top" FontSize="20" VerticalContentAlignment="Center" Width="100" IsChecked="{Binding Path= Egg}">Egg</CheckBox>
             </DockPanel>
         </Grid>
-        <Button Click ="AddBurgerButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 30, 50, 5">Add to Order</Button>
+        <Button Click ="DoneButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 30, 50, 5">Done</Button>
         <Button Click ="BurgersBackButton" DockPanel.Dock="Top" FontSize="30" FontWeight="Bold" Height="50" Margin="50, 0">Back</Button>
         <TextBlock></TextBlock>
     </DockPanel>

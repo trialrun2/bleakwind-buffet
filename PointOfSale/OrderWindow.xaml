@@ -14,7 +14,7 @@
         <DockPanel Grid.Column="1">
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Margin="0,10,10,0" FontWeight="Bold" FontSize="20">Order #</TextBlock>
-                <TextBlock Text="{Binding Path= Number}" Foreground="Black"/>
+                <TextBlock Margin ="0,10,10,0" FontWeight="Bold" FontSize="20" Text="{Binding Path= Number}" Foreground="Black"/>
             </StackPanel>
                 <Grid DockPanel.Dock="Bottom" Height="61" >
                 <Grid.ColumnDefinitions>
@@ -33,22 +33,24 @@
                 </Button>
             </Grid>
             <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontWeight="Bold" FontSize="20" Margin="0,0,10,0">Total:</TextBlock>
-                <TextBlock Text="{Binding Path= Total}" Foreground="Black"/>
+                <TextBlock FontWeight="Bold" FontSize="20" Margin="0,0,1,0">Total: $</TextBlock>
+                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="20" Text="{Binding Path= Total, StringFormat = {}{0:F2}}" Foreground="Black"/>
             </StackPanel>
             <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Margin="0,0,10,0" FontWeight="Bold" FontSize="15"> Tax:</TextBlock>
-                <TextBlock Text="{Binding Path= Tax}" Foreground="Black"/>
+                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="15"> Tax: $</TextBlock>
+                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="15" Text="{Binding Path= Tax, StringFormat = {}{0:F2}}" Foreground="Black"/>
             </StackPanel>
             <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontWeight="Bold" FontSize="15" Margin="0,0,10,0">Subtotal:</TextBlock>
-                <TextBlock Text="{Binding Path = Subtotal}" Foreground="Black"/>
+                <TextBlock FontWeight="Bold" FontSize="15" Margin="0,0,1,0">Subtotal: $</TextBlock>
+                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="15" Text="{Binding Path = Subtotal, StringFormat = {}{0:F2}}" Foreground="Black"/>
             </StackPanel>
             <ListView Margin="20, 0" Name= "listView" ItemsSource="{Binding}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="X" Command="{Binding Path = Remove}" />
-                        
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path= Name}"/>
+                            <ListBox ItemsSource="{Binding Path= SpecialInstructions}"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
