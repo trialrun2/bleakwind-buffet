@@ -32,19 +32,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldBeSmallByDefault()
         {
             MadOtarGrits mog = new MadOtarGrits();
-            Assert.Equal(Size.Small, mog.SideSize);
+            Assert.Equal(Size.Small, mog.Size);
         }
                 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             MadOtarGrits mog = new MadOtarGrits();
-            mog.SideSize = Size.Large;
-            Assert.Equal(Size.Large, mog.SideSize);
-            mog.SideSize = Size.Medium;
-            Assert.Equal(Size.Medium, mog.SideSize);
-            mog.SideSize = Size.Small;
-            Assert.Equal(Size.Small, mog.SideSize);
+            mog.Size = Size.Large;
+            Assert.Equal(Size.Large, mog.Size);
+            mog.Size = Size.Medium;
+            Assert.Equal(Size.Medium, mog.Size);
+            mog.Size = Size.Small;
+            Assert.Equal(Size.Small, mog.Size);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             MadOtarGrits mog = new MadOtarGrits();
-            mog.SideSize = size;
+            mog.Size = size;
             Assert.Equal(price, mog.Price);
         }
 
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             MadOtarGrits mog = new MadOtarGrits();
-            mog.SideSize = size;
+            mog.Size = size;
             Assert.Equal(calories, mog.Calories);
         }
 
@@ -83,7 +83,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             MadOtarGrits mog = new MadOtarGrits();
-            mog.SideSize = size;
+            mog.Size = size;
             Assert.Equal(name, mog.ToString());
         }
 
@@ -91,27 +91,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             MadOtarGrits mog = new MadOtarGrits();
-            Assert.PropertyChanged(mog, "Size", () => { mog.SideSize = Size.Large; });
-            Assert.PropertyChanged(mog, "Size", () => { mog.SideSize = Size.Medium; });
-            Assert.PropertyChanged(mog, "Size", () => { mog.SideSize = Size.Small; });
+            Assert.PropertyChanged(mog, "Size", () => { mog.Size = Size.Large; });
+            Assert.PropertyChanged(mog, "Size", () => { mog.Size = Size.Medium; });
+            Assert.PropertyChanged(mog, "Size", () => { mog.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             MadOtarGrits mog = new MadOtarGrits();
-            Assert.PropertyChanged(mog, "Price", () => { mog.SideSize = Size.Large; });
-            Assert.PropertyChanged(mog, "Price", () => { mog.SideSize = Size.Medium; });
-            Assert.PropertyChanged(mog, "Price", () => { mog.SideSize = Size.Small; });
+            Assert.PropertyChanged(mog, "Price", () => { mog.Size = Size.Large; });
+            Assert.PropertyChanged(mog, "Price", () => { mog.Size = Size.Medium; });
+            Assert.PropertyChanged(mog, "Price", () => { mog.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             MadOtarGrits mog = new MadOtarGrits();
-            Assert.PropertyChanged(mog, "Calories", () => { mog.SideSize = Size.Large; });
-            Assert.PropertyChanged(mog, "Calories", () => { mog.SideSize = Size.Medium; });
-            Assert.PropertyChanged(mog, "Calories", () => { mog.SideSize = Size.Small; });
+            Assert.PropertyChanged(mog, "Calories", () => { mog.Size = Size.Large; });
+            Assert.PropertyChanged(mog, "Calories", () => { mog.Size = Size.Medium; });
+            Assert.PropertyChanged(mog, "Calories", () => { mog.Size = Size.Small; });
         }
 
         [Fact]

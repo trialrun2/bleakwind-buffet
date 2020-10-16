@@ -37,7 +37,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public override Size CupSize
+        public override Size Size
         {
             get => cupSize;//gets cupSize
             set
@@ -58,9 +58,10 @@ namespace BleakwindBuffet.Data.Drinks
                     price = 1.05;//set price back to default
                     calories = 56;//set calories back to default
                 }
-                PropChanged("CupSize");
+                PropChanged("Size");
                 PropChanged("Price");
                 PropChanged("Calories");
+                PropChanged("Name");
             }
         }
 
@@ -120,7 +121,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override string ToString()
         {
-            return $"{cupSize} Markarth Milk";// set return value of ToString to {cupSize} Markarth Milk
+            return $"{Size} Markarth Milk";// set return value of ToString to {cupSize} Markarth Milk
         }
     }
 }

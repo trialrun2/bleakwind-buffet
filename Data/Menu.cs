@@ -50,36 +50,36 @@ namespace BleakwindBuffet.Data
         public static IEnumerable<IOrderItem> Drinks()
         {
             List<IOrderItem> drinkList = new List<IOrderItem>();
-            drinkList.Add(new SailorSoda() { CupSize = Size.Small, Flavor = SodaFlavor.Blackberry});
-            drinkList.Add(new SailorSoda() { CupSize = Size.Medium, Flavor = SodaFlavor.Blackberry });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Large, Flavor = SodaFlavor.Blackberry });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Small, Flavor = SodaFlavor.Cherry });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Medium, Flavor = SodaFlavor.Cherry });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Large, Flavor = SodaFlavor.Cherry });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Small, Flavor = SodaFlavor.Watermelon });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Medium, Flavor = SodaFlavor.Watermelon });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Large, Flavor = SodaFlavor.Watermelon });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Small, Flavor = SodaFlavor.Peach });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Medium, Flavor = SodaFlavor.Peach });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Large, Flavor = SodaFlavor.Peach });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Small, Flavor = SodaFlavor.Lemon });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Medium, Flavor = SodaFlavor.Lemon });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Large, Flavor = SodaFlavor.Lemon });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Small, Flavor = SodaFlavor.Grapefruit });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Medium, Flavor = SodaFlavor.Grapefruit });
-            drinkList.Add(new SailorSoda() { CupSize = Size.Large, Flavor = SodaFlavor.Grapefruit });
-            drinkList.Add(new AretinoAppleJuice() { CupSize = Size.Small });
-            drinkList.Add(new AretinoAppleJuice() { CupSize = Size.Medium });
-            drinkList.Add(new AretinoAppleJuice() { CupSize = Size.Large });
-            drinkList.Add(new MarkarthMilk() { CupSize = Size.Small });
-            drinkList.Add(new MarkarthMilk() { CupSize = Size.Medium });
-            drinkList.Add(new MarkarthMilk() { CupSize = Size.Large });
-            drinkList.Add(new WarriorWater() { CupSize = Size.Small });
-            drinkList.Add(new WarriorWater() { CupSize = Size.Medium });
-            drinkList.Add(new WarriorWater() { CupSize = Size.Large });
-            drinkList.Add(new CandlehearthCoffee() { CupSize = Size.Small });
-            drinkList.Add(new CandlehearthCoffee() { CupSize = Size.Medium });
-            drinkList.Add(new CandlehearthCoffee() { CupSize = Size.Large });
+            drinkList.Add(new SailorSoda() { Size = Size.Small, SodaFlavor = Flavor.Blackberry});
+            drinkList.Add(new SailorSoda() { Size = Size.Medium, SodaFlavor = Flavor.Blackberry });
+            drinkList.Add(new SailorSoda() { Size = Size.Large, SodaFlavor = Flavor.Blackberry });
+            drinkList.Add(new SailorSoda() { Size = Size.Small, SodaFlavor = Flavor.Cherry });
+            drinkList.Add(new SailorSoda() { Size = Size.Medium, SodaFlavor = Flavor.Cherry });
+            drinkList.Add(new SailorSoda() { Size = Size.Large, SodaFlavor = Flavor.Cherry });
+            drinkList.Add(new SailorSoda() { Size = Size.Small, SodaFlavor = Flavor.Watermelon });
+            drinkList.Add(new SailorSoda() { Size = Size.Medium, SodaFlavor = Flavor.Watermelon });
+            drinkList.Add(new SailorSoda() { Size = Size.Large, SodaFlavor = Flavor.Watermelon });
+            drinkList.Add(new SailorSoda() { Size = Size.Small, SodaFlavor = Flavor.Peach });
+            drinkList.Add(new SailorSoda() { Size = Size.Medium, SodaFlavor = Flavor.Peach });
+            drinkList.Add(new SailorSoda() { Size = Size.Large, SodaFlavor = Flavor.Peach });
+            drinkList.Add(new SailorSoda() { Size = Size.Small, SodaFlavor = Flavor.Lemon });
+            drinkList.Add(new SailorSoda() { Size = Size.Medium, SodaFlavor = Flavor.Lemon });
+            drinkList.Add(new SailorSoda() { Size = Size.Large, SodaFlavor = Flavor.Lemon });
+            drinkList.Add(new SailorSoda() { Size = Size.Small, SodaFlavor = Flavor.Grapefruit });
+            drinkList.Add(new SailorSoda() { Size = Size.Medium, SodaFlavor = Flavor.Grapefruit });
+            drinkList.Add(new SailorSoda() { Size = Size.Large, SodaFlavor = Flavor.Grapefruit });
+            drinkList.Add(new AretinoAppleJuice() { Size = Size.Small });
+            drinkList.Add(new AretinoAppleJuice() { Size = Size.Medium });
+            drinkList.Add(new AretinoAppleJuice() { Size = Size.Large });
+            drinkList.Add(new MarkarthMilk() { Size = Size.Small });
+            drinkList.Add(new MarkarthMilk() { Size = Size.Medium });
+            drinkList.Add(new MarkarthMilk() { Size = Size.Large });
+            drinkList.Add(new WarriorWater() { Size = Size.Small });
+            drinkList.Add(new WarriorWater() { Size = Size.Medium });
+            drinkList.Add(new WarriorWater() { Size = Size.Large });
+            drinkList.Add(new CandlehearthCoffee() { Size = Size.Small });
+            drinkList.Add(new CandlehearthCoffee() { Size = Size.Medium });
+            drinkList.Add(new CandlehearthCoffee() { Size = Size.Large });
 
             return drinkList;
         }
@@ -93,18 +93,18 @@ namespace BleakwindBuffet.Data
         public static IEnumerable<IOrderItem> Sides()
         {
             List<IOrderItem> sideList = new List<IOrderItem>();
-            sideList.Add(new DragonbornWaffleFries() { SideSize = Size.Small });
-            sideList.Add(new DragonbornWaffleFries() { SideSize = Size.Medium });
-            sideList.Add(new DragonbornWaffleFries() { SideSize = Size.Large });
-            sideList.Add(new FriedMiraak() { SideSize = Size.Small });
-            sideList.Add(new FriedMiraak() { SideSize = Size.Medium });
-            sideList.Add(new FriedMiraak() { SideSize = Size.Large });
-            sideList.Add(new MadOtarGrits() { SideSize = Size.Small });
-            sideList.Add(new MadOtarGrits() { SideSize = Size.Medium });
-            sideList.Add(new MadOtarGrits() { SideSize = Size.Large });
-            sideList.Add(new VokunSalad() { SideSize = Size.Small });
-            sideList.Add(new VokunSalad() { SideSize = Size.Medium });
-            sideList.Add(new VokunSalad() { SideSize = Size.Large });
+            sideList.Add(new DragonbornWaffleFries() { Size = Size.Small });
+            sideList.Add(new DragonbornWaffleFries() { Size = Size.Medium });
+            sideList.Add(new DragonbornWaffleFries() { Size = Size.Large });
+            sideList.Add(new FriedMiraak() { Size = Size.Small });
+            sideList.Add(new FriedMiraak() { Size = Size.Medium });
+            sideList.Add(new FriedMiraak() { Size = Size.Large });
+            sideList.Add(new MadOtarGrits() { Size = Size.Small });
+            sideList.Add(new MadOtarGrits() { Size = Size.Medium });
+            sideList.Add(new MadOtarGrits() { Size = Size.Large });
+            sideList.Add(new VokunSalad() { Size = Size.Small });
+            sideList.Add(new VokunSalad() { Size = Size.Medium });
+            sideList.Add(new VokunSalad() { Size = Size.Large });
             return sideList;
         } 
 

@@ -4,6 +4,7 @@
  * Purpose: Initializes SkeletonCustomization and handles events for the menu
  */
 
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
@@ -25,16 +26,14 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// Interaction logic for SkeletonCustomization.xaml
     /// </summary>
     public partial class SkeletonCustomization : UserControl
-    {
-        // creates new smokehouse skeleton object to modify
-        SmokehouseSkeleton ss = new SmokehouseSkeleton();
-       
+    { 
         /// <summary>
         /// initializes skeleton customization
         /// </summary>
-        public SkeletonCustomization()
+        public SkeletonCustomization(IOrderItem ss)
         {
             InitializeComponent();
+            DataContext = ss;
         }
 
         /// <summary>

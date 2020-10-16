@@ -43,11 +43,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void BriarheartButton(object sender, RoutedEventArgs e)
         {
-            BurgerCustomization bc = new BurgerCustomization(new BriarheartBurger(), 0);
+            BriarheartBurger bb = new BriarheartBurger();
+            BurgerCustomization bc = new BurgerCustomization(bb, 0);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new BriarheartBurger());
+                orders.Add(bb);
             }
             order.Swap(bc);
         }
@@ -60,11 +61,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void DoubleButton(object sender, RoutedEventArgs e)
         {
-            BurgerCustomization bc = new BurgerCustomization(new DoubleDraugr(), 1);
+            DoubleDraugr dd = new DoubleDraugr();
+            BurgerCustomization bc = new BurgerCustomization(dd, 1);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new DoubleDraugr());
+                orders.Add(dd);
             }
             order.Swap(bc);
         }
@@ -76,11 +78,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void OmeletteButton(object sender, RoutedEventArgs e)
         {
-            OmeletteCustomization omelette = new OmeletteCustomization();
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            OmeletteCustomization omelette = new OmeletteCustomization(goo);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new GardenOrcOmelette());
+                orders.Add(goo);
             }
             order.Swap(omelette);
         }
@@ -92,11 +95,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void PoacherButton(object sender, RoutedEventArgs e)
         {
-            PoacherCustomization poacher = new PoacherCustomization();
+            PhillyPoacher pp = new PhillyPoacher();
+            PoacherCustomization poacher = new PoacherCustomization(pp);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new PhillyPoacher());
+                orders.Add(pp);
             }
             order.Swap(poacher);
         }
@@ -108,11 +112,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void SkeletonButton(object sender, RoutedEventArgs e)
         {
-            SkeletonCustomization skeleton = new SkeletonCustomization();
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            SkeletonCustomization skeleton = new SkeletonCustomization(ss);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new SmokehouseSkeleton());
+                orders.Add(ss);
             }
             order.Swap(skeleton);
         }
@@ -125,11 +130,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void TripleButton(object sender, RoutedEventArgs e)
         {
-            BurgerCustomization bc = new BurgerCustomization(new ThalmorTriple(), 2);
+            ThalmorTriple tt = new ThalmorTriple();
+            BurgerCustomization bc = new BurgerCustomization(tt, 2);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new ThalmorTriple());
+                orders.Add(tt);
             }
             order.Swap(bc);
         }
@@ -141,11 +147,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void TBoneButton(object sender, RoutedEventArgs e)
         {
-            TBoneCustomization tbc = new TBoneCustomization();
+            ThugsT_Bone ttb = new ThugsT_Bone();
+            TBoneCustomization tbc = new TBoneCustomization(ttb);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new ThugsT_Bone());
+                orders.Add(ttb);
             }
             order.Swap(tbc);
         }

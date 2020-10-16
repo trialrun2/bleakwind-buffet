@@ -39,7 +39,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBySmallByDefault()
         {
             MarkarthMilk mm = new MarkarthMilk();
-            Assert.Equal(Size.Small, mm.CupSize);
+            Assert.Equal(Size.Small, mm.Size);
         }
 
         [Fact]
@@ -56,12 +56,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetSize()
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.CupSize = Size.Large;
-            Assert.Equal(Size.Large, mm.CupSize);
-            mm.CupSize = Size.Medium;
-            Assert.Equal(Size.Medium, mm.CupSize);
-            mm.CupSize = Size.Small;
-            Assert.Equal(Size.Small, mm.CupSize);
+            mm.Size = Size.Large;
+            Assert.Equal(Size.Large, mm.Size);
+            mm.Size = Size.Medium;
+            Assert.Equal(Size.Medium, mm.Size);
+            mm.Size = Size.Small;
+            Assert.Equal(Size.Small, mm.Size);
         }
 
         [Theory]
@@ -71,7 +71,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.CupSize = size;
+            mm.Size = size;
             Assert.Equal(price, mm.Price);
         }
 
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.CupSize = size;
+            mm.Size = size;
             Assert.Equal(cal, mm.Calories);
         }
 
@@ -110,34 +110,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.CupSize = size;
+            mm.Size = size;
             Assert.Equal(name, mm.ToString());
         }
         [Fact]
         public void ChangingSizeNotifiesSizeProperty()
         {
             MarkarthMilk mm = new MarkarthMilk();
-            Assert.PropertyChanged(mm, "Size", () => { mm.CupSize = Size.Large; });
-            Assert.PropertyChanged(mm, "Size", () => { mm.CupSize = Size.Medium; });
-            Assert.PropertyChanged(mm, "Size", () => { mm.CupSize = Size.Small; });
+            Assert.PropertyChanged(mm, "Size", () => { mm.Size = Size.Large; });
+            Assert.PropertyChanged(mm, "Size", () => { mm.Size = Size.Medium; });
+            Assert.PropertyChanged(mm, "Size", () => { mm.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             MarkarthMilk mm = new MarkarthMilk();
-            Assert.PropertyChanged(mm, "Price", () => { mm.CupSize = Size.Large; });
-            Assert.PropertyChanged(mm, "Price", () => { mm.CupSize = Size.Medium; });
-            Assert.PropertyChanged(mm, "Price", () => { mm.CupSize = Size.Small; });
+            Assert.PropertyChanged(mm, "Price", () => { mm.Size = Size.Large; });
+            Assert.PropertyChanged(mm, "Price", () => { mm.Size = Size.Medium; });
+            Assert.PropertyChanged(mm, "Price", () => { mm.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             MarkarthMilk mm = new MarkarthMilk();
-            Assert.PropertyChanged(mm, "Calories", () => { mm.CupSize = Size.Large; });
-            Assert.PropertyChanged(mm, "Calories", () => { mm.CupSize = Size.Medium; });
-            Assert.PropertyChanged(mm, "Calories", () => { mm.CupSize = Size.Small; });
+            Assert.PropertyChanged(mm, "Calories", () => { mm.Size = Size.Large; });
+            Assert.PropertyChanged(mm, "Calories", () => { mm.Size = Size.Medium; });
+            Assert.PropertyChanged(mm, "Calories", () => { mm.Size = Size.Small; });
         }
 
         [Fact]

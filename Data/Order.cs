@@ -16,9 +16,12 @@ namespace BleakwindBuffet.Data
 {
     public class Order : ObservableCollection<IOrderItem>
     {
-
+        // default sales tax rate
         private double salesTaxRate = 0.12;
 
+        /// <summary>
+        /// public property to get and set the sales tax rate
+        /// </summary>
         public double SalesTaxRate
         {
             get => salesTaxRate;
@@ -28,7 +31,12 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        //private backing variable for subtotal
         private double price;
+
+        /// <summary>
+        /// public property for the subtotal of the object
+        /// </summary>
         public double Subtotal
         {
             get
@@ -42,7 +50,12 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        //private backing variable for the tax property
         private double tax;
+
+        /// <summary>
+        /// public property Tax for the object
+        /// </summary>
         public double Tax
         {
             get
@@ -53,7 +66,12 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        //private backing variable for the total price
         private double total;
+
+        /// <summary>
+        /// public property for the total price of the object
+        /// </summary>
         public double Total
         {
             get
@@ -64,7 +82,12 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        //private backing variable for calories property
         private uint calories = 0;
+
+        /// <summary>
+        /// public property for the calories of the object
+        /// </summary>
         public uint Calories
         {
             get
@@ -77,18 +100,35 @@ namespace BleakwindBuffet.Data
             }
         }
 
-        private static int nextOrderNumber = 1;
+        //private static backing variable for the order number
+        private static int nextOrderNumber = 0;
 
+        /// <summary>
+        /// public property for the order number of the object
+        /// </summary>
         public int Number
         {
             get
             {
                 int number = nextOrderNumber;
-                nextOrderNumber = nextOrderNumber + 1;
                 return number;     
             }
         }
 
+        /// <summary>
+        /// public order method adds a collectiochangedlistner and increments the order number
+        /// </summary>
+        public Order()
+        {
+            CollectionChanged += CollectionChangedListner;
+            nextOrderNumber = nextOrderNumber + 1;
+        }
+
+        /// <summary>
+        /// Event handler for collection changed listner
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CollectionChangedListner(object sender, NotifyCollectionChangedEventArgs e)
         {
             OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
@@ -98,13 +138,13 @@ namespace BleakwindBuffet.Data
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
-                    foreach (Order item in e.NewItems)
+                    foreach (IOrderItem item in e.NewItems)
                     {
                         item.PropertyChanged += CollectionItemChangedListner;
                     }
                     break;
                 case NotifyCollectionChangedAction.Remove:
-                    foreach (Order item in e.OldItems)
+                    foreach (IOrderItem item in e.OldItems)
                     {
                         item.PropertyChanged -= CollectionItemChangedListner;
                     }
@@ -114,6 +154,11 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        /// <summary>
+        /// event handler for the collection item changed listner
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CollectionItemChangedListner(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Price")

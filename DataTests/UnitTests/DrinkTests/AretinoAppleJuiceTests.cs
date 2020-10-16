@@ -40,7 +40,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeSmallByDefault()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            Assert.Equal(Size.Small, aj.CupSize);
+            Assert.Equal(Size.Small, aj.Size);
         }
 
         [Fact]
@@ -57,12 +57,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetSize()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            aj.CupSize = Size.Large;
-            Assert.Equal(Size.Large, aj.CupSize);
-            aj.CupSize = Size.Medium;
-            Assert.Equal(Size.Medium, aj.CupSize);
-            aj.CupSize = Size.Small;
-            Assert.Equal(Size.Small, aj.CupSize);
+            aj.Size = Size.Large;
+            Assert.Equal(Size.Large, aj.Size);
+            aj.Size = Size.Medium;
+            Assert.Equal(Size.Medium, aj.Size);
+            aj.Size = Size.Small;
+            Assert.Equal(Size.Small, aj.Size);
         }
 
         [Theory]
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            aj.CupSize = size;
+            aj.Size = size;
             Assert.Equal(price, aj.Price);
         }
 
@@ -83,7 +83,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            aj.CupSize = size;
+            aj.Size = size;
             Assert.Equal(cal, aj.Calories);
         }
 
@@ -111,7 +111,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            aj.CupSize = size;
+            aj.Size = size;
             Assert.Equal(name, aj.ToString());
         }
 
@@ -119,27 +119,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            Assert.PropertyChanged(aj, "Size", () => { aj.CupSize = Size.Large; });
-            Assert.PropertyChanged(aj, "Size", () => { aj.CupSize = Size.Medium; });
-            Assert.PropertyChanged(aj, "Size", () => { aj.CupSize = Size.Small; });
+            Assert.PropertyChanged(aj, "Size", () => { aj.Size = Size.Large; });
+            Assert.PropertyChanged(aj, "Size", () => { aj.Size = Size.Medium; });
+            Assert.PropertyChanged(aj, "Size", () => { aj.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            Assert.PropertyChanged(aj, "Price", () => { aj.CupSize = Size.Large; });
-            Assert.PropertyChanged(aj, "Price", () => { aj.CupSize = Size.Medium; });
-            Assert.PropertyChanged(aj, "Price", () => { aj.CupSize = Size.Small; });
+            Assert.PropertyChanged(aj, "Price", () => { aj.Size = Size.Large; });
+            Assert.PropertyChanged(aj, "Price", () => { aj.Size = Size.Medium; });
+            Assert.PropertyChanged(aj, "Price", () => { aj.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
-            Assert.PropertyChanged(aj, "Calories", () => { aj.CupSize = Size.Large; });
-            Assert.PropertyChanged(aj, "Calories", () => { aj.CupSize = Size.Medium; });
-            Assert.PropertyChanged(aj, "Calories", () => { aj.CupSize = Size.Small; });
+            Assert.PropertyChanged(aj, "Calories", () => { aj.Size = Size.Large; });
+            Assert.PropertyChanged(aj, "Calories", () => { aj.Size = Size.Medium; });
+            Assert.PropertyChanged(aj, "Calories", () => { aj.Size = Size.Small; });
         }
 
         [Fact]

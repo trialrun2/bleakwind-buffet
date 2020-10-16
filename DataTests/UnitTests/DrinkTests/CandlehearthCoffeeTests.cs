@@ -53,7 +53,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeSmallByDefault()
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
-            Assert.Equal(Size.Small, chc.CupSize);
+            Assert.Equal(Size.Small, chc.Size);
         }
 
         [Fact]
@@ -90,12 +90,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetSize()
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
-            chc.CupSize = Size.Large;
-            Assert.Equal(Size.Large, chc.CupSize);
-            chc.CupSize = Size.Medium;
-            Assert.Equal(Size.Medium, chc.CupSize);
-            chc.CupSize = Size.Small;
-            Assert.Equal(Size.Small, chc.CupSize);
+            chc.Size = Size.Large;
+            Assert.Equal(Size.Large, chc.Size);
+            chc.Size = Size.Medium;
+            Assert.Equal(Size.Medium, chc.Size);
+            chc.Size = Size.Small;
+            Assert.Equal(Size.Small, chc.Size);
         }
 
         [Theory]
@@ -105,7 +105,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
-            chc.CupSize = size;
+            chc.Size = size;
             Assert.Equal(price, chc.Price);
         }
 
@@ -116,7 +116,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
-            chc.CupSize = size;
+            chc.Size = size;
             Assert.Equal(cal, chc.Calories);
         }
 
@@ -155,7 +155,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
             chc.Decaf = decaf;
-            chc.CupSize = size;
+            chc.Size = size;
             Assert.Equal(name, chc.ToString());
         }
 
@@ -163,27 +163,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
-            Assert.PropertyChanged(chc, "Size", () => { chc.CupSize = Size.Large; });
-            Assert.PropertyChanged(chc, "Size", () => { chc.CupSize = Size.Medium; });
-            Assert.PropertyChanged(chc, "Size", () => { chc.CupSize = Size.Small; });
+            Assert.PropertyChanged(chc, "Size", () => { chc.Size = Size.Large; });
+            Assert.PropertyChanged(chc, "Size", () => { chc.Size = Size.Medium; });
+            Assert.PropertyChanged(chc, "Size", () => { chc.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
-            Assert.PropertyChanged(chc, "Price", () => { chc.CupSize = Size.Large; });
-            Assert.PropertyChanged(chc, "Price", () => { chc.CupSize = Size.Medium; });
-            Assert.PropertyChanged(chc, "Price", () => { chc.CupSize = Size.Small; });
+            Assert.PropertyChanged(chc, "Price", () => { chc.Size = Size.Large; });
+            Assert.PropertyChanged(chc, "Price", () => { chc.Size = Size.Medium; });
+            Assert.PropertyChanged(chc, "Price", () => { chc.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();
-            Assert.PropertyChanged(chc, "Calories", () => { chc.CupSize = Size.Large; });
-            Assert.PropertyChanged(chc, "Calories", () => { chc.CupSize = Size.Medium; });
-            Assert.PropertyChanged(chc, "Calories", () => { chc.CupSize = Size.Small; });
+            Assert.PropertyChanged(chc, "Calories", () => { chc.Size = Size.Large; });
+            Assert.PropertyChanged(chc, "Calories", () => { chc.Size = Size.Medium; });
+            Assert.PropertyChanged(chc, "Calories", () => { chc.Size = Size.Small; });
         }
 
         [Fact]

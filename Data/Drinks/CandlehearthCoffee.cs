@@ -37,7 +37,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public override Size CupSize
+        public override Size Size
         {
             get => cupSize;//gets cupSize
             set
@@ -58,9 +58,10 @@ namespace BleakwindBuffet.Data.Drinks
                     price = 0.75;//set price back to default
                     calories = 7;//set calories back to default
                 }
-                PropChanged("CupSize");
+                PropChanged("Size");
                 PropChanged("Price");
                 PropChanged("Calories");
+                PropChanged("Name");
             }
         }
 
@@ -96,6 +97,7 @@ namespace BleakwindBuffet.Data.Drinks
                 ice = value;//sets boolean value of ice to value
                 PropChanged("Ice");
                 if (Ice) instructions.Add("Add ice");//if ice is true, add ice
+                else { instructions.Remove("Add ice"); }
                 PropChanged("SpecialInstructions");
             }
         }
@@ -116,6 +118,7 @@ namespace BleakwindBuffet.Data.Drinks
                 roomForCream = value;//sets boolean value of roomForCream to value
                 PropChanged("RoomForCream");
                 if (RoomForCream) instructions.Add("Add cream");//if roomforcream is true, add cream
+                else { instructions.Remove("Add cream"); }
                 PropChanged("SpecialInstructions");
             }
         }
@@ -135,6 +138,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 decaf = value;//sets boolean value of decaf to value
                 PropChanged("Decaf");
+                PropChanged("Name");
             }
         }
 
@@ -159,9 +163,9 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             if(Decaf) // if it's decaf
-                return $"{cupSize} Decaf Candlehearth Coffee";// set return value of ToString to {cupSize} Decaf Candlehearth Coffee
+                return $"{Size} Decaf Candlehearth Coffee";// set return value of ToString to {cupSize} Decaf Candlehearth Coffee
             else//if its normal caffinated
-                return $"{cupSize} Candlehearth Coffee";// set return value of ToString to {cupSize} Decaf Candlehearth Coffee
+                return $"{Size} Candlehearth Coffee";// set return value of ToString to {cupSize} Decaf Candlehearth Coffee
         }
     }
 }

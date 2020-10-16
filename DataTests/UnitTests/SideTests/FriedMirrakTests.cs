@@ -32,19 +32,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldBeSmallByDefault()
         {
             FriedMiraak fm = new FriedMiraak();
-            Assert.Equal(Size.Small, fm.SideSize);
+            Assert.Equal(Size.Small, fm.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             FriedMiraak fm = new FriedMiraak();
-            fm.SideSize = Size.Large;
-            Assert.Equal(Size.Large, fm.SideSize);
-            fm.SideSize = Size.Medium;
-            Assert.Equal(Size.Medium, fm.SideSize);
-            fm.SideSize = Size.Small;
-            Assert.Equal(Size.Small, fm.SideSize);
+            fm.Size = Size.Large;
+            Assert.Equal(Size.Large, fm.Size);
+            fm.Size = Size.Medium;
+            Assert.Equal(Size.Medium, fm.Size);
+            fm.Size = Size.Small;
+            Assert.Equal(Size.Small, fm.Size);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             FriedMiraak fm = new FriedMiraak();
-            fm.SideSize = size;
+            fm.Size = size;
             Assert.Equal(price, fm.Price);
         }
 
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             FriedMiraak fm = new FriedMiraak();
-            fm.SideSize = size;
+            fm.Size = size;
             Assert.Equal(calories, fm.Calories);
         }
 
@@ -83,7 +83,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             FriedMiraak fm = new FriedMiraak();
-            fm.SideSize = size;
+            fm.Size = size;
             Assert.Equal(name, fm.ToString());
         }
 
@@ -91,27 +91,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             FriedMiraak fm = new FriedMiraak();
-            Assert.PropertyChanged(fm, "Size", () => { fm.SideSize = Size.Large; });
-            Assert.PropertyChanged(fm, "Size", () => { fm.SideSize = Size.Medium; });
-            Assert.PropertyChanged(fm, "Size", () => { fm.SideSize = Size.Small; });
+            Assert.PropertyChanged(fm, "Size", () => { fm.Size = Size.Large; });
+            Assert.PropertyChanged(fm, "Size", () => { fm.Size = Size.Medium; });
+            Assert.PropertyChanged(fm, "Size", () => { fm.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             FriedMiraak fm = new FriedMiraak();
-            Assert.PropertyChanged(fm, "Price", () => { fm.SideSize = Size.Large; });
-            Assert.PropertyChanged(fm, "Price", () => { fm.SideSize = Size.Medium; });
-            Assert.PropertyChanged(fm, "Price", () => { fm.SideSize = Size.Small; });
+            Assert.PropertyChanged(fm, "Price", () => { fm.Size = Size.Large; });
+            Assert.PropertyChanged(fm, "Price", () => { fm.Size = Size.Medium; });
+            Assert.PropertyChanged(fm, "Price", () => { fm.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             FriedMiraak fm = new FriedMiraak();
-            Assert.PropertyChanged(fm, "Calories", () => { fm.SideSize = Size.Large; });
-            Assert.PropertyChanged(fm, "Calories", () => { fm.SideSize = Size.Medium; });
-            Assert.PropertyChanged(fm, "Calories", () => { fm.SideSize = Size.Small; });
+            Assert.PropertyChanged(fm, "Calories", () => { fm.Size = Size.Large; });
+            Assert.PropertyChanged(fm, "Calories", () => { fm.Size = Size.Medium; });
+            Assert.PropertyChanged(fm, "Calories", () => { fm.Size = Size.Small; });
         }
 
         [Fact]

@@ -32,19 +32,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldBeSmallByDefault()
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            Assert.Equal(Size.Small, df.SideSize);
+            Assert.Equal(Size.Small, df.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            df.SideSize = Size.Large;
-            Assert.Equal(Size.Large, df.SideSize);
-            df.SideSize = Size.Medium;
-            Assert.Equal(Size.Medium, df.SideSize);
-            df.SideSize = Size.Small;
-            Assert.Equal(Size.Small, df.SideSize);
+            df.Size = Size.Large;
+            Assert.Equal(Size.Large, df.Size);
+            df.Size = Size.Medium;
+            Assert.Equal(Size.Medium, df.Size);
+            df.Size = Size.Small;
+            Assert.Equal(Size.Small, df.Size);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            df.SideSize = size;
+            df.Size = size;
             Assert.Equal(price, df.Price);
         }
 
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            df.SideSize = size;
+            df.Size = size;
             Assert.Equal(calories, df.Calories);
         }
 
@@ -83,7 +83,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            df.SideSize = size;
+            df.Size = size;
             Assert.Equal(name, df.ToString());
         }
 
@@ -91,27 +91,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            Assert.PropertyChanged(df, "Size", () => { df.SideSize = Size.Large; });
-            Assert.PropertyChanged(df, "Size", () => { df.SideSize = Size.Medium; });
-            Assert.PropertyChanged(df, "Size", () => { df.SideSize = Size.Small; });
+            Assert.PropertyChanged(df, "Size", () => { df.Size = Size.Large; });
+            Assert.PropertyChanged(df, "Size", () => { df.Size = Size.Medium; });
+            Assert.PropertyChanged(df, "Size", () => { df.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            Assert.PropertyChanged(df, "Price", () => { df.SideSize = Size.Large; });
-            Assert.PropertyChanged(df, "Price", () => { df.SideSize = Size.Medium; });
-            Assert.PropertyChanged(df, "Price", () => { df.SideSize = Size.Small; });
+            Assert.PropertyChanged(df, "Price", () => { df.Size = Size.Large; });
+            Assert.PropertyChanged(df, "Price", () => { df.Size = Size.Medium; });
+            Assert.PropertyChanged(df, "Price", () => { df.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             DragonbornWaffleFries df = new DragonbornWaffleFries();
-            Assert.PropertyChanged(df, "Calories", () => { df.SideSize = Size.Large; });
-            Assert.PropertyChanged(df, "Calories", () => { df.SideSize = Size.Medium; });
-            Assert.PropertyChanged(df, "Calories", () => { df.SideSize = Size.Small; });
+            Assert.PropertyChanged(df, "Calories", () => { df.Size = Size.Large; });
+            Assert.PropertyChanged(df, "Calories", () => { df.Size = Size.Medium; });
+            Assert.PropertyChanged(df, "Calories", () => { df.Size = Size.Small; });
         }
 
         [Fact]

@@ -16,12 +16,19 @@ using BleakwindBuffet.Data.Sides;
 
 namespace BleakwindBuffet.Data
 {
+    /// <summary>
+    /// Class that creates the Combo Object
+    /// </summary>
     public class Combo : IOrderItem, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // private backing variable for DrinkCombo
         private Drink drank;
 
+        /// <summary>
+        /// Drink property for the combo method 
+        /// </summary>
         public Drink DrinkCombo
         {
             get => drank;
@@ -37,7 +44,12 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        // private backing variable for EntreeCombo
         private Entree entre;
+
+        /// <summary>
+        /// Entree Property for the combo object
+        /// </summary>
         public Entree EntreeCombo
         {
             get => entre;
@@ -53,7 +65,12 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        // private backing variable for sideCombo
         private Side sid;
+
+        /// <summary>
+        /// Side property for combo object
+        /// </summary>
         public Side SideCombo
         {
             get => sid;
@@ -69,18 +86,25 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        /// <summary>
+        /// price property for combo object
+        /// </summary>
         public double Price
         {
             get => sid.Price + drank.Price + entre.Price - 1;
         }
 
-        private uint cal;
-
+        /// <summary>
+        /// calories property for combo object 
+        /// </summary>
         public uint Calories
         {
             get => sid.Calories + drank.Calories + entre.Calories;
         }
 
+        /// <summary>
+        /// specialInstructions method for combo object
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
@@ -91,6 +115,11 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        /// <summary>
+        ///  event listner for the como objects
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void PropertyItemChangedListner(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Price")

@@ -27,13 +27,14 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public override Size CupSize
+        public override Size Size
         {
             get => cupSize;//gets cupSize
             set
             {
                 cupSize = value;//sets cupSize to value
-                PropChanged("CupSize");
+                PropChanged("Size");
+                PropChanged("Name");
             }
 
         }
@@ -124,7 +125,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override string ToString()
         {
-                return $"{cupSize} Warrior Water";// set return value of ToString to {cupSize} Warrior Water
+                return $"{Size} Warrior Water";// set return value of ToString to {cupSize} Warrior Water
         }
     }
 }

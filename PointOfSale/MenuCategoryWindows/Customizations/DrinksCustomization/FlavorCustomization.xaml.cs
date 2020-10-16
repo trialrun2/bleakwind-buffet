@@ -34,44 +34,8 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         public FlavorCustomization(SailorSoda passedIn)
         {
             InitializeComponent();
-            nextButton.IsEnabled = false;
+            DataContext = passedIn;
             ss = passedIn;
-        }
-        
-        /// <summary>
-        /// event handler for the flavor radio buttons checks which one is checked and sets the flavor property of passIn
-        /// to that flavor, then enables the next button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void ChooseFlavor(object sender, RoutedEventArgs e)
-        {
-            nextButton.IsEnabled = true;
-            if (BBRadio.IsChecked == true)
-            {
-                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry;
-            }
-            else if (GFRadio.IsChecked == true)
-            {
-                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit;
-            }
-            else if(WMRadio.IsChecked == true)
-            {
-                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon;
-            }
-            else if(PRadio.IsChecked == true)
-            {
-                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Peach;
-            }
-            else if(LRadio.IsChecked == true)
-            {
-                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Lemon;
-            }
-            else
-            {
-                ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Cherry;
-            }
-            DataContext = ss;
         }
 
         /// <summary>

@@ -4,6 +4,7 @@
  * Purpose: Initializes TBoneCustomization and handles events for the menu
  */
 
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
@@ -25,13 +26,13 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class TBoneCustomization : UserControl
     {
-        public ThugsT_Bone ttb = new ThugsT_Bone();
         /// <summary>
         /// initializes tbone customization
         /// </summary>
-        public TBoneCustomization()
+        public TBoneCustomization(IOrderItem ttb)
         {
             InitializeComponent();
+            DataContext = ttb;
         }
 
         /// <summary>

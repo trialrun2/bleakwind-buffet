@@ -41,14 +41,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeSmallByDefault()
         {
             SailorSoda ss = new SailorSoda();
-            Assert.Equal(Size.Small, ss.CupSize);
+            Assert.Equal(Size.Small, ss.Size);
         }
 
         [Fact]
         public void FlavorShouldBeCherryByDefault()
         {
             SailorSoda ss = new SailorSoda();
-            Assert.Equal(SodaFlavor.Cherry, ss.Flavor);
+            Assert.Equal(Flavor.Cherry, ss.SodaFlavor);
         }
 
         [Fact]
@@ -65,30 +65,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetSize()
         {
             SailorSoda ss = new SailorSoda();
-            ss.CupSize = Size.Large;
-            Assert.Equal(Size.Large, ss.CupSize);
-            ss.CupSize = Size.Medium;
-            Assert.Equal(Size.Medium, ss.CupSize);
-            ss.CupSize = Size.Small;
-            Assert.Equal(Size.Small, ss.CupSize);
+            ss.Size = Size.Large;
+            Assert.Equal(Size.Large, ss.Size);
+            ss.Size = Size.Medium;
+            Assert.Equal(Size.Medium, ss.Size);
+            ss.Size = Size.Small;
+            Assert.Equal(Size.Small, ss.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetFlavor()
         {
             SailorSoda ss = new SailorSoda();
-            ss.Flavor = SodaFlavor.Blackberry;
-            Assert.Equal(SodaFlavor.Blackberry, ss.Flavor);
-            ss.Flavor = SodaFlavor.Grapefruit;
-            Assert.Equal(SodaFlavor.Grapefruit, ss.Flavor);
-            ss.Flavor = SodaFlavor.Lemon;
-            Assert.Equal(SodaFlavor.Lemon, ss.Flavor);
-            ss.Flavor = SodaFlavor.Peach;
-            Assert.Equal(SodaFlavor.Peach, ss.Flavor);
-            ss.Flavor = SodaFlavor.Watermelon;
-            Assert.Equal(SodaFlavor.Watermelon, ss.Flavor);
-            ss.Flavor = SodaFlavor.Cherry;
-            Assert.Equal(SodaFlavor.Cherry, ss.Flavor);
+            ss.SodaFlavor = Flavor.Blackberry;
+            Assert.Equal(Flavor.Blackberry, ss.SodaFlavor);
+            ss.SodaFlavor = Flavor.Grapefruit;
+            Assert.Equal(Flavor.Grapefruit, ss.SodaFlavor);
+            ss.SodaFlavor = Flavor.Lemon;
+            Assert.Equal(Flavor.Lemon, ss.SodaFlavor);
+            ss.SodaFlavor = Flavor.Peach;
+            Assert.Equal(Flavor.Peach, ss.SodaFlavor);
+            ss.SodaFlavor = Flavor.Watermelon;
+            Assert.Equal(Flavor.Watermelon, ss.SodaFlavor);
+            ss.SodaFlavor = Flavor.Cherry;
+            Assert.Equal(Flavor.Cherry, ss.SodaFlavor);
         }
 
         [Theory]
@@ -98,7 +98,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             SailorSoda ss = new SailorSoda();
-            ss.CupSize = size;
+            ss.Size = size;
             Assert.Equal(price, ss.Price);
         }
 
@@ -109,7 +109,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             SailorSoda ss = new SailorSoda();
-            ss.CupSize = size;
+            ss.Size = size;
             Assert.Equal(cal, ss.Calories);
         }
 
@@ -131,34 +131,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
         
         [Theory]
-        [InlineData(SodaFlavor.Cherry, Size.Small, "Small Cherry Sailor Soda")]
-        [InlineData(SodaFlavor.Cherry, Size.Medium, "Medium Cherry Sailor Soda")]
-        [InlineData(SodaFlavor.Cherry, Size.Large, "Large Cherry Sailor Soda")]
+        [InlineData(Flavor.Cherry, Size.Small, "Small Cherry Sailor Soda")]
+        [InlineData(Flavor.Cherry, Size.Medium, "Medium Cherry Sailor Soda")]
+        [InlineData(Flavor.Cherry, Size.Large, "Large Cherry Sailor Soda")]
 
-        [InlineData(SodaFlavor.Blackberry, Size.Small, "Small Blackberry Sailor Soda")]
-        [InlineData(SodaFlavor.Blackberry, Size.Medium, "Medium Blackberry Sailor Soda")]
-        [InlineData(SodaFlavor.Blackberry, Size.Large, "Large Blackberry Sailor Soda")]
+        [InlineData(Flavor.Blackberry, Size.Small, "Small Blackberry Sailor Soda")]
+        [InlineData(Flavor.Blackberry, Size.Medium, "Medium Blackberry Sailor Soda")]
+        [InlineData(Flavor.Blackberry, Size.Large, "Large Blackberry Sailor Soda")]
 
-        [InlineData(SodaFlavor.Grapefruit, Size.Small, "Small Grapefruit Sailor Soda")]
-        [InlineData(SodaFlavor.Grapefruit, Size.Medium, "Medium Grapefruit Sailor Soda")]
-        [InlineData(SodaFlavor.Grapefruit, Size.Large, "Large Grapefruit Sailor Soda")]
+        [InlineData(Flavor.Grapefruit, Size.Small, "Small Grapefruit Sailor Soda")]
+        [InlineData(Flavor.Grapefruit, Size.Medium, "Medium Grapefruit Sailor Soda")]
+        [InlineData(Flavor.Grapefruit, Size.Large, "Large Grapefruit Sailor Soda")]
 
-        [InlineData(SodaFlavor.Lemon, Size.Small, "Small Lemon Sailor Soda")]
-        [InlineData(SodaFlavor.Lemon, Size.Medium, "Medium Lemon Sailor Soda")]
-        [InlineData(SodaFlavor.Lemon, Size.Large, "Large Lemon Sailor Soda")]
+        [InlineData(Flavor.Lemon, Size.Small, "Small Lemon Sailor Soda")]
+        [InlineData(Flavor.Lemon, Size.Medium, "Medium Lemon Sailor Soda")]
+        [InlineData(Flavor.Lemon, Size.Large, "Large Lemon Sailor Soda")]
 
-        [InlineData(SodaFlavor.Peach, Size.Small, "Small Peach Sailor Soda")]
-        [InlineData(SodaFlavor.Peach, Size.Medium, "Medium Peach Sailor Soda")]
-        [InlineData(SodaFlavor.Peach, Size.Large, "Large Peach Sailor Soda")]
+        [InlineData(Flavor.Peach, Size.Small, "Small Peach Sailor Soda")]
+        [InlineData(Flavor.Peach, Size.Medium, "Medium Peach Sailor Soda")]
+        [InlineData(Flavor.Peach, Size.Large, "Large Peach Sailor Soda")]
 
-        [InlineData(SodaFlavor.Watermelon, Size.Small, "Small Watermelon Sailor Soda")]
-        [InlineData(SodaFlavor.Watermelon, Size.Medium, "Medium Watermelon Sailor Soda")]
-        [InlineData(SodaFlavor.Watermelon, Size.Large, "Large Watermelon Sailor Soda")]
-        public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor(SodaFlavor flavor, Size size, string name)
+        [InlineData(Flavor.Watermelon, Size.Small, "Small Watermelon Sailor Soda")]
+        [InlineData(Flavor.Watermelon, Size.Medium, "Medium Watermelon Sailor Soda")]
+        [InlineData(Flavor.Watermelon, Size.Large, "Large Watermelon Sailor Soda")]
+        public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor(Flavor flavor, Size size, string name)
         {
             SailorSoda ss = new SailorSoda();
-            ss.Flavor = flavor;
-            ss.CupSize = size;
+            ss.SodaFlavor = flavor;
+            ss.Size = size;
             Assert.Equal(name, ss.ToString());
         }
 
@@ -166,27 +166,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             SailorSoda ss = new SailorSoda();
-            Assert.PropertyChanged(ss, "Size", () => { ss.CupSize = Size.Large; });
-            Assert.PropertyChanged(ss, "Size", () => { ss.CupSize = Size.Medium; });
-            Assert.PropertyChanged(ss, "Size", () => { ss.CupSize = Size.Small; });
+            Assert.PropertyChanged(ss, "Size", () => { ss.Size = Size.Large; });
+            Assert.PropertyChanged(ss, "Size", () => { ss.Size = Size.Medium; });
+            Assert.PropertyChanged(ss, "Size", () => { ss.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             SailorSoda ss = new SailorSoda();
-            Assert.PropertyChanged(ss, "Price", () => { ss.CupSize = Size.Large; });
-            Assert.PropertyChanged(ss, "Price", () => { ss.CupSize = Size.Medium; });
-            Assert.PropertyChanged(ss, "Price", () => { ss.CupSize = Size.Small; });
+            Assert.PropertyChanged(ss, "Price", () => { ss.Size = Size.Large; });
+            Assert.PropertyChanged(ss, "Price", () => { ss.Size = Size.Medium; });
+            Assert.PropertyChanged(ss, "Price", () => { ss.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             SailorSoda ss = new SailorSoda();
-            Assert.PropertyChanged(ss, "Calories", () => { ss.CupSize = Size.Large; });
-            Assert.PropertyChanged(ss, "Calories", () => { ss.CupSize = Size.Medium; });
-            Assert.PropertyChanged(ss, "Calories", () => { ss.CupSize = Size.Small; });
+            Assert.PropertyChanged(ss, "Calories", () => { ss.Size = Size.Large; });
+            Assert.PropertyChanged(ss, "Calories", () => { ss.Size = Size.Medium; });
+            Assert.PropertyChanged(ss, "Calories", () => { ss.Size = Size.Small; });
         }
 
         [Fact]
@@ -201,12 +201,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingFlavorNotifiesFlavorProperty()
         {
             SailorSoda ss = new SailorSoda();
-            Assert.PropertyChanged(ss, "Flavor", () => { ss.Flavor = SodaFlavor.Blackberry; });
-            Assert.PropertyChanged(ss, "Flavor", () => { ss.Flavor = SodaFlavor.Cherry; });
-            Assert.PropertyChanged(ss, "Flavor", () => { ss.Flavor = SodaFlavor.Grapefruit; });
-            Assert.PropertyChanged(ss, "Flavor", () => { ss.Flavor = SodaFlavor.Lemon; });
-            Assert.PropertyChanged(ss, "Flavor", () => { ss.Flavor = SodaFlavor.Peach; });
-            Assert.PropertyChanged(ss, "Flavor", () => { ss.Flavor = SodaFlavor.Watermelon; });
+            Assert.PropertyChanged(ss, "Flavor", () => { ss.SodaFlavor = Flavor.Blackberry; });
+            Assert.PropertyChanged(ss, "Flavor", () => { ss.SodaFlavor = Flavor.Cherry; });
+            Assert.PropertyChanged(ss, "Flavor", () => { ss.SodaFlavor = Flavor.Grapefruit; });
+            Assert.PropertyChanged(ss, "Flavor", () => { ss.SodaFlavor = Flavor.Lemon; });
+            Assert.PropertyChanged(ss, "Flavor", () => { ss.SodaFlavor = Flavor.Peach; });
+            Assert.PropertyChanged(ss, "Flavor", () => { ss.SodaFlavor = Flavor.Watermelon; });
         }
 
         [Fact]

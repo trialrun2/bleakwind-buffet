@@ -45,7 +45,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeSmallByDefault()
         {
             WarriorWater ww = new WarriorWater();
-            Assert.Equal(Size.Small, ww.CupSize);
+            Assert.Equal(Size.Small, ww.Size);
         }
 
         [Fact]
@@ -72,12 +72,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetSize()
         {
             WarriorWater ww = new WarriorWater();
-            ww.CupSize = Size.Large;
-            Assert.Equal(Size.Large, ww.CupSize);
-            ww.CupSize = Size.Medium;
-            Assert.Equal(Size.Medium, ww.CupSize);
-            ww.CupSize = Size.Small;
-            Assert.Equal(Size.Small, ww.CupSize);
+            ww.Size = Size.Large;
+            Assert.Equal(Size.Large, ww.Size);
+            ww.Size = Size.Medium;
+            Assert.Equal(Size.Medium, ww.Size);
+            ww.Size = Size.Small;
+            Assert.Equal(Size.Small, ww.Size);
         }
 
         [Theory]
@@ -87,7 +87,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             WarriorWater ww = new WarriorWater();
-            ww.CupSize = size;
+            ww.Size = size;
             Assert.Equal(price, ww.Price);
         }
 
@@ -98,7 +98,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             WarriorWater ww = new WarriorWater();
-            ww.CupSize = size;
+            ww.Size = size;
             Assert.Equal(cal, ww.Calories);
         }
 
@@ -133,7 +133,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             WarriorWater ww = new WarriorWater();
-            ww.CupSize = size;
+            ww.Size = size;
             Assert.Equal(name, ww.ToString());
         }
 
@@ -141,9 +141,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             WarriorWater ww = new WarriorWater();
-            Assert.PropertyChanged(ww, "Size", () => { ww.CupSize = Size.Large; });
-            Assert.PropertyChanged(ww, "Size", () => { ww.CupSize = Size.Medium; });
-            Assert.PropertyChanged(ww, "Size", () => { ww.CupSize = Size.Small; });
+            Assert.PropertyChanged(ww, "Size", () => { ww.Size = Size.Large; });
+            Assert.PropertyChanged(ww, "Size", () => { ww.Size = Size.Medium; });
+            Assert.PropertyChanged(ww, "Size", () => { ww.Size = Size.Small; });
         }
 
         [Fact]

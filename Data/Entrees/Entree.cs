@@ -36,8 +36,15 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// public property gets the value of the toString method
+        /// </summary>
         public string Name { get => ToString(); }
 
+        /// <summary>
+        /// public method to update the property shown in the wpf
+        /// </summary>
+        /// <param name="propName">name of the property to be updated</param>
         public void PropChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

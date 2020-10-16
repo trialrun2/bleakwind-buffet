@@ -32,19 +32,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldBeSmallByDefault()
         {
             VokunSalad vs = new VokunSalad();
-            Assert.Equal(Size.Small, vs.SideSize);
+            Assert.Equal(Size.Small, vs.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             VokunSalad vs = new VokunSalad();
-            vs.SideSize = Size.Large;
-            Assert.Equal(Size.Large, vs.SideSize);
-            vs.SideSize = Size.Medium;
-            Assert.Equal(Size.Medium, vs.SideSize);
-            vs.SideSize = Size.Small;
-            Assert.Equal(Size.Small, vs.SideSize);
+            vs.Size = Size.Large;
+            Assert.Equal(Size.Large, vs.Size);
+            vs.Size = Size.Medium;
+            Assert.Equal(Size.Medium, vs.Size);
+            vs.Size = Size.Small;
+            Assert.Equal(Size.Small, vs.Size);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             VokunSalad vs = new VokunSalad();
-            vs.SideSize = size;
+            vs.Size = size;
             Assert.Equal(price, vs.Price);
         }
 
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             VokunSalad vs = new VokunSalad();
-            vs.SideSize = size;
+            vs.Size = size;
             Assert.Equal(calories, vs.Calories);
         }
 
@@ -83,7 +83,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             VokunSalad vs = new VokunSalad();
-            vs.SideSize = size;
+            vs.Size = size;
             Assert.Equal(name, vs.ToString());
         }
 
@@ -91,27 +91,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ChangingSizeNotifiesSizeProperty()
         {
             VokunSalad vs = new VokunSalad();
-            Assert.PropertyChanged(vs, "Size", () => { vs.SideSize = Size.Large; });
-            Assert.PropertyChanged(vs, "Size", () => { vs.SideSize = Size.Medium; });
-            Assert.PropertyChanged(vs, "Size", () => { vs.SideSize = Size.Small; });
+            Assert.PropertyChanged(vs, "Size", () => { vs.Size = Size.Large; });
+            Assert.PropertyChanged(vs, "Size", () => { vs.Size = Size.Medium; });
+            Assert.PropertyChanged(vs, "Size", () => { vs.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingPriceNotifiesPriceProperty()
         {
             VokunSalad vs = new VokunSalad();
-            Assert.PropertyChanged(vs, "Price", () => { vs.SideSize = Size.Large; });
-            Assert.PropertyChanged(vs, "Price", () => { vs.SideSize = Size.Medium; });
-            Assert.PropertyChanged(vs, "Price", () => { vs.SideSize = Size.Small; });
+            Assert.PropertyChanged(vs, "Price", () => { vs.Size = Size.Large; });
+            Assert.PropertyChanged(vs, "Price", () => { vs.Size = Size.Medium; });
+            Assert.PropertyChanged(vs, "Price", () => { vs.Size = Size.Small; });
         }
 
         [Fact]
         public void ChangingCaloriesNotifiesCaloriesProperty()
         {
             VokunSalad vs = new VokunSalad();
-            Assert.PropertyChanged(vs, "Calories", () => { vs.SideSize = Size.Large; });
-            Assert.PropertyChanged(vs, "Calories", () => { vs.SideSize = Size.Medium; });
-            Assert.PropertyChanged(vs, "Calories", () => { vs.SideSize = Size.Small; });
+            Assert.PropertyChanged(vs, "Calories", () => { vs.Size = Size.Large; });
+            Assert.PropertyChanged(vs, "Calories", () => { vs.Size = Size.Medium; });
+            Assert.PropertyChanged(vs, "Calories", () => { vs.Size = Size.Small; });
         }
 
         [Fact]

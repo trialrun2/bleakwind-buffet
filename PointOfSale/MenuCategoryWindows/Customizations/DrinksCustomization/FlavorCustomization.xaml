@@ -4,19 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:model ="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="flavors" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="model:Flavor"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center">Select Your Flavor</TextBlock>
         <TextBlock DockPanel.Dock="Top" Height="30" />
-        <RadioButton Click ="ChooseFlavor" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioFlavor" FontSize="20" Width="194" Name="BBRadio" IsChecked="False">Blackberry</RadioButton>
-        <RadioButton Click ="ChooseFlavor" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioFlavor" FontSize="20" Width="194" Name="CRadio" IsChecked="False">Cherry</RadioButton>
-        <RadioButton Click ="ChooseFlavor" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioFlavor" FontSize="20" Width="194" Name="GFRadio" IsChecked="False">Grapefruit</RadioButton>
-        <RadioButton Click ="ChooseFlavor" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioFlavor" FontSize="20" Width="194" Name="LRadio" IsChecked="False">Lemon</RadioButton>
-        <RadioButton Click ="ChooseFlavor" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioFlavor" FontSize="20" Width="194" Name="PRadio" IsChecked="False">Peach</RadioButton>
-        <RadioButton Click ="ChooseFlavor" VerticalContentAlignment="Center" BorderThickness="5" DockPanel.Dock="Top" GroupName="RadioFlavor" FontSize="20" Width="194" Name="WMRadio" IsChecked="False">Watermelon</RadioButton>
-        <Button Click="FlavorNextButton" Name="nextButton" DockPanel.Dock="Top" Height="50" Margin="50, 10, 50, 5" FontSize="30" FontWeight="Bold">Next</Button>
-        <Button Click="FlavorBackButton" DockPanel.Dock="Top" Height="50" Margin="50, 0" FontSize="30" FontWeight="Bold">Back</Button>
-        <TextBlock/>
+        <Button Click="FlavorBackButton" DockPanel.Dock="Bottom" Height="50" Margin="50, 0" FontSize="30" FontWeight="Bold">Back</Button>
+        <Button Click="FlavorNextButton" Name="nextButton" DockPanel.Dock="Bottom" Height="50" Margin="50, 10, 50, 5" FontSize="30" FontWeight="Bold">Next</Button>
+        <ListBox BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="20" ItemsSource="{Binding Source={StaticResource flavors}}" SelectedItem="{Binding Path=SodaFlavor}"/>
     </DockPanel>
 </UserControl>

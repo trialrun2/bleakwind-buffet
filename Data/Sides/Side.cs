@@ -22,7 +22,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// The size of the drink
         /// </summary>
-        public abstract Size SideSize { get; set; }
+        public abstract Size Size { get; set; }
 
         /// <summary>
         /// The price of the drink
@@ -42,8 +42,15 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// public property gets the value from the tostring method
+        /// </summary>
         public string Name { get => ToString(); }
 
+        /// <summary>
+        /// public method that updates the value shown in the wpf
+        /// </summary>
+        /// <param name="propName">name of property to update</param>
         public void PropChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

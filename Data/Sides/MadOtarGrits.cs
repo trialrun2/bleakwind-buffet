@@ -35,7 +35,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public override Size SideSize
+        public override Size Size
         {
             get => sideSize;//gets cupSize
             set
@@ -59,7 +59,8 @@ namespace BleakwindBuffet.Data.Sides
 
                 PropChanged("Price");
                 PropChanged("Calories");
-                PropChanged("CupSize");
+                PropChanged("Size");
+                PropChanged("Name");
             }
         }
 
@@ -102,7 +103,7 @@ namespace BleakwindBuffet.Data.Sides
         /// </returns>
         public override string ToString()
         {
-            return $"{sideSize} Mad Otar Grits";// set return value of ToString to {sideSize} Mad Otar Grits
+            return $"{Size} Mad Otar Grits";// set return value of ToString to {sideSize} Mad Otar Grits
         }
     }
 }

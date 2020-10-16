@@ -43,11 +43,13 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void AppleJuiceButton(object sender, RoutedEventArgs e)
         {
-            DrinkCustomizations src = new DrinkCustomizations(new AretinoAppleJuice(), 3);
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            DrinkCustomizations src = new DrinkCustomizations(aj, 3);
             OrderWindow order = this.FindAncestor<OrderWindow>();
+            aj.Ice = true;
             if (DataContext is Order orders)
             {
-                orders.Add(new AretinoAppleJuice());
+                orders.Add(aj);
             }
             order.Swap(src);
         }
@@ -60,11 +62,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void CoffeeButton(object sender, RoutedEventArgs e)
         {
-            DrinkCustomizations src = new DrinkCustomizations(new CandlehearthCoffee(), 1);
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            DrinkCustomizations src = new DrinkCustomizations(chc, 1);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new CandlehearthCoffee());
+                orders.Add(chc);
             }
             order.Swap(src);
         }
@@ -77,11 +80,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void MilkButton(object sender, RoutedEventArgs e)
         {
-            DrinkCustomizations src = new DrinkCustomizations(new MarkarthMilk(), 4);
+            MarkarthMilk mm = new MarkarthMilk();
+            DrinkCustomizations src = new DrinkCustomizations(mm, 4);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new MarkarthMilk());
+                orders.Add(mm);
             }
             order.Swap(src);
         }
@@ -94,11 +98,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void SodaButton(object sender, RoutedEventArgs e)
         {
-            DrinkCustomizations src = new DrinkCustomizations(new SailorSoda(), 0);
+            SailorSoda ss = new SailorSoda();
+            DrinkCustomizations src = new DrinkCustomizations(ss, 0);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new SailorSoda());
+                orders.Add(ss);
             }
             order.Swap(src);
         }
@@ -111,11 +116,12 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void WaterButton(object sender, RoutedEventArgs e)
         {
-            DrinkCustomizations src = new DrinkCustomizations(new WarriorWater(), 2);
+            WarriorWater ww = new WarriorWater();
+            DrinkCustomizations src = new DrinkCustomizations(ww, 2);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)
             {
-                orders.Add(new WarriorWater());
+                orders.Add(ww);
             }
             order.Swap(src);
         }

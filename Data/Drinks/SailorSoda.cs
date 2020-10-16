@@ -26,7 +26,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// private backing variable for flavor
         /// </summary>
-        private SodaFlavor flavor = SodaFlavor.Cherry;
+        private Flavor flavor = Flavor.Cherry;
 
         /// <summary>
         /// private backing variable for price
@@ -41,7 +41,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets and sets cupSize
         /// </summary>
-        public override Size CupSize
+        public override Size Size
         {
             get => cupSize;//gets cupSize
             set
@@ -62,22 +62,24 @@ namespace BleakwindBuffet.Data.Drinks
                     calories = 117;//set calories back to default
                     price = 1.42;//set price back to default
                 }
-                PropChanged("CupSize");
+                PropChanged("Size");
                 PropChanged("Price");
                 PropChanged("Calories");
+                PropChanged("Name");
             }
         }
 
         /// <summary>
         /// gets and sets flavor
         /// </summary>
-        public SodaFlavor Flavor
+        public Flavor SodaFlavor
         {
             get => flavor;//gets flavor
             set
             {
                 flavor = value;//sets flavor to value
                 PropChanged("Flavor");
+                PropChanged("Name");
             }
         }
 
@@ -137,7 +139,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override string ToString()
         {
-            return $"{cupSize} {flavor} Sailor Soda";// set return value of ToString to {Size} {flavor} Sailor Soda
+            return $"{Size} {flavor} Sailor Soda";// set return value of ToString to {Size} {flavor} Sailor Soda
         }
     }
 }

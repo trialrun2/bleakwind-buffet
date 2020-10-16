@@ -44,7 +44,7 @@ namespace PointOfSale.MenuCategoryWindows
         /// <param name="e"></param>
         void FriesButton(object sender, RoutedEventArgs e)
         {
-            var dwf = new DragonbornWaffleFries();
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
             SizeCustomization custom = new SizeCustomization(5, dwf);
             OrderWindow order = this.FindAncestor<OrderWindow>();
             if (DataContext is Order orders)

@@ -33,9 +33,9 @@ namespace BleakwindBuffet.Data.Sides
         private double price = 0.42;
 
         /// <summary>
-        /// gets and sets cupSize
+        /// gets and sets the side size
         /// </summary>
-        public override Size SideSize
+        public override Size Size
         {
             get => sideSize;//gets cupSize
             set
@@ -59,7 +59,8 @@ namespace BleakwindBuffet.Data.Sides
 
                 PropChanged("Price");
                 PropChanged("Calories");
-                PropChanged("SideSize");
+                PropChanged("Size");
+                PropChanged("Name");
             }
         }
 
@@ -102,7 +103,7 @@ namespace BleakwindBuffet.Data.Sides
         /// </returns>
         public override string ToString()
         {
-            return $"{sideSize} Dragonborn Waffle Fries";// set return value of ToString to {sideSize} Dragonborn Waffle Fries
+            return $"{Size} Dragonborn Waffle Fries";// set return value of ToString to {sideSize} Dragonborn Waffle Fries
         }
     }
 }

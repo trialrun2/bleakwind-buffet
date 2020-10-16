@@ -4,6 +4,7 @@
  * Purpose: Initializes and handles events for the OrderWindow wpf
  */
 
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,19 +39,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         void CancelOrder(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-
-        /// <summary>
-        /// event handler for the add order button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void AddNewOrder(object sender, RoutedEventArgs e)
-        {
+            DataContext = new Order();
 
         }
+
 
         /// <summary>
         /// event handler for the cancel order button

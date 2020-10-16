@@ -4,6 +4,7 @@
  * Purpose: Initializes PoacherCustomization and handles events for the menu
  */
 
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
@@ -25,15 +26,13 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class PoacherCustomization : UserControl
     {
-        //creates new variable to modify and pass in
-        public PhillyPoacher pp = new PhillyPoacher();
-        
         /// <summary>
         /// initializes poacher customization
         /// </summary>
-        public PoacherCustomization()
+        public PoacherCustomization(IOrderItem pp)
         {
             InitializeComponent();
+            DataContext = pp;
         }
 
         /// <summary>

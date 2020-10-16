@@ -26,15 +26,14 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class OmeletteCustomization : UserControl
     {
-        //new variable to modify and pass in
-        public GardenOrcOmelette goo = new GardenOrcOmelette();
 
         /// <summary>
         /// initializes omelett customization
         /// </summary>
-        public OmeletteCustomization()
+        public OmeletteCustomization(IOrderItem goo)
         {
             InitializeComponent();
+            DataContext = goo;
         }
 
         /// <summary>
@@ -42,14 +41,10 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void AddOmeletteButton(object sender, RoutedEventArgs e)
+        void OmeletteDoneButton(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            if (DataContext is Order orders)
-            {
-                orders.Add(goo);
-            }
             order.Swap(menu);
         }
 

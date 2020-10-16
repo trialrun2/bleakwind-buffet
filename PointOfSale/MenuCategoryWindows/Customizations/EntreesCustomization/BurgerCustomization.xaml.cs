@@ -17,11 +17,6 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     /// </summary>
     public partial class BurgerCustomization : UserControl
     {
-        //creates new variables to modify and or pass in
-        public BriarheartBurger bb = new BriarheartBurger();
-        public DoubleDraugr dd = new DoubleDraugr();
-        public ThalmorTriple tt = new ThalmorTriple();
-        //private int to hold the type of burger we want
         private int burgerType;
 
         /// <summary>
@@ -33,18 +28,6 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
             DataContext = burger;
             burgerType = burgType;
             EnableDisableBurger();
-            if(burgerType == 0)
-            {
-                bb = (BriarheartBurger) burger;
-            }
-            else if(burgerType == 1)
-            {
-                dd = (DoubleDraugr)burger;
-            }
-            else
-            {
-                tt = (ThalmorTriple)burger;
-            }
         }
         
         /// <summary>
@@ -85,18 +68,11 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
                 mayoCheck.IsEnabled = false;
                 lettuceCheck.IsEnabled = false;
                 eggCheck.IsEnabled = false;
-                tomatoCheck.IsChecked = false;
-                baconCheck.IsChecked = false;
-                mayoCheck.IsChecked = false;
-                lettuceCheck.IsChecked = false;
-                eggCheck.IsChecked = false;
             }
             else if(burgerType == 1)// if it's a double draugr
             {
                 baconCheck.IsEnabled = false;
                 eggCheck.IsEnabled = false;
-                baconCheck.IsChecked = false;
-                eggCheck.IsChecked = false;
             }
             else // if its a thalmor triple
             {
