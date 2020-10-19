@@ -62,6 +62,7 @@ namespace BleakwindBuffet.Data.Drinks
                 PropChanged("Price");
                 PropChanged("Calories");
                 PropChanged("Name");
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -97,7 +98,9 @@ namespace BleakwindBuffet.Data.Drinks
                 ice = value;//sets boolean value of ice to value
                 PropChanged("Ice");
                 if (Ice) instructions.Add("Add ice");//if ice is true, add ice
+                else instructions.Remove("Add ice");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -121,7 +124,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override string ToString()
         {
-            return $"{Size} Markarth Milk";// set return value of ToString to {cupSize} Markarth Milk
+            string name = $"{Size} Markarth Milk";
+
+            if (Ice) name += "\n   - Add ice";
+
+            return name;
         }
     }
 }

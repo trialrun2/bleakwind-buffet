@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="PointOfSale.RegisterControls.CashControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.RegisterControls"
+             mc:Ignorable="d" 
+             Height="40" Width="210"
+             d:DesignHeight="40" d:DesignWidth="230">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="5,2" Background="DarkOliveGreen"  TextAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        <Button Grid.Column="1" Click="DecrementQuantity" Content="-"/>
+        <Button Grid.Column="3" Click="IncrementQuantity" Content="+"/>
+        <TextBox Margin="2" Grid.Column="2" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CashControl}}, Path=Quantity}" FontSize="30" TextAlignment="Center" Background="White"></TextBox>
+        <TextBox IsReadOnly="True" Margin ="2" Grid.Column="4" Text="" FontSize="30" TextAlignment="Center"/>
+    </Grid>
+</UserControl>

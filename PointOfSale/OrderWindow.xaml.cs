@@ -5,6 +5,7 @@
  */
 
 using BleakwindBuffet.Data;
+using PointOfSale.RegisterControls;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,7 +32,6 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
         /// <summary>
         /// event handler for the prior order button
         /// </summary>
@@ -40,18 +40,21 @@ namespace PointOfSale
         void CancelOrder(object sender, RoutedEventArgs e)
         {
             DataContext = new Order();
-
         }
 
 
         /// <summary>
-        /// event handler for the cancel order button
+        /// event handler for the complete order button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void CompleteOrder(object sender, RoutedEventArgs e)
         {
-
+            if (DataContext is Order order)
+            {
+                PaymentOptionsWindow pay = new PaymentOptionsWindow(new RegisterViewModel(order));
+                Swap(pay);
+            }
         }
 
         /// <summary>

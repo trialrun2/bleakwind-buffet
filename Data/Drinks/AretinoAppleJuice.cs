@@ -103,7 +103,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (Ice) instructions.Add("Add ice");//if ice is true, add ice
                 else { instructions.Remove("Add ice"); }// if its false remove add ice
                 PropChanged("Ice");
-                PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -127,7 +127,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override string ToString()
         {
-            return $"{Size} Aretino Apple Juice";// set return value of ToString to {cupSize} Markarth Milk
+            string name = $"{Size} Aretino Apple Juice";
+
+            if (Ice) name += "\n - Add Ice";
+
+            return name;
         }
     }
 }

@@ -44,7 +44,9 @@ namespace BleakwindBuffet.Data.Entrees
                 sausageLink = value;//sets sausageLink equal to value
                 PropChanged("SausageLink");
                 if (!SausageLink) instructions.Add("Hold sausage");//if sausageLink is false, hold sausageLink
+                else instructions.Remove("Hold sausage");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -64,7 +66,9 @@ namespace BleakwindBuffet.Data.Entrees
                 egg = value;//sets egg equal to value
                 PropChanged("Egg");
                 if (!Egg) instructions.Add("Hold eggs");//if egg is false, hold egg
+                else instructions.Remove("Hold eggs");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -83,8 +87,10 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 hashBrowns = value;//sets hashBrowns equal to value
                 PropChanged("HashBrowns");
-                if (!HashBrowns) instructions.Add("Hold hash browns");//if hashbrowns is false, hold hashbrowns
+                if (!HashBrowns) instructions.Add("Hold hashbrowns");//if hashbrowns is false, hold hashbrowns
+                else instructions.Remove("Hold hashbrowns");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -104,7 +110,9 @@ namespace BleakwindBuffet.Data.Entrees
                 pancake = value;//sets pancake equal to value
                 PropChanged("Pancake");
                 if (!Pancake) instructions.Add("Hold pancakes");//if pancake is false, hold pancake
+                else instructions.Remove("Hold pancakes");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -128,7 +136,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override string ToString()
         {
-            return "Smokehouse Skeleton";// set return value of ToString to Smokehouse Skeleton
+            string name = "Smokehouse Skeleton";
+
+            if (!SausageLink) name += "\n   - Hold sausage";
+            if (!HashBrowns) name += "\n   - Hold hashbrowns";
+            if (!Egg) name += "\n   - Hold eggs";
+            if (!Pancake) name += "\n   - Hold pancakes";
+
+            return name;// set return value of ToString to Smokehouse Skeleton
         }
     }
 }

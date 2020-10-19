@@ -23,6 +23,37 @@ namespace BleakwindBuffet.Data
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public Combo()
+        {
+            price = 0;
+            cals = 0;
+            name = "";
+        }
+        /*public Combo (Entree entree)
+        {
+            entre = entree;
+            price = entre.Price;
+            cals = entre.Calories;
+            name = $"{entre.ToString()}";
+        }
+        public Combo(Entree entree, Drink drink)
+        {
+            entre = entree;
+            drank = drink;
+            price = entre.Price + drank.Price - 1;
+            cals = entre.Calories + drank.Calories;
+            name = $"{entre.ToString()} \n{drank.ToString()}";
+        }
+        public Combo (Entree entree, Drink drink, Side side)
+        {
+            entre = entree;
+            drank = drink;
+            sid = side;
+            price = sid.Price + drank.Price + entre.Price - 1;
+            cals = sid.Calories + drank.Calories + entre.Calories;
+            name = $"{entre.ToString()} \n {sid.ToString()} \n {drank.ToString()}";
+        }*/
+
         // private backing variable for DrinkCombo
         private Drink drank;
 
@@ -34,13 +65,15 @@ namespace BleakwindBuffet.Data
             get => drank;
             set
             {
-                DrinkCombo.PropertyChanged -= PropertyItemChangedListner;
+                if (entre != null) DrinkCombo.PropertyChanged -= PropertyItemChangedListner;
+
                 drank = value;
                 DrinkCombo.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DrinkCombo"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
@@ -55,13 +88,15 @@ namespace BleakwindBuffet.Data
             get => entre;
             set
             {
-                entre.PropertyChanged -= PropertyItemChangedListner;
+                if(entre != null) entre.PropertyChanged -= PropertyItemChangedListner;
+
                 entre = value;
                 entre.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EntreeCombo"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
@@ -76,30 +111,44 @@ namespace BleakwindBuffet.Data
             get => sid;
             set
             {
-                sid.PropertyChanged -= PropertyItemChangedListner;
+                if (entre != null) sid.PropertyChanged -= PropertyItemChangedListner;
+
                 sid = value;
                 sid.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SideCombo"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
+
+        private double price;
         /// <summary>
         /// price property for combo object
         /// </summary>
         public double Price
         {
-            get => sid.Price + drank.Price + entre.Price - 1;
+            get => price;
+            set
+            {
+                price = value;
+            }
         }
 
+
+        private uint cals;
         /// <summary>
         /// calories property for combo object 
         /// </summary>
         public uint Calories
         {
-            get => sid.Calories + drank.Calories + entre.Calories;
+            get => cals;
+            set
+            {
+                cals = value;
+            }
         }
 
         /// <summary>
@@ -110,8 +159,19 @@ namespace BleakwindBuffet.Data
             get
             {
                 List<string> instructions = new List<string>();//creates new list
-                instructions.Add($"{entre.ToString()}\n, - {entre.SpecialInstructions}, \n {sid.ToString()}, \n - {sid.SpecialInstructions}, \n {drank.ToString()}, \n - {drank.SpecialInstructions}");
+                instructions.Add($"{entre.ToString()} \n {sid.ToString()} \n {drank.ToString()}");
                 return instructions;//return the list
+            }
+        }
+
+        private string name;
+
+        public string Name
+        {
+            get => name;
+            set
+            {
+                name = value;
             }
         }
 
@@ -128,11 +188,15 @@ namespace BleakwindBuffet.Data
             }
             if(e.PropertyName == "Calories")
             {
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
             if (e.PropertyName == "SpecialInstructions")
             {
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+            if(e.PropertyName == "Name")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
     }

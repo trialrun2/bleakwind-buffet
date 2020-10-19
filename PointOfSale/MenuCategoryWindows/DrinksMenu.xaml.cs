@@ -27,12 +27,22 @@ namespace PointOfSale.MenuCategoryWindows
     /// </summary>
     public partial class DrinksMenu : UserControl
     {
+        private Combo combo;
+        private bool isCombo;
+
         /// <summary>
         /// initializes the drink menu
         /// </summary>
         public DrinksMenu()
         {
             InitializeComponent();
+        }
+
+        public DrinksMenu(Combo comb0, bool comb)
+        {
+            InitializeComponent();
+            combo = comb0;
+            isCombo = comb;
         }
 
         /// <summary>
@@ -46,8 +56,12 @@ namespace PointOfSale.MenuCategoryWindows
             AretinoAppleJuice aj = new AretinoAppleJuice();
             DrinkCustomizations src = new DrinkCustomizations(aj, 3);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            aj.Ice = true;
-            if (DataContext is Order orders)
+            DrinkCustomizations drink = new DrinkCustomizations(aj, 3, isCombo, combo);
+            if (isCombo) 
+            {
+                order.Swap(drink);
+            }
+            else if (DataContext is Order orders)
             {
                 orders.Add(aj);
             }

@@ -43,7 +43,9 @@ namespace BleakwindBuffet.Data.Entrees
                 sirloin = value;//sets sirloin equal to value
                 PropChanged("Sirloin");
                 if (!Sirloin) instructions.Add("Hold sirloin");//if sirloin is false, hold sirloin
+                else instructions.Remove("Hold sirloin");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -63,7 +65,9 @@ namespace BleakwindBuffet.Data.Entrees
                 onion = value;//sets onion equal to value
                 PropChanged("Onion");
                 if (!Onion) instructions.Add("Hold onions");//if onion is false, hold onion
+                else instructions.Remove("Hold onions");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -83,7 +87,9 @@ namespace BleakwindBuffet.Data.Entrees
                 roll = value;//sets roll equal to value
                 PropChanged("Roll");
                 if (!Roll) instructions.Add("Hold roll");//if roll is false, hold roll
+                else instructions.Remove("Hold roll");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -108,7 +114,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override string ToString()
         {
-            return "Philly Poacher";// set return value of ToString to Philly Poacher
+            string name = "Philly Poacher";
+
+            if (!Sirloin) name += "\n   - Hold sirloin";
+            if (!Onion) name += "\n   - Hold onion";
+            if (!Roll) name += "\n   - Hold roll";
+
+            return name;
         }
     }
 }

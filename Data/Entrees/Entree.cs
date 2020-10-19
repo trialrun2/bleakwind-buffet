@@ -48,6 +48,7 @@ namespace BleakwindBuffet.Data.Entrees
         public void PropChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
 
 

@@ -43,7 +43,9 @@ namespace BleakwindBuffet.Data.Entrees
                 broccoli = value;//sets broccoli equal to value
                 PropChanged("Broccoli");
                 if (!Broccoli) instructions.Add("Hold broccoli");//if broccoli is false, hold broccoli
+                else instructions.Remove("Hold broccoli");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -63,7 +65,9 @@ namespace BleakwindBuffet.Data.Entrees
                 mushrooms = value;//sets mushrooms equal to value
                 PropChanged("Mushrooms");
                 if (!Mushrooms) instructions.Add("Hold mushrooms");//if mushrooms is false, hold mushrooms
+                else instructions.Remove("Hold mushrooms");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -83,7 +87,9 @@ namespace BleakwindBuffet.Data.Entrees
                 tomato = value;//sets tomato equal to value
                 PropChanged("Tomato");
                 if (!Tomato) instructions.Add("Hold tomato");//if tomato is false, hold tomato
+                else instructions.Remove("Hold tomato");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -103,7 +109,9 @@ namespace BleakwindBuffet.Data.Entrees
                 cheddar = value;//sets cheddar equal to value
                 PropChanged("Cheddar");
                 if (!Cheddar) instructions.Add("Hold cheddar");//if cheddar is false, hold cheddar
+                else instructions.Remove("Hold cheddar");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -127,7 +135,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override string ToString()
         {
-            return "Garden Orc Omelette";// set return value of ToString to Garden Orc Omelette
+            string name = "Garden Orc Omelette";
+
+            if (!Broccoli) name += "\n   - Hold broccoli";
+            if (!Mushrooms) name += "\n   - Hold mushrooms";
+            if (!Tomato) name += "\n   - Hold tomato";
+            if (!Cheddar) name += "\n   - Hold cheddar";
+
+            return name;
         }
     }
 }

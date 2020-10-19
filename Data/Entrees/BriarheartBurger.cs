@@ -45,9 +45,10 @@ namespace BleakwindBuffet.Data.Entrees
                 ketchup = value;//sets the value of ketchup to value
                 PropChanged("Ketchup");
                 if (!Ketchup) instructions.Add("Hold ketchup");//if ketchup is false,, hold ketchup
+                else instructions.Remove("Hold ketchup");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
-
         }
 
         /// <summary>
@@ -66,7 +67,9 @@ namespace BleakwindBuffet.Data.Entrees
                 bun = value;//sets value of bun to bun
                 PropChanged("Bun");
                 if (!Bun) instructions.Add("Hold bun");//if bun is false, hold bun
+                else instructions.Remove("Hold bun");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -86,7 +89,9 @@ namespace BleakwindBuffet.Data.Entrees
                 mustard = value;//sets value of mustard to value
                 PropChanged("Mustard");
                 if (!Mustard) instructions.Add("Hold mustard");//if mustard is false, hold mustard
+                else instructions.Remove("Hold mustard");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -106,7 +111,9 @@ namespace BleakwindBuffet.Data.Entrees
                 pickle = value; //sets value of pickle to value
                 PropChanged("Pickle");
                 if (!Pickle) instructions.Add("Hold pickle");//if pickle is false, hold pickle
+                else instructions.Remove("Hold pickle");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -126,7 +133,9 @@ namespace BleakwindBuffet.Data.Entrees
                 cheese = value; //sets value of cheese to value
                 PropChanged("Cheese");
                 if (!Cheese) instructions.Add("Hold cheese");//if cheese is false, hold cheese
+                else instructions.Remove("Hold cheese");
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -150,7 +159,15 @@ namespace BleakwindBuffet.Data.Entrees
         /// </returns>
         public override string ToString()
         {
-            return "Briarheart Burger";// set return value of ToString to Briarheart Burger
+            string name = "Briarheart Burger";
+
+            if (!Bun) name += "\n   - Hold bun";
+            if (!Ketchup) name += "\n   - Hold ketchup";
+            if (!Mustard) name += "\n   - Hold mustard";
+            if (!Pickle) name += "\n   - Hold pickle";
+            if (!Cheese) name += "\n   - Hold cheese";
+
+            return name;
         }
     }
 }

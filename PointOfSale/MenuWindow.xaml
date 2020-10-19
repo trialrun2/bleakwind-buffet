@@ -11,9 +11,11 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Margin ="20" Click="DrinkButton" Grid.Row="0" FontSize="50" FontWeight="Bold">Drinks</Button>
-        <Button Margin ="20" Click="EntreeButton" Grid.Row="1" FontSize="50" FontWeight="Bold">Entrees</Button>
-        <Button Margin ="20" Click="SideButton" Grid.Row="2" FontSize="50" FontWeight="Bold">Sides</Button>
+        <Button Margin ="10" Click="DrinkButton" Grid.Row="0" FontSize="50" FontWeight="Bold">Drinks</Button>
+        <Button Margin ="10" Click="EntreeButton" Grid.Row="1" FontSize="50" FontWeight="Bold">Entrees</Button>
+        <Button Margin ="10" Click="SideButton" Grid.Row="2" FontSize="50" FontWeight="Bold">Sides</Button>
+        <Button Margin="10" Click="ComboButton" Grid.Row="3" FontSize="50" FontWeight="Bold">Combo</Button>
     </Grid>
 </UserControl>

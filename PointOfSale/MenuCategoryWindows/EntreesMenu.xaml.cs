@@ -27,12 +27,22 @@ namespace PointOfSale.MenuCategoryWindows
     /// </summary>
     public partial class EntreesMenu : UserControl
     {
+        private Combo combo;
+        private bool isCombo;
+
         /// <summary>
         /// initializes the entree menu
         /// </summary>
         public EntreesMenu()
         {
             InitializeComponent();
+        }
+
+        public EntreesMenu(Combo comb0, bool comb)
+        {
+            InitializeComponent();
+            combo = comb0;
+            isCombo = comb;
         }
 
         /// <summary>
@@ -45,12 +55,18 @@ namespace PointOfSale.MenuCategoryWindows
         {
             BriarheartBurger bb = new BriarheartBurger();
             BurgerCustomization bc = new BurgerCustomization(bb, 0);
+            BurgerCustomization comb = new BurgerCustomization(bb, 0, isCombo, combo);
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            if (DataContext is Order orders)
+            if (isCombo)
+            {
+                order.Swap(comb);
+            }
+            else if (DataContext is Order orders)
             {
                 orders.Add(bb);
+                order.Swap(bc);
             }
-            order.Swap(bc);
+            
         }
 
         /// <summary>

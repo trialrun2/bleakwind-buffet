@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using PointOfSale.MenuCategoryWindows;
 using PointOfSale.MenuCategoryWindows.Customizations;
 
@@ -69,6 +70,19 @@ namespace PointOfSale
             SidesMenu side = new SidesMenu();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(side);
+        }
+
+        /// <summary>
+        /// event handler for the combo button 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ComboButton(object sender, RoutedEventArgs e)
+        {
+            Combo combo = new Combo();
+            EntreesMenu entree = new EntreesMenu(combo, true);
+            OrderWindow order = this.FindAncestor<OrderWindow>();
+            order.Swap(entree);
         }
     }
 }

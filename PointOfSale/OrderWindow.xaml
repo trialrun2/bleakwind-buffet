@@ -5,18 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        d:DesignHeight="450" d:DesignWidth="800">
+        d:DesignHeight="750" d:DesignWidth="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DockPanel Grid.Column="1">
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Margin="0,10,10,0" FontWeight="Bold" FontSize="20">Order #</TextBlock>
-                <TextBlock Margin ="0,10,10,0" FontWeight="Bold" FontSize="20" Text="{Binding Path= Number}" Foreground="Black"/>
-            </StackPanel>
-                <Grid DockPanel.Dock="Bottom" Height="61" >
+        <Border Grid.Column="0" x:Name="menuItems" Margin="10">
+            <local:MenuWindow></local:MenuWindow>
+        </Border>
+        <DockPanel  Grid.Column="1" Margin="30">
+            <Grid DockPanel.Dock="Bottom" Height="61" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -25,36 +24,12 @@
                     <TextBlock TextAlignment ="Center">Cancel <LineBreak/> Order</TextBlock>
                 </Button>
                 <Button Margin="10" Click ="CompleteOrder" Grid.Column="2" Grid.Row="1" Name ="completeOrder">
-                    <TextBlock TextAlignment ="Center">Complete <LineBreak/> Order </TextBlock>
+                    <TextBlock TextAlignment ="Center">Complete <LineBreak/> Order</TextBlock>
                 </Button>
             </Grid>
-            <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontWeight="Bold" FontSize="20" Margin="0,0,1,0">Total: </TextBlock>
-                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="20" Text="{Binding Path= Total, StringFormat = {}{0:C}}" Foreground="Black"/>
-            </StackPanel>
-            <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="15"> Tax: </TextBlock>
-                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="15" Text="{Binding Path= Tax, StringFormat = {}{0:C}}" Foreground="Black"/>
-            </StackPanel>
-            <StackPanel DockPanel.Dock="Bottom" Orientation ="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontWeight="Bold" FontSize="15" Margin="0,0,1,0">Subtotal: </TextBlock>
-                <TextBlock Margin="0,0,1,0" FontWeight="Bold" FontSize="15" Text="{Binding Path = Subtotal, StringFormat = {}{0:C}}" Foreground="Black"/>
-            </StackPanel>
-            <ListView Margin="20, 0" Name= "listView" ItemsSource="{Binding}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Margin="0,0,20,0" TextAlignment="Left" Text="{Binding Path= Name}"/>
-                            <ListView ItemsSource="{Binding Path= Instructions}"/>
-                            <Button HorizontalAlignment="Left" Width="200">Remove</Button>
-                            <TextBlock TextAlignment="Right" Text="{Binding Path= Price, StringFormat={}{0:C}}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Border Name="orderView">
+                <local:OrderSummaryWindow></local:OrderSummaryWindow>
+            </Border>
         </DockPanel>
-        <Border Name="menuItems" Margin="30">
-            <local:MenuWindow></local:MenuWindow>
-        </Border>
     </Grid>
 </UserControl>

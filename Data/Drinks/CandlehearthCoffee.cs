@@ -62,6 +62,7 @@ namespace BleakwindBuffet.Data.Drinks
                 PropChanged("Price");
                 PropChanged("Calories");
                 PropChanged("Name");
+                PropChanged("SpecialInstructions");
             }
         }
 
@@ -99,6 +100,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (Ice) instructions.Add("Add ice");//if ice is true, add ice
                 else { instructions.Remove("Add ice"); }
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -120,6 +122,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (RoomForCream) instructions.Add("Add cream");//if roomforcream is true, add cream
                 else { instructions.Remove("Add cream"); }
                 PropChanged("SpecialInstructions");
+                PropChanged("Name");
             }
         }
 
@@ -162,10 +165,15 @@ namespace BleakwindBuffet.Data.Drinks
         /// </returns>
         public override string ToString()
         {
-            if(Decaf) // if it's decaf
-                return $"{Size} Decaf Candlehearth Coffee";// set return value of ToString to {cupSize} Decaf Candlehearth Coffee
-            else//if its normal caffinated
-                return $"{Size} Candlehearth Coffee";// set return value of ToString to {cupSize} Decaf Candlehearth Coffee
+            string name;
+
+            if(Decaf) name = $"{Size} Decaf Candlehearth Coffee";
+            else name =  $"{Size} Candlehearth Coffee";
+
+            if (RoomForCream) name += "\n   - Add cream";
+            if (Ice) name += "\n   - Add ice";
+
+            return name;
         }
     }
 }
