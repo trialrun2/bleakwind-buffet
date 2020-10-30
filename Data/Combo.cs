@@ -23,36 +23,12 @@ namespace BleakwindBuffet.Data
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Combo()
+        public Combo(Drink drink, Entree entree, Side side)
         {
-            price = 0;
-            cals = 0;
-            name = "";
-        }
-        /*public Combo (Entree entree)
-        {
-            entre = entree;
-            price = entre.Price;
-            cals = entre.Calories;
-            name = $"{entre.ToString()}";
-        }
-        public Combo(Entree entree, Drink drink)
-        {
-            entre = entree;
             drank = drink;
-            price = entre.Price + drank.Price - 1;
-            cals = entre.Calories + drank.Calories;
-            name = $"{entre.ToString()} \n{drank.ToString()}";
-        }
-        public Combo (Entree entree, Drink drink, Side side)
-        {
             entre = entree;
-            drank = drink;
             sid = side;
-            price = sid.Price + drank.Price + entre.Price - 1;
-            cals = sid.Calories + drank.Calories + entre.Calories;
-            name = $"{entre.ToString()} \n {sid.ToString()} \n {drank.ToString()}";
-        }*/
+        }
 
         // private backing variable for DrinkCombo
         private Drink drank;
@@ -66,7 +42,6 @@ namespace BleakwindBuffet.Data
             set
             {
                 if (entre != null) DrinkCombo.PropertyChanged -= PropertyItemChangedListner;
-
                 drank = value;
                 DrinkCombo.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DrinkCombo"));
@@ -89,7 +64,6 @@ namespace BleakwindBuffet.Data
             set
             {
                 if(entre != null) entre.PropertyChanged -= PropertyItemChangedListner;
-
                 entre = value;
                 entre.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EntreeCombo"));
@@ -112,7 +86,6 @@ namespace BleakwindBuffet.Data
             set
             {
                 if (entre != null) sid.PropertyChanged -= PropertyItemChangedListner;
-
                 sid = value;
                 sid.PropertyChanged += PropertyItemChangedListner;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SideCombo"));
@@ -133,7 +106,22 @@ namespace BleakwindBuffet.Data
             get => price;
             set
             {
-                price = value;
+                if(sid == null && drank == null && entre == null)
+                {
+                    price = 0;
+                }
+                else if (sid == null && drank == null)
+                {
+                    price = EntreeCombo.Price;
+                }
+                else if (sid == null)
+                {
+                    price = EntreeCombo.Price + DrinkCombo.Price;
+                }
+                else
+                {
+                    price = EntreeCombo.Price + DrinkCombo.Price + SideCombo.Price;
+                }
             }
         }
 
@@ -147,7 +135,22 @@ namespace BleakwindBuffet.Data
             get => cals;
             set
             {
-                cals = value;
+                if (sid == null && drank == null && entre == null)
+                {
+                    cals = 0;
+                }
+                else if (sid == null && drank == null)
+                {
+                    cals = EntreeCombo.Calories;
+                }
+                else if (sid == null)
+                {
+                    cals = EntreeCombo.Calories + DrinkCombo.Calories;
+                }
+                else
+                {
+                    cals = EntreeCombo.Calories + DrinkCombo.Calories + SideCombo.Calories;
+                }
             }
         }
 
@@ -164,15 +167,26 @@ namespace BleakwindBuffet.Data
             }
         }
 
-        private string name;
+        
 
-        public string Name
+        public override string ToString()
         {
-            get => name;
-            set
+           string name = "";
+                
+            if(entre != null)
             {
-                name = value;
+                name += EntreeCombo.ToString();
             }
+            if(drank != null)
+            {
+                name += DrinkCombo.ToString();
+            }
+            if(sid != null)
+            {
+                name += SideCombo.ToString();
+            }
+            return name;
+            
         }
 
         /// <summary>

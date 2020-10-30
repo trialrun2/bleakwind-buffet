@@ -42,9 +42,9 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
         /// <param name="e"></param>
         void DoneButton(object sender, RoutedEventArgs e)
         {
-            MenuWindow menu = new MenuWindow();
             OrderWindow order = this.FindAncestor<OrderWindow>();
-            order.Swap(menu);
+            MenuWindow menu = new MenuWindow();
+            order.Swap(menu);     
         }
 
         /// <summary>

@@ -43,9 +43,10 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
         /// <param name="e"></param>
         void OmeletteDoneButton(object sender, RoutedEventArgs e)
         {
-            MenuWindow menu = new MenuWindow();
             OrderWindow order = this.FindAncestor<OrderWindow>();
+            MenuWindow menu = new MenuWindow();
             order.Swap(menu);
+            
         }
 
         /// <summary>

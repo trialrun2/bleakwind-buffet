@@ -79,8 +79,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void ComboButton(object sender, RoutedEventArgs e)
         {
-            Combo combo = new Combo();
-            EntreesMenu entree = new EntreesMenu(combo, true);
+            EntreesMenu entree = new EntreesMenu();
             OrderWindow order = this.FindAncestor<OrderWindow>();
             order.Swap(entree);
         }

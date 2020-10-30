@@ -18,27 +18,15 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
     public partial class BurgerCustomization : UserControl
     {
         private int burgerType;
-        private bool isCombo;
-        private Combo combo;
 
         /// <summary>
         /// initializes burger customization
         /// </summary>
         public BurgerCustomization(IOrderItem burger, int burgType)
         {
-            InitializeComponent();
-            DataContext = burger;
+            InitializeComponent();       
             burgerType = burgType;
-            EnableDisableBurger();
-        }
-
-        public BurgerCustomization(IOrderItem burger, int burgType, bool comb, Combo comb0)
-        {
-            InitializeComponent();
-            isCombo = comb;
-            combo = comb0;
             DataContext = burger;
-            burgerType = burgType;
             EnableDisableBurger();
         }
 
@@ -49,22 +37,10 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.EntreesCustomization
         /// <param name="e"></param>
         void DoneButton(object sender, RoutedEventArgs e)
         {
-            if (isCombo)
-            {
-                if (DataContext is Entree entree)
-                {
-                    combo.EntreeCombo = entree;
-                }
-                DrinksMenu drink = new DrinksMenu();
-                OrderWindow comboOrder = this.FindAncestor<OrderWindow>();
-                comboOrder.Swap(drink);
-            }
-            else
-            {
-                MenuWindow menu = new MenuWindow();
-                OrderWindow order = this.FindAncestor<OrderWindow>();
-                order.Swap(menu);
-            }
+            OrderWindow order = this.FindAncestor<OrderWindow>();
+            MenuWindow menu = new MenuWindow();
+            order.Swap(menu);
+            
         }
 
         /// <summary>

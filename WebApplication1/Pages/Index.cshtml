@@ -1,0 +1,91 @@
+﻿@page
+@using BleakwindBuffet.Data;
+@using BleakwindBuffet.Data.Entrees;
+@using BleakwindBuffet.Data.Drinks;
+@using BleakwindBuffet.Data.Sides;
+@using BleakwindBuffet.Data.Enums;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Welcome to the Bleakwind Buffet</h1>
+<p>
+    We at Bleakwind Buffet are proud to bring you authentic
+    fantasy meals straight from the world of Skyrim. Shake the
+    blood off your sword and sake your thirst with one of our
+    old-fashioned sailor sodas. Hack into a Smokehouse Skeleton
+    with your dagger. Or vanquish the the mighty Thalmor Triple
+    Burger! You’ve had a hard adventure and earned your loot, so
+    spend it with us!.
+</p>
+<p>
+    (Please note that any entree, side, and drink can be combined
+    into a Combo with a $1 discount.)
+</p>
+<h2>
+    Entrees
+</h2>
+<ul>
+    @foreach (Entree item in Menu.Entrees())
+    {
+        <li class="menu-item">
+            <div>
+                <h3 class="name">@item.Name</h3>
+            </div>
+            <div class="details">
+                <div class="price">$@item.Price </div>
+                <div class="calories">@item.Calories</div>
+            </div>
+        </li>
+    }
+</ul>
+<h2>
+    Sides
+</h2>
+<ul>
+    @foreach (Side item in Menu.Sides())
+    {
+        <li class="menu-item">
+            <div>
+                <h3 class="name">@item.Name</h3>
+            </div>
+            <div class="details">
+                <div class="price">$@item.Price </div>
+                <div class="calories">@item.Calories</div>
+            </div>
+        </li>
+    }
+</ul>
+<h2>
+    Drinks
+</h2>
+<ul>
+    @foreach (Drink item in Menu.Drinks())
+    {
+        <li class="menu-item">
+            <div>
+                <h3 class="name">@item.Name</h3>
+            </div>
+            <div class="details">
+                <div class="price">$@item.Price </div>
+                <div class="calories">@item.Calories</div>
+            </div>
+        </li>
+    }
+</ul>
+<h2>
+    Sailor Soda Flavors
+</h2>
+<ul>
+    @foreach (Flavor flavor in Enum.GetValues(typeof(Flavor)))
+    {
+        <li>
+            <div>
+                <p>@flavor</p>
+            </div>
+        </li>
+    }
+</ul>
+
+ 

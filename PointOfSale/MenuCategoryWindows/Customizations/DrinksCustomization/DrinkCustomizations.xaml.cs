@@ -30,8 +30,6 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
         //private int variable used to determine where to go next
         private int drinkType;
         IOrderItem drinking;
-        private Combo combo;
-        private bool isCombo;
 
         /// <summary>
         /// initializes drink special requests
@@ -41,16 +39,6 @@ namespace PointOfSale.MenuCategoryWindows.Customizations.DrinksCustomization
             InitializeComponent();
             DataContext = drink;
             drinking = drink;
-            drinkType = dType;
-            EnableDisableDrink();
-        }
-
-        public DrinkCustomizations(IOrderItem drink, int dType, bool comb, Combo comb0)
-        {
-            InitializeComponent();
-            isCombo = comb;
-            combo = comb0;
-            DataContext = drink;
             drinkType = dType;
             EnableDisableDrink();
         }
