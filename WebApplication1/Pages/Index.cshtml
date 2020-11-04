@@ -9,83 +9,123 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1>Welcome to the Bleakwind Buffet</h1>
-<p>
-    We at Bleakwind Buffet are proud to bring you authentic
-    fantasy meals straight from the world of Skyrim. Shake the
-    blood off your sword and sake your thirst with one of our
-    old-fashioned sailor sodas. Hack into a Smokehouse Skeleton
-    with your dagger. Or vanquish the the mighty Thalmor Triple
-    Burger! You’ve had a hard adventure and earned your loot, so
-    spend it with us!.
-</p>
-<p>
-    (Please note that any entree, side, and drink can be combined
-    into a Combo with a $1 discount.)
-</p>
-<h2>
-    Entrees
-</h2>
-<ul>
-    @foreach (Entree item in Menu.Entrees())
-    {
-        <li class="menu-item">
-            <div>
-                <h3 class="name">@item.Name</h3>
-            </div>
-            <div class="details">
-                <div class="price">$@item.Price </div>
-                <div class="calories">@item.Calories</div>
-            </div>
-        </li>
-    }
-</ul>
-<h2>
-    Sides
-</h2>
-<ul>
-    @foreach (Side item in Menu.Sides())
-    {
-        <li class="menu-item">
-            <div>
-                <h3 class="name">@item.Name</h3>
-            </div>
-            <div class="details">
-                <div class="price">$@item.Price </div>
-                <div class="calories">@item.Calories</div>
-            </div>
-        </li>
-    }
-</ul>
-<h2>
-    Drinks
-</h2>
-<ul>
-    @foreach (Drink item in Menu.Drinks())
-    {
-        <li class="menu-item">
-            <div>
-                <h3 class="name">@item.Name</h3>
-            </div>
-            <div class="details">
-                <div class="price">$@item.Price </div>
-                <div class="calories">@item.Calories</div>
-            </div>
-        </li>
-    }
-</ul>
-<h2>
-    Sailor Soda Flavors
-</h2>
-<ul>
-    @foreach (Flavor flavor in Enum.GetValues(typeof(Flavor)))
-    {
-        <li>
-            <div>
-                <p>@flavor</p>
-            </div>
-        </li>
-    }
-</ul>
+<form id="bleakwind-website">
+    <div id="welcome-search">
+        <h1>Welcome to the Bleakwind Buffet</h1>
+        <p>
+            We at Bleakwind Buffet are proud to bring you authentic
+            fantasy meals straight from the world of Skyrim. Shake the
+            blood off your sword and sake your thirst with one of our
+            old-fashioned sailor sodas. Hack into a Smokehouse Skeleton
+            with your dagger. Or vanquish the the mighty Thalmor Triple
+            Burger! You’ve had a hard adventure and earned your loot, so
+            spend it with us!.
+        </p>
+        <p>
+            (Please note that any entree, side, and drink can be combined
+            into a Combo with a $1 discount.)
+        </p>
+        <div id="search">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
+            <input type="submit" value="Search">
+        </div>
+    </div>
+
+    <div id="filters">
+        <h4>Item Types</h4>
+        @foreach (String type in Menu.Types)
+        {
+            <label>
+                <input type="checkbox" name="Types" value="@type" checked="@Model.Types.Contains(type)" /> @type
+            </label>
+        }
+
+        <h4>Calories</h4>
+        <div>
+            Between
+            <input name="MinCalories" type="number" min="0" max="1000" step="10" placeholder="min" value="@Model.Mincaloreis"/>
+            and
+            <input name="MaxCalories" type="number" min="0" max="1000" step="10" placeholder="max" value="@Model.Maxcalories"/>
+        </div>
+
+        <h4>Price</h4>
+        <div>
+            Between
+            <input name="MinPrice" type="number" min="0" max="10" step="0.25" placeholder="min" value="@Model.Minprice"/>
+            and
+            <input name="MaxPrice" type="number" min="0" max="10" step="0.25" placeholder="max" value="@Model.Maxprice"/>
+        </div>
+
+    </div>
+
+    <div id="results">
+        <h2>
+            Entrees
+        </h2>
+        <ul>
+            @foreach (Entree item in Model.Entrees)
+            {
+                <li class="menu-item">
+                    <div>
+                        <h3 class="name">@item.Name</h3>
+                    </div>
+                    <div class="details">
+                        <div class="price">$@item.Price </div>
+                        <div class="calories">@item.Calories</div>
+                    </div>
+                </li>
+            }
+        </ul>
+        <h2>
+            Sides
+        </h2>
+        <ul>
+            @foreach (Side item in Model.Sides)
+            {
+                <li class="menu-item">
+                    <div>
+                        <h3 class="name">@item.Name</h3>
+                    </div>
+                    <div class="details">
+                        <div class="price">$@item.Price </div>
+                        <div class="calories">@item.Calories</div>
+                    </div>
+                </li>
+            }
+        </ul>
+        <h2>
+            Drinks
+        </h2>
+        <ul>
+            @foreach (Drink item in Model.Drinks)
+            {
+                <li class="menu-item">
+                    <div>
+                        <h3 class="name">@item.Name</h3>
+                    </div>
+                    <div class="details">
+                        <div class="price">$@item.Price </div>
+                        <div class="calories">@item.Calories</div>
+                    </div>
+                </li>
+            }
+        </ul>
+        <h2>
+            Sailor Soda Flavors
+        </h2>
+        <ul>
+            @foreach (Flavor flavor in Enum.GetValues(typeof(Flavor)))
+            {
+                <li>
+                    <div>
+                        <p>@flavor</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</form>
+
+
 
  

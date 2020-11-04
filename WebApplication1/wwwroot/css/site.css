@@ -7,6 +7,32 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+
+form#bleakwind-website {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto;
+}
+
+#welcome-search{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+#filters{
+    display: flex;
+    flex-direction: column;
+}
+
+#filters input[type=number]{
+    width: 3rem;
+}
+
+#filters h4 {
+    margin-bottom: 0.2rem;
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;

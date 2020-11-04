@@ -167,7 +167,7 @@ namespace BleakwindBuffet.Data
             }
         }
 
-        
+        public string Name => throw new NotImplementedException();
 
         public override string ToString()
         {
