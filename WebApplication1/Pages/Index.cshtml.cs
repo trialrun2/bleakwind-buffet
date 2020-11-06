@@ -15,26 +15,63 @@ namespace WebApplication1.Pages
 {
     public class IndexModel : PageModel
     {
+        /// <summary>
+        /// list holding all menu items to be sorted into respective types
+        /// </summary>
         public IEnumerable<IOrderItem> All { get; set; }
 
+        /// <summary>
+        /// list holding entrees to be displayed
+        /// </summary>
         public IEnumerable<Entree> Entrees { get; set; }
 
+        /// <summary>
+        /// list holding sides to be displayed
+        /// </summary>
         public IEnumerable<Side> Sides { get; set; }
 
+        /// <summary>
+        /// list holding drinks to be displayed
+        /// </summary>
         public IEnumerable<Drink> Drinks { get; set; }
 
+        /// <summary>
+        /// list holding the different types
+        /// </summary>
         public string[] Types { get; set; } 
 
+        /// <summary>
+        /// string holding the term to search for
+        /// </summary>
         public string SearchTerms { get; set; }
-
+         
+        /// <summary>
+        /// a nullable double holding the minimum price
+        /// </summary>
         public double? Minprice { get; set; }
 
+        /// <summary>
+        /// a nullable double holding the maximum price
+        /// </summary>
         public double? Maxprice { get; set; }
 
+        /// <summary>
+        /// a nullable int holding the minimum calories
+        /// </summary>
         public int? Mincaloreis { get; set; }
 
+        /// <summary>
+        /// a nullable int holding the maximum calories
+        /// </summary>
         public int? Maxcalories { get; set; }
 
+        /// <summary>
+        /// when submit is hit gets and filters the list of menu items to fit the search criteria
+        /// </summary>
+        /// <param name="MaxPrice">bound to max price</param>
+        /// <param name="MinPrice">bound to min price</param>
+        /// <param name="MinCalories">bound to min calories</param>
+        /// <param name="MaxCalories">bound to max calories</param>
         public void OnGet(double? MaxPrice, double? MinPrice, int? MinCalories, int? MaxCalories)
         {
             All = Menu.FullMenu();

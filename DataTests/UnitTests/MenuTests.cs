@@ -13,6 +13,8 @@ using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data;
+using System.Linq;
+using System.Collections.Immutable;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -257,6 +259,159 @@ namespace BleakwindBuffet.DataTests.UnitTests
                 Assert.Contains(menu, item => item.ToString().Equals(vs0.ToString()));
                 Assert.Contains(menu, item => item.ToString().Equals(vs1.ToString()));
                 Assert.Contains(menu, item => item.ToString().Equals(vs2.ToString()));
+            }
+        }
+
+        [Fact]
+        public void TypesShouldContainThreeStings()
+        {
+            Assert.Contains("Entree", Menu.Types);
+            Assert.Contains("Side", Menu.Types);
+            Assert.Contains("Drink", Menu.Types);
+        }
+
+        [Theory]
+        [InlineData("b")]
+        [InlineData("T")]
+        [InlineData("s")]
+        [InlineData("Gard")]
+        public void SearchShouldReturnOnlyItemsWithSearchTermsInTheName(string terms)
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            IEnumerable<IOrderItem> result = Menu.Search(menu, terms);
+            foreach(IOrderItem item in result)
+            {
+                Assert.Contains(result, item => item.Name.Contains(terms));
+            }
+        }
+
+        [Theory]
+        [InlineData("Entree")]
+        [InlineData("Drink")]
+        [InlineData("Entree", "Side")]
+        [InlineData("Entree", "Side", "Drink")]
+        public void FilterByCategoryShouldReturnListOfOnlyChosenType(params string [] types)
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            IEnumerable<IOrderItem> result =  Menu.FilterByCategory(menu, types);
+            int count = 0;
+         
+            foreach(IOrderItem item in result)
+            {
+                if(item is Entree && types.Contains("Entree"))
+                {
+                    Assert.IsAssignableFrom<Entree>(item);
+                    count++;
+                }
+                if (item is Side && types.Contains("Side"))
+                {
+                    Assert.IsAssignableFrom<Side>(item);
+                    count++;
+                }
+                if (item is Drink && types.Contains("Drink"))
+                {
+                    Assert.IsAssignableFrom<Drink>(item);
+                    count++;
+                }
+            }
+            Assert.Equal(result.Count(), count);
+        }
+
+        [Theory]
+        [InlineData(null, 289)]
+        [InlineData(290, 547)]
+        [InlineData(548, null)]
+        [InlineData(null, null)]
+        public void FilterByCaoloriesShouldReturnListWhereAllItmesCaloriesLieBetweenTheMinAndMax(int? min, int? max)
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            IEnumerable<IOrderItem> result = Menu.FilterByCalories(menu, min, max);
+
+            foreach (IOrderItem item in result)
+            {
+                if (max == null && min == null)
+                {
+                    Assert.True(true);
+                }
+                else if (min == null)
+                {
+                    Assert.True(item.Calories <= max);
+                }
+                else if (max == null)
+                {
+                    Assert.True(item.Calories >= min);
+                }
+                else
+                {
+                    Assert.True(item.Calories <= max && item.Calories >= min);
+                }
+            }
+        }
+
+            [Theory]
+            [InlineData(null, 2.89)]
+            [InlineData(2.90, 5.47)]
+            [InlineData(5.48, null)]
+            [InlineData(null, null)]
+            public void FilterByPriceShouldReturnListWhereAllItmesPriceLieBetweenTheMinAndMax(double? min, double? max)
+            {
+                IEnumerable<IOrderItem> menu = Menu.FullMenu();
+                IEnumerable<IOrderItem> result = Menu.FilterByPrice(menu, min, max);
+
+                foreach (IOrderItem item in result)
+                {
+                    if (max == null && min == null)
+                    {
+                        Assert.True(true);
+                    }
+                    else if (min == null)
+                    {
+                        Assert.True(item.Price <= max);
+                    }
+                    else if (max == null)
+                    {
+                        Assert.True(item.Price >= min);
+                    }
+                    else
+                    {
+                        Assert.True(item.Price <= max && item.Price >= min);
+                    }
+                }
+        }
+
+        [Fact]
+        public void GetEntreesShouldReturnOnlyEntreesFromMenuList()
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            IEnumerable<IOrderItem> result = Menu.GetEntrees(menu);
+
+            foreach(IOrderItem item in result)
+            {
+                Assert.IsAssignableFrom<Entree>(item);
+            }
+        }
+
+        [Fact]
+        public void GetSidesShouldReturnOnlySidesFromMenuList()
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            IEnumerable<IOrderItem> result = Menu.GetSides(menu);
+
+            foreach (IOrderItem item in result)
+            {
+                Assert.IsAssignableFrom<Side>(item);
+            }
+        }
+
+        [Fact]
+        public void GetDrinksShouldReturnOnlyDrinksFromMenuList()
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            IEnumerable<IOrderItem> result = Menu.GetDrinks(menu);
+
+            foreach (IOrderItem item in result)
+            {
+                Assert.IsAssignableFrom<Drink>(item);
             }
         }
     }
