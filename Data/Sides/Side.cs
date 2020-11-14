@@ -48,6 +48,11 @@ namespace BleakwindBuffet.Data.Sides
         public string Name { get => ToString(); }
 
         /// <summary>
+        /// a description of the object
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
         /// public method that updates the value shown in the wpf
         /// </summary>
         /// <param name="propName">name of property to update</param>

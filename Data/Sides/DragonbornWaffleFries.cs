@@ -105,5 +105,13 @@ namespace BleakwindBuffet.Data.Sides
         {
             return $"{Size} Dragonborn Waffle Fries";// set return value of ToString to {sideSize} Dragonborn Waffle Fries
         }
+
+        /// <summary>
+        /// a string holding the description of the object
+        /// </summary>
+        public override string Description
+        {
+            get { return "Crispy fried potato waffle fries."; }
+        }
     }
 }

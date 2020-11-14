@@ -58,7 +58,7 @@ namespace WebApplication1.Pages
         /// <summary>
         /// a nullable int holding the minimum calories
         /// </summary>
-        public int? Mincaloreis { get; set; }
+        public int? Mincalories { get; set; }
 
         /// <summary>
         /// a nullable int holding the maximum calories
@@ -79,12 +79,69 @@ namespace WebApplication1.Pages
             Types = Request.Query["Types"];
             Maxprice = MaxPrice;
             Minprice = MinPrice;
-            Mincaloreis = MinCalories;
+            Mincalories = MinCalories;
             Maxcalories = MaxCalories;
-            All = Menu.Search(All, SearchTerms);
+            /*All = Menu.Search(All, SearchTerms);
             All = Menu.FilterByCategory(All, Types);
             All = Menu.FilterByCalories(All, MinCalories, MaxCalories);
-            All = Menu.FilterByPrice(All, MinPrice, MaxPrice);
+            All = Menu.FilterByPrice(All, MinPrice, MaxPrice);*/
+            //filter by search terms
+            if (SearchTerms != null)
+            {
+                All = All.Where(item => item.Name != null && (item.Name.Contains(SearchTerms, StringComparison.CurrentCultureIgnoreCase) ||
+                item.Description.Contains(SearchTerms, StringComparison.CurrentCultureIgnoreCase)));
+            }
+
+            //filter by Type
+            if (Types != null && Types.Count() != 0)
+            {
+                if (Types.Contains("Entree") && Types.Contains("Drink") && Types.Contains("Side"))
+                    All = All;
+                else if (Types.Contains("Entree") && Types.Contains("Drink"))
+                    All = All.Where(item => item is Entree || item is Drink);
+                else if (Types.Contains("Entree") && Types.Contains("Side"))
+                    All = All.Where(item => item is Entree || item is Side);
+                else if (Types.Contains("Side") && Types.Contains("Drink"))
+                    All = All.Where(item => item is Side || item is Drink);
+                else if (Types.Contains("Entree"))
+                    All = All.Where(item => item is Entree);
+                else if (Types.Contains("Side"))
+                    All = All.Where(item => item is Side);
+                else if (Types.Contains("Drink"))
+                    All = All.Where(item => item is Drink);
+                else All = All;
+            }
+
+            //filter by Price
+            if (MaxPrice != null && MinPrice == null)
+            {
+                All = All.Where(item => item.Price < MaxPrice);
+            }
+            if (MaxPrice == null && MinPrice != null)
+            {
+                All = All.Where(item => item.Price > MinPrice);
+            }
+            if (MaxPrice != null && MinPrice != null)
+            {
+                All = All.Where(item => item.Price > MinPrice && item.Price < MaxPrice);
+            }
+
+            //filter by Calories
+            if (MaxCalories != null && MinCalories == null)
+            {
+                All = All.Where(item => item.Calories < MaxCalories);
+            }
+            if (MaxCalories == null && MinCalories != null)
+            {
+                All = All.Where(item => item.Calories > MinCalories);
+            }
+            if (MaxCalories != null && MinCalories != null)
+            {
+                All = All.Where(item => item.Calories < MaxCalories && item.Calories > MinCalories);
+            }
+
+
+
             Entrees = Menu.GetEntrees(All);
             Sides = Menu.GetSides(All);
             Drinks = Menu.GetDrinks(All);

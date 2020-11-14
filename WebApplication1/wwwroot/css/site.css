@@ -20,7 +20,12 @@ form#bleakwind-website {
     text-align: center;
 }
 
-#filters{
+#flex-columns{
+    display: flex;
+    flex-direction: row;
+}
+
+#filters {
     display: flex;
     flex-direction: column;
 }
@@ -88,6 +93,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -134,3 +140,9 @@ body {
     text-align: center;
     font-size: 1.2rem;
 }
+
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+

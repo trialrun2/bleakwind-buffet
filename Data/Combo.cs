@@ -212,6 +212,13 @@ namespace BleakwindBuffet.Data
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
+
+
         }
+
+        /// <summary>
+        /// a description of the object
+        /// </summary>
+        public string Description { get { return EntreeCombo.Description + "\n" + SideCombo.Description + "\n" + DrinkCombo.Description; } }
     }
 }

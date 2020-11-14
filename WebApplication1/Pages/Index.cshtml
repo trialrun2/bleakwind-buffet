@@ -30,99 +30,110 @@
             <input type="submit" value="Search">
         </div>
     </div>
+    
 
-    <div id="filters">
-        <h4>Item Types</h4>
-        @foreach (String type in Menu.Types)
-        {
-            <label>
-                <input type="checkbox" name="Types" value="@type" checked="@Model.Types.Contains(type)" /> @type
-            </label>
-        }
+    <div class="flex-column">
+        <div id="filters">
+            <h4>Item Types</h4>
+            @foreach (String type in Menu.Types)
+            {
+                <label>
+                    <input type="checkbox" name="Types" value="@type" checked="@Model.Types.Contains(type)" /> @type
+                </label>
+            }
 
-        <h4>Calories</h4>
-        <div>
-            Between
-            <input name="MinCalories" type="number" min="0" max="1000" step="10" placeholder="min" value="@Model.Mincaloreis"/>
-            and
-            <input name="MaxCalories" type="number" min="0" max="1000" step="10" placeholder="max" value="@Model.Maxcalories"/>
+            <h4>Calories</h4>
+            <div>
+                Between
+                <input name="MinCalories" type="number" min="0" max="1000" step="10" placeholder="min" value="@Model.Mincalories"/>
+                and
+                <input name="MaxCalories" type="number" min="0" max="1000" step="10" placeholder="max" value="@Model.Maxcalories"/>
+            </div>
+
+            <h4>Price</h4>
+            <div>
+                Between
+                <input name="MinPrice" type="number" min="0" max="10" step="0.25" placeholder="min" value="@Model.Minprice"/>
+                and
+                <input name="MaxPrice" type="number" min="0" max="10" step="0.25" placeholder="max" value="@Model.Maxprice"/>
+            </div>
         </div>
 
-        <h4>Price</h4>
-        <div>
-            Between
-            <input name="MinPrice" type="number" min="0" max="10" step="0.25" placeholder="min" value="@Model.Minprice"/>
-            and
-            <input name="MaxPrice" type="number" min="0" max="10" step="0.25" placeholder="max" value="@Model.Maxprice"/>
+        <div id="EntreeResults">
+            <h2>
+                Entrees
+            </h2>
+            <ul>
+                @foreach (Entree item in Model.Entrees)
+                {
+                <li class="menu-item">
+                    <div>
+                        <h3 class="name">@item.Name</h3>
+                        <div class="description">@item.Description</div>
+                    </div>
+                    <div class="details">
+                        <div class="price">$@item.Price </div>
+                        <div class="calories">@item.Calories</div>
+                    </div>
+                </li>
+                }
+            </ul>
         </div>
-
-    </div>
-
-    <div id="results">
-        <h2>
-            Entrees
-        </h2>
-        <ul>
-            @foreach (Entree item in Model.Entrees)
-            {
-                <li class="menu-item">
-                    <div>
-                        <h3 class="name">@item.Name</h3>
-                    </div>
-                    <div class="details">
-                        <div class="price">$@item.Price </div>
-                        <div class="calories">@item.Calories</div>
-                    </div>
-                </li>
-            }
-        </ul>
-        <h2>
-            Sides
-        </h2>
-        <ul>
-            @foreach (Side item in Model.Sides)
-            {
-                <li class="menu-item">
-                    <div>
-                        <h3 class="name">@item.Name</h3>
-                    </div>
-                    <div class="details">
-                        <div class="price">$@item.Price </div>
-                        <div class="calories">@item.Calories</div>
-                    </div>
-                </li>
-            }
-        </ul>
-        <h2>
-            Drinks
-        </h2>
-        <ul>
-            @foreach (Drink item in Model.Drinks)
-            {
-                <li class="menu-item">
-                    <div>
-                        <h3 class="name">@item.Name</h3>
-                    </div>
-                    <div class="details">
-                        <div class="price">$@item.Price </div>
-                        <div class="calories">@item.Calories</div>
-                    </div>
-                </li>
-            }
-        </ul>
-        <h2>
-            Sailor Soda Flavors
-        </h2>
-        <ul>
-            @foreach (Flavor flavor in Enum.GetValues(typeof(Flavor)))
-            {
-                <li>
-                    <div>
-                        <p>@flavor</p>
-                    </div>
-                </li>
-            }
-        </ul>
+        <div class="SideResults">
+            <h2>
+                Sides
+            </h2>
+            <ul>
+                @foreach (Side item in Model.Sides)
+                {
+                    <li class="menu-item">
+                        <div>
+                            <h3 class="name">@item.Name</h3>
+                            <div class="description">@item.Description</div>
+                        </div>
+                        <div class="details">
+                            <div class="price">$@item.Price </div>
+                            <div class="calories">@item.Calories</div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="DrinkResults">
+            <h2>
+                Drinks
+            </h2>
+            <ul>
+                @foreach (Drink item in Model.Drinks)
+                {
+                    <li class="menu-item">
+                        <div>
+                            <h3 class="name">@item.Name</h3>
+                            <div class="description">@item.Description</div>
+                        </div>
+                        <div class="details">
+                            <div class="price">$@item.Price </div>
+                            <div class="calories">@item.Calories</div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="SodaFlavors">
+            <h2>
+                Sailor Soda Flavors
+            </h2>
+            <ul>
+                @foreach (Flavor flavor in Enum.GetValues(typeof(Flavor)))
+                {
+                    <li>
+                        <div>
+                            <p>@flavor</p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
 </form>
 
